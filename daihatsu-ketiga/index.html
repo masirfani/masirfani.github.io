@@ -251,6 +251,49 @@
   </section>
   <!--================Tour section End =================-->
 
+  <!--================Kredit section Start =================-->
+  <section class="section-padding text-center">
+    <h1 class="card-title bg-info text-white">Simulasi Kredit</h1>
+    <div class="col-md-6 offset-md-3" id="pesan">
+      <div class="alert alert-danger" role="alert">
+        Isi semua data yang ada pada form
+      </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+      <form class="text-left">
+        <div class="form-group">
+          <label>Nama <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" required placeholder="Masukkan Nama" id="nama">
+        </div>
+        <div class="form-group">
+          <label>Tipe Unit <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" required placeholder="Masukkan Tipe Unit Mobil" id="tipe">
+        </div>
+        <div class="form-group">
+          <label>Tenor <span class="text-danger">*</span></label>
+          <select id="tenor" class="form-control" required>
+            <option disabled selected>Pilih Tenor</option>
+            <option value="Tenor 1 Tahun">Tenor 1 Tahun</option>
+            <option value="Tenor 2 Tahun">Tenor 2 Tahun</option>
+            <option value="Tenor 3 Tahun">Tenor 3 Tahun</option>
+            <option value="Tenor 4 Tahun">Tenor 4 Tahun</option>
+            <option value="Tenor 5 Tahun">Tenor 5 Tahun</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Budget DP <span class="text-danger">*</span></label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Rp.</div>
+            </div>
+            <input type="number" class="form-control" required placeholder="Masukkan budget dp anda" id="budget">
+          </div>
+        </div>
+        <button class="btn btn-primary" id="kirim"><i class="fab fa-whatsapp" onsubmit=""></i> Kirim</button>
+      </form>
+    </div>
+  </section>
+  <!--================Kredit section Start =================-->
 
   <!--================Blog section Start =================-->
   <section class="section-padding bg-gray">
@@ -341,51 +384,6 @@
     </div>
   </section>
   <!--================Blog section End =================-->
-
-  <!--================Kredit section Start =================-->
-  <section class="section-padding text-center">
-    <h1 class="card-title bg-info text-white">Simulasi Kredit</h1>
-    <div class="col-md-6 offset-md-3" id="pesan">
-      <div class="alert alert-danger" role="alert">
-        Isi semua data yang ada pada form
-      </div>
-    </div>
-    <div class="col-md-6 offset-md-3">
-      <form class="text-left">
-        <div class="form-group">
-          <label>Nama <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" required placeholder="Masukkan Nama" id="nama">
-        </div>
-        <div class="form-group">
-          <label>Tipe Unit <span class="text-danger">*</span></label>
-          <input type="text" class="form-control" required placeholder="Masukkan Tipe Unit Mobil" id="tipe">
-        </div>
-        <div class="form-group">
-          <label>Tenor <span class="text-danger">*</span></label>
-          <select id="tenor" class="form-control" required>
-            <option disabled selected>Pilih Tenor</option>
-            <option value="Tenor 1 Tahun">Tenor 1 Tahun</option>
-            <option value="Tenor 2 Tahun">Tenor 2 Tahun</option>
-            <option value="Tenor 3 Tahun">Tenor 3 Tahun</option>
-            <option value="Tenor 4 Tahun">Tenor 4 Tahun</option>
-            <option value="Tenor 5 Tahun">Tenor 5 Tahun</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Budget DP <span class="text-danger">*</span></label>
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Rp.</div>
-            </div>
-            <input type="number" class="form-control" required placeholder="Masukkan budget dp anda" id="budget">
-          </div>
-        </div>
-        <button class="btn btn-primary" id="kirim"><i class="fab fa-whatsapp" onsubmit=""></i> Kirim</button>
-      </form>
-    </div>
-  </section>
-  
-  <!--================Kredit section Start =================-->
 
 
   <!-- ================ start footer Area ================= -->
