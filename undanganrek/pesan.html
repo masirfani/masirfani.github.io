@@ -51,80 +51,6 @@
   </header>
   <!--================Header Menu Area =================-->
 
-  
-  <!--================Hero Banner Area Start =================-->
-<!--   <section class="hero-banner pt-2 pb-2">
-    <div class="container">
-      <div class="row pt-2 pb-2">
-        <div class="col-lg-6 col-md-6 mb-6">
-          <div class="text-center card-priceTable">
-            <div class="priceTable-header">
-              <h3 >Undangan Digital</h3>
-              <p class="text-secondary">Harga mulai</p>
-              <h1 class="priceTable-price" style="color: #95a5a6 !important;"><span>Rp.</span> 250.000</h1>
-            </div>
-            <ul class="priceTable-list pt-3 pb-3">
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Simple
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Fitur Hitung Viewers
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Bisa Dishare Via Wa Dan Sosmed
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Video Slideshow
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Kisah Perjalanan Pertemuan
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Hitung Mundur Jadwal Dan Lokasi Dengan Fitur Maps
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> video slideshow
-              </li>
-            </ul>
-            <div class="priceTable-footer">
-              <a class="button" href="#">Pesan</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 mb-6">
-          <div class="text-center card-priceTable">
-            <div class="priceTable-header">
-              <h3 >Ungdangan Cetak</h3>
-              <p class="text-secondary">Harga mulai</p>
-              <h1 class="priceTable-price" style="color: #95a5a6 !important;"><span>Rp.</span> 1.000</h1>
-            </div>
-            <ul class="priceTable-list pt-5 pb-5">
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Banyak Pilihan Model
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Desain Yang Up To Date
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Pengerjaan Cepat
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Bisa Ditunggu Sambil Duduk Manis Dirumah
-              </li>
-              <li>
-                <span class="position"><i class="ti-check"></i></span> Free Ongkir Untuk Pemesanan Lebih Dari 500pcs
-              </li>
-            </ul>
-            <div class="priceTable-footer">
-              <a class="button" href="#">Pesan</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!--================Hero Banner Area End =================-->
-
   <!--================ Gallery section Start =================-->
   <section class="section-padding gallery-area gallery-bg">
     <div class="container">
@@ -180,9 +106,13 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-3 offset-md-2">
+          <div class="form-group col-md-3 col-6 offset-md-2">
             <label>Tipe Undangan</label>
             <input id="tipe_undangan" required type="text" class="form-control" readonly>
+          </div>
+          <div class="form-group col-md-3 col-6">
+            <label>Harga Undangan</label>
+            <input id="harga_undangan" required type="text" class="form-control" readonly>
           </div>
         </div>
         <div align="center">
@@ -237,7 +167,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     // $("#keterangan").hide();
     var url = new URLSearchParams(window.location.search);
     var tipe = url.get('tipe');
+    var harga = url.get('harga');
+    console.log(harga);
     $("#tipe_undangan").val(tipe);
+    $("#harga_undangan").val(harga);
     $("#kirim").click(function(){
       var nama_pria = $("#nama_pria").val();
       var nama_ortu_pria = $("#nama_ortu_pria").val();
