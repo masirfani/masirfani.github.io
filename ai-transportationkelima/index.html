@@ -20,6 +20,8 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="icon" href="images/logo-kecil.svg">
+
   </head>
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -81,7 +83,6 @@
 
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                   <li><a href="#home-section" class="nav-link">Home</a></li>
-                  <li><a href="#services-section" class="nav-link">Services</a></li>
                 </ul>
               </nav>
 
@@ -103,7 +104,7 @@
                 <p class="mb-5">angkutan mobil pick up & truck cdd & fuso yg bisa di handalkan, karna sudah lebih dari 5 tahun bergerak di bidang nya yaitu melayani kirim atau ambil barang apa saja di segala tujuan</p>
                 <form action="#">
                   <div class="form-group d-flex">
-                    <input type="submit" class="btn btn-primary text-white px-4" value="Tentang Kami">
+                    <input required type="submit" class="btn btn-primary text-white px-4" value="Tentang Kami">
                   </div>
                 </form>
               </div>
@@ -289,25 +290,46 @@
           </div>
 
           <!-- <div class="owl-carousel owl-all"> -->
-          <div class="row">
-            <div class="col-md-4 mt-1">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mx-auto d-block border border-warning">
+          <div class="row no-gutters">
+            <div class="col-md-3 col-4">
+              <img src="images/gal/1.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
             </div>
-            <div class="col-md-4 mt-1">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mx-auto d-block border border-warning">
+            <div class="col-md-3 col-4">
+              <img src="images/gal/2.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
             </div>
-            <div class="col-md-4 mt-1">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mx-auto d-block border border-warning">
+            <div class="col-md-3 col-4">
+              <img src="images/gal/3.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
             </div>
-            <div class="col-md-4 mt-1">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mx-auto d-block border border-warning">
+            <div class="col-md-3 col-4">
+              <img src="images/gal/4.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
             </div>
-            <div class="col-md-4 mt-1">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mx-auto d-block border border-warning">
+            <div class="col-md-3 col-4">
+              <img src="images/gal/6.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
             </div>
-            <div class="col-md-4 mt-1">
-              <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded mx-auto d-block border border-warning">
+            <div class="col-md-3 col-4">
+              <img src="images/gal/7.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
             </div>
+            <div class="col-md-3 col-4">
+              <img src="images/gal/8.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div>
+            <div class="col-md-3 col-4">
+              <img src="images/gal/9.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div>
+            <div class="col-md-3 col-4">
+              <img src="images/gal/10.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div>
+            <div class="col-md-3 col-4">
+              <img src="images/gal/11.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div>
+            <div class="col-md-3 col-4">
+              <img src="images/gal/12.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div>
+            <div class="col-md-3 col-4">
+              <img src="images/gal/13.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div>
+            <!-- <div class="col-md-3 col-4">
+              <img src="images/gal/14.jpeg" alt="Image" class="img-fluid rounded mx-auto d-block border border-info">
+            </div> -->
             
           </div>
           <!-- </div> -->
@@ -330,51 +352,57 @@
               <h2>Pengiriman barang</h2>
             </div>
           </div>
+          <div class="col-md-6" id="keterangan" style="display: none !important">
+            <div class="alert alert-danger" role="alert">
+              Isi semua data yang ada pada form
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
-            <form action="#" method="post">
+            <form action="#">
               <div class="form-group row">
-                <div class="col-md-6 mb-4 mb-lg-0">
-                  <input type="text" class="form-control" placeholder="First name">
+                <div class="col-md-12 mb-4 mb-lg-0">
+                  <input required type="text" class="form-control" placeholder="Asal Kota" id="asal_kota">
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input required type="text" class="form-control" placeholder="Tujuan Kota" id="tujuan_kota">
                 </div>
               </div>
 
               <div class="form-group row">
-                <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Email address">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                <div class="col-md-6 col-6">
+                  <input required type="number" class="form-control" placeholder="Jenis Angkutan Barang" id="jenis_angkutan">
+                </div>  
+                <div class="col-md-6 col-6">
+                  <input required type="number" class="form-control" placeholder="Beban Tonase Barang" id="beban_tonase">
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-6 mr-auto">
-                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
+                  <button class="btn btn-block btn-primary text-white py-3 px-5" id="kirim"><i class="icon-whatsapp"></i> Pesan</button>
                 </div>
               </div>
             </form>
           </div>
           <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
             <div class="bg-white p-3 p-md-5">
-              <h3 class="text-black mb-4">Contact Info</h3>
+              <h3 class="text-black mb-4">Kontak Info</h3>
               <ul class="list-unstyled footer-link">
-                <li class="d-block mb-3">
-                  <span class="d-block text-black">Address:</span>
-                  <span>34 Street Name, City Name Here, United States</span></li>
-                <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+1 242 4942 290</span></li>
-                <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
+                <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+62 822-2333-1599</span></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="d-md-none d-lg-none d-sm-block d-sm col-sm-12 fixed-bottom" style="height: 50px;background-color:rgb(10, 189, 227,0.0)">
+      <a class="btn btn-success float-right" href="https://api.whatsapp.com/send?phone=+6282223331599&text=Halo Pak, Saya tertarik dengan Jasa Pengiriman Anda, apa bisa dijelaskan perihal persyaratan dan yang lainnya?"><span style="font-size: 30px;color: #ffffff"><i class="icon-whatsapp"></i></span></a>
+  
+      <!-- <span class="ml-5" style="font-size: 50px;color: #ffffff"><i class="fa fa-phone"></i></span> -->
     </div>
 
 
@@ -394,9 +422,9 @@
             <div class="mb-5">
               <h2 class="footer-heading mb-4">Subscribe to Newsletter</h2>
               <form action="#" method="post" class="footer-suscribe-form">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                  <div class="input-group-append">
+                <div class="input required-group mb-3">
+                  <input required type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input required-group-append">
                     <button class="btn btn-primary text-white" type="button" id="button-addon2">Subscribe</button>
                   </div>
                 </div>
@@ -441,7 +469,25 @@
 
     <script src="js/main.js"></script>
 
+    <script>
+      $(document).ready(function(){
+        $("#kirim").click(function(){
+          var asal_kota = $("#asal_kota").val();
+          var tujuan_kota = $("#tujuan_kota").val();
+          var jenis_angkutan = $("#jenis_angkutan").val();
+          var beban_tonase = $("#beban_tonase").val();
+          var link = "https://api.whatsapp.com/send?phone=+6282223331599&text=saya ingin memesan jasa pengiriman dengan rincian%0aasal kota : "+asal_kota+"%0atujuan kota : "+tujuan_kota+"%0ajenis angkutan : "+jenis_angkutan+"%0abeban tonase : "+beban_tonase;
+
+          if (asal_kota != "" && tujuan_kota != "" && jenis_angkutan != "" && beban_tonase != "") {
+            window.open(link,'_blank');
+          }else{
+            $("#keterangan").show();
+          }
+        })
+      });
+    </script>
 
   </body>
 
 </html>
+<!-- DEVELOPED BY KODE-MAN[MA'S IRFANI] : maksirfani.github.io -->
