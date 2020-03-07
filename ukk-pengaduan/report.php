@@ -11,8 +11,8 @@
 		}
 	</style>
 	<?php  
-		// header("Content-type: application/vnd-ms-excel");
-		// header("Content-Disposition: attachment; filename=Laporan pengaduan.xls");
+		header("Content-type: application/vnd-ms-excel");
+		header("Content-Disposition: attachment; filename=Laporan pengaduan.xls");
 	?>
 	<center>DATA PENGADUAN</center>
 	<table border="1">
@@ -40,15 +40,14 @@
 				if (mysqli_num_rows($data) == 0) {
 				echo "<tr><td colspan='8'>data kosong</td></tr>";
 				}else{
-					while ($lihat = mysqli_fetch_assoc($data)){ $from = "assets/foto-pengaduan/$lihat['foto']";
-						$pindah = "report.php";
-						copy($from,$pindah);
+					while ($lihat = mysqli_fetch_assoc($data)){ 
+
 			?>
 			<tr>
 				<td><?php echo $no++ ?></td>
 				<td><?php echo $lihat['nama'] ?></td>
 				<td><?php echo $lihat['isi_laporan'] ?></td>
-				<td><img src="assets/foto-pengaduan/<?php echo $lihat['foto'] ?>" alt=""></td>
+				<td><?php echo $lihat['foto'] ?></td>
 				<td><?php echo $lihat['tgl_pengaduan'] ?></td>
 				<td><?php echo $lihat['nama_petugas'] ?></td>
 				<td><?php echo $lihat['tanggapan'] ?></td>
@@ -62,4 +61,3 @@
 	</table>
 </body>
 </html>
-<!-- DEVELOPED BY KODE-MAN[MA'S IRFANI] : maksirfani.github.io -->

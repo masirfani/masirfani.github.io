@@ -27,7 +27,8 @@
 			if (!is_array($host->lihat("masyarakat"))) {
 				echo "<tr><td colspan='6'>data kosong</td></tr>";
 			}else{
-				foreach ($host->lihat("masyarakat") as $lihat){ ?>
+				foreach ($host->lihat("masyarakat") as $lihat){ 
+			?>
 			<tr>
 				<td><?php echo $no++ ?></td>
 				<td><?php echo $lihat['nik'] ?></td>
@@ -48,4 +49,3 @@
 	</table>
 </body>
 </html>
-<!-- DEVELOPED BY KODE-MAN[MA'S IRFANI] : maksirfani.github.io -->

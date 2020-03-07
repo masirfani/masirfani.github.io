@@ -11,7 +11,8 @@
 				<li><a href="data-pengaduan.php">data pengaduan</a> |</li>
 				<li><a href="data-tanggapan.php">data tanggapan</a> |</li>
 				<li><a href="tambah-petugas.php">register petugas</a> |</li>
-				<li><a href="report.php">generate laporan</a> |</li>
+				<li><a href="report.php">generate laporan excel</a> |</li>
+				<li><a href="report-pdf.php">generate laporan pdf</a> |</li>
 				<?php if (empty($_SESSION['level'])){ ?>
 				<li><a href="login.php">login</a> |</li>
 				<?php }else{ ?>

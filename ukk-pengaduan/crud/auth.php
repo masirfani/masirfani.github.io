@@ -41,4 +41,3 @@
 		$host->kembali("login.php");
 	}
 ?>
-<!-- DEVELOPED BY KODE-MAN[MA'S IRFANI] : maksirfani.github.io -->

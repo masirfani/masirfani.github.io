@@ -6,4 +6,3 @@
 	<h1 align="center">WELCOM BACK NMAX</h1>
 </body>
 </html>
-<!-- DEVELOPED BY KODE-MAN[MA'S IRFANI] : maksirfani.github.io -->
