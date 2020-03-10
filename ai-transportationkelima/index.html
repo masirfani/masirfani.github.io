@@ -54,7 +54,7 @@
 
 
             <div class="site-logo">
-              <a href="index.html" class="text-black"><span class="text-primary">AI TRANSPORTATION</a>
+              <a href="index.html" class="text-black"><span class="text-primary" style="font-size: 25px;">AI TRANSPORTATION</span></a>
             </div>
 
             <div class="col-12">
@@ -95,7 +95,7 @@
           <div class="container">
             <div class="owl-carousel owl-all">
               <div class="service text-center">
-                <a href="#"><img src="images/cargo_sea_small.jpg" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="images/mobil/mobil.jpeg" alt="Image" class="img-fluid"></a>
                 <div class="px-md-3">
                   <h3><a href="#">Armada angkutan kami</a></h3>
                   <p>
@@ -107,7 +107,7 @@
               </div>
 
               <div class="service text-center">
-                <a href="#"><img src="images/cargo_air_small.jpg" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="images/mobil/mobil2.jpeg" alt="Image" class="img-fluid"></a>
                 <div class="px-md-3">
                   <h3><a href="#">Armada rental station kami</a></h3>
                   <p>
@@ -327,7 +327,7 @@
         <div class="row">
           <div class="col-md-4 col-12 mt-3">
             <div class="card">
-              <img src="images/gal/5.jpeg" alt="" class="card-img-top">
+              <img src="images/mobil/pickup.jpeg" alt="" class="card-img-top">
               <div class="card-body">
                 <h4 class="card-title" align="center">Pick up</h4>
                 <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aliquam placeat esse fuga tenetur, dolore, tempore molestias dolorum quam. Fugit eveniet, quia animi a quo atque voluptatibus aperiam dolorem laboriosam.</div>
@@ -337,7 +337,7 @@
           </div>
           <div class="col-md-4 col-12 mt-3">
             <div class="card">
-              <img src="images/gal/5.jpeg" alt="" class="card-img-top">
+              <img src="images/mobil/truck.jpeg" alt="" class="card-img-top">
               <div class="card-body">
                 <h4 class="card-title" align="center">Truck CDD</h4>
                 <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aliquam placeat esse fuga tenetur, dolore, tempore molestias dolorum quam. Fugit eveniet, quia animi a quo atque voluptatibus aperiam dolorem laboriosam.</div>
@@ -347,7 +347,7 @@
           </div>
           <div class="col-md-4 col-12 mt-3">
             <div class="card">
-              <img src="images/gal/5.jpeg" alt="" class="card-img-top">
+              <img src="images/mobil/fuso.jpeg" alt="" class="card-img-top">
               <div class="card-body">
                 <h4 class="card-title" align="center">Fuso Engkel Dan Tronton</h4>
                 <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aliquam placeat esse fuga tenetur, dolore, tempore molestias dolorum quam. Fugit eveniet, quia animi a quo atque voluptatibus aperiam dolorem laboriosam.</div>
@@ -376,7 +376,7 @@
         </div>
         <div class="row">
           <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
-            <form action="#">
+            <form>
               <div class="form-group row">
                 <div class="col-md-12 mb-4 mb-lg-0">
                   <input required type="text" class="form-control" placeholder="Asal Kota" id="asal_kota">
@@ -390,16 +390,27 @@
 
               <div class="form-group row">
                 <div class="col-md-6 col-6">
-                  <input required type="number" class="form-control" placeholder="Jenis Angkutan Barang" id="jenis_angkutan">
+                  <!-- <input required type="text" class="form-control" placeholder="Jenis Angkutan Barang" id="jenis_angkutan"> -->
+                  <select id="jenis_angkutan" class="form-control" required="">
+                    <option selected disabled>Pilih Jenis Angkutan</option>
+                    <option value="Pick Up">Pick Up</option>
+                    <option value="Truck CCD">Truck CCD</option>
+                    <option value="Fuso Engkel / Tronton">Fuso Engkel / Tronton</option>
+                  </select>
                 </div>  
                 <div class="col-md-6 col-6">
                   <div class="input-group mb-2 mr-sm-2">
-                    <input type="text" class="form-control" id="beban_tonase" placeholder="Beban">
+                    <input type="number" class="form-control" id="beban_tonase" placeholder="Beban">
                     <div class="input-group-prepend">
-                      <div class="input-group-text">Kwintal / Ton</div>
+                      <div class="input-group-text">Ton</div>
                     </div>
                   </div>
                   <!-- <input required type="number" class="form-control" placeholder="Beban Tonase Barang" id="beban_tonase"> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" id="jenis_barang" placeholder="Jenis Barang">
                 </div>
               </div>
               <div class="form-group row">
@@ -498,9 +509,10 @@
           var tujuan_kota = $("#tujuan_kota").val();
           var jenis_angkutan = $("#jenis_angkutan").val();
           var beban_tonase = $("#beban_tonase").val();
-          var link = "https://api.whatsapp.com/send?phone=+6282223331599&text=saya ingin memesan jasa pengiriman dengan rincian%0aasal kota : "+asal_kota+"%0atujuan kota : "+tujuan_kota+"%0ajenis angkutan : "+jenis_angkutan+"%0abeban tonase : "+beban_tonase=" Kwintal / Ton";
+          var jenis_barang = $("#jenis_barang").val();
+          var link = "https://api.whatsapp.com/send?phone=+6282223331599&text=saya ingin memesan jasa pengiriman dengan rincian%0aAsal Kota : "+asal_kota+"%0aTujuan Kota : "+tujuan_kota+"%0aJenis Angkutan : "+jenis_angkutan+"%0aBeban Tonase : "+beban_tonase+" Ton%0aJenis Barang : "+jenis_barang;
 
-          if (asal_kota != "" && tujuan_kota != "" && jenis_angkutan != "" && beban_tonase != "") {
+          if (asal_kota != "" && tujuan_kota != "" && jenis_angkutan != "" && beban_tonase != "" && jenis_barang != "") {
             window.open(link,'_blank');
           }else{
             $("#keterangan").show();
