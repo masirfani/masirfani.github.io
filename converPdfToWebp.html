@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to WebP Converter</title>
+<style>
+    #outputImage {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+<input type="file" id="pdfInput" accept=".pdf">
+<button onclick="convertToWebP()">Convert to WebP</button>
+<button id="downloadBtn" style="display: none;" onclick="downloadWebP()">Download WebP</button>
+<div id="output"></div>
+<img id="outputImage" alt="Converted WebP Image">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+<script>
+let webpDataURL = '';
+
+function convertToWebP() {
+    const pdfInput = document.getElementById('pdfInput');
+    const file = pdfInput.files[0];
+
+    if (!file) {
+        alert('Please select a PDF file.');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = async function(event) {
+        const arrayBuffer = event.target.result;
+        const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+        const page = await pdf.getPage(1); // You can change the page number as needed
+        const scale = 2; // Adjust scale if needed
+        const viewport = page.getViewport({ scale });
+
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+        await page.render(renderContext).promise;
+
+        // Convert canvas to WebP
+        webpDataURL = canvas.toDataURL('image/webp');
+
+        // Display output
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = '<p>Conversion successful!</p>';
+        const outputImage = document.getElementById('outputImage');
+        outputImage.src = webpDataURL;
+
+        // Show download button
+        const downloadBtn = document.getElementById('downloadBtn');
+        downloadBtn.style.display = 'inline-block';
+    };
+
+    reader.onerror = function(event) {
+        console.error('File could not be read! Code ' + event.target.error.code);
+    };
+
+    reader.readAsArrayBuffer(file);
+}
+
+function downloadWebP() {
+    const pdfInput = document.getElementById('pdfInput');
+    const pdfFileName = pdfInput.files[0].name; // Extract PDF file name
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = webpDataURL;
+    downloadLink.download = pdfFileName.replace('.pdf', '.webp'); // Set the download file name
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
+</script>
+</body>
+</html>

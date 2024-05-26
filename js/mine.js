@@ -1,13 +1,13 @@
 const jsonData = {
     sertificate: [
         {
-            filename: "sololearn-html.webp",
-        },
-        {
-            filename: "sololearn-javascript.webp",
+            filename: "[WEB][06][FINAL]WEBSITE DEVELOPMENT FUNDAMENTAL.webp",
         },
         {
             filename: "sololearn-php.webp",
+        },
+        {
+            filename: "[FRONTEND][13][FINAL]FRONTEND - HTML.webp",
         },
         {
             filename: "champion-wdc.webp",
@@ -17,6 +17,12 @@ const jsonData = {
         },
         {
             filename: "english-alliance-quiz.webp",
+        },
+        {
+            filename: "sololearn-html.webp",
+        },
+        {
+            filename: "sololearn-javascript.webp",
         },
         {
             filename: "sololearn-jquery.webp",
