@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to WebP Converter</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #output {
+    margin-top: 20px;
+  }
+  .img-preview {
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 200px;
+  }
+</style>
+</head>
+<body>
+<h1>Image to WebP Converter</h1>
+<input type="file" id="fileInput" multiple>
+<div id="output"></div>
+
+<button id="downloadAllBtn">Download All</button>
+
+<script>
+  const fileInput = document.getElementById('fileInput');
+  const output = document.getElementById('output');
+  const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+  let convertedFiles = []; // Array to store converted files
+
+  fileInput.addEventListener('change', handleFiles);
+
+  function handleFiles() {
+    const files = this.files;
+    output.innerHTML = '';
+    convertedFiles = []; // Clear the array on each file selection
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const img = document.createElement('img');
+      img.classList.add('img-preview');
+      img.src = URL.createObjectURL(file);
+      output.appendChild(img);
+
+      const reader = new FileReader();
+      reader.onload = function() {
+        const imgDataUrl = reader.result;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const img = new Image();
+        img.onload = function() {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+
+          canvas.toBlob(function(blob) {
+            const webpBlob = blob;
+            const webpUrl = URL.createObjectURL(webpBlob);
+            convertedFiles.push({ name: file.name, url: webpUrl }); // Store the converted file
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = webpUrl;
+            link.setAttribute('download', file.name.replace(/\.[^/.]+$/, "") + '.webp');
+            link.innerText = 'Download ' + file.name.replace(/\.[^/.]+$/, "") + '.webp';
+            listItem.appendChild(link);
+            output.appendChild(listItem);
+          }, 'image/webp');
+        };
+        img.src = imgDataUrl;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // Event listener for the "Download All" button
+  downloadAllBtn.addEventListener('click', function() {
+    // Loop through all the converted files and trigger download for each
+    convertedFiles.forEach(function(file) {
+      const link = document.createElement('a');
+      link.href = file.url;
+      link.setAttribute('download', file.name.replace(/\.[^/.]+$/, "") + '.webp');
+      link.style.display = 'none'; // Hide the link
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  });
+</script>
+</body>
+</html>
