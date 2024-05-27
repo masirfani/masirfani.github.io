@@ -164,7 +164,7 @@ function displayData(data, place, max = 0) {
             `;
         }
         no++;
-        console.log(item);
+        $(".count-sertificate").html(no);
     });
 
     $(place).html(item);

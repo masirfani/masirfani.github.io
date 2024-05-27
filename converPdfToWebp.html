@@ -50,7 +50,41 @@ function hideLoadingMessage() {
     document.getElementById('loadingMessage').style.display = 'none';
 }
 
-function convertToWebP() {
+async function convertFileToWebP(file) {
+    try {
+        console.log(`Processing file: ${file.name}`);
+        const arrayBuffer = await file.arrayBuffer();
+        console.log('Array buffer obtained.');
+        
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        console.log('PDF document loaded.');
+        
+        const page = await pdf.getPage(1);
+        console.log('First page obtained.');
+        
+        const scale = 2;
+        const viewport = page.getViewport({ scale });
+        
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        
+        const renderContext = { canvasContext: context, viewport: viewport };
+        await page.render(renderContext).promise;
+        console.log('Page rendered to canvas.');
+        
+        const webpDataURL = canvas.toDataURL('image/webp');
+        console.log('Canvas converted to WebP.');
+        
+        return webpDataURL;
+    } catch (error) {
+        console.error(`Error converting file ${file.name}:`, error);
+        return null;
+    }
+}
+
+async function convertToWebP() {
     const pdfInput = document.getElementById('pdfInput');
     const files = pdfInput.files;
 
@@ -61,51 +95,20 @@ function convertToWebP() {
 
     showLoadingMessage();
 
-    const promises = [];
-
-    for (const file of files) {
-        const reader = new FileReader(); // Create a new FileReader for each file
-        promises.push(new Promise((resolve, reject) => {
-            reader.onload = async function(event) {
-                const arrayBuffer = event.target.result;
-                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-                const page = await pdf.getPage(1); // You can change the page number as needed
-                const scale = 2; // Adjust scale if needed
-                const viewport = page.getViewport({ scale });
-
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                await page.render(renderContext).promise;
-
-                // Convert canvas to WebP
-                const webpDataURL = canvas.toDataURL('image/webp');
-                webpDataURLs.push(webpDataURL);
-                resolve();
-            };
-
-            reader.onerror = function(event) {
-                reject(new Error('File could not be read! Code ' + event.target.error.code));
-            };
-
-            reader.readAsArrayBuffer(file);
-        }));
-    }
-
-    Promise.all(promises)
-    .then(() => {
-        // Hide loading message
+    const promises = Array.from(files).map(file => convertFileToWebP(file));
+    
+    try {
+        const results = await Promise.all(promises);
+        webpDataURLs = results.filter(result => result !== null);
         hideLoadingMessage();
 
-        // Display output images
+        if (webpDataURLs.length === 0) {
+            console.error('No images were successfully converted.');
+            return;
+        }
+
         const outputDiv = document.getElementById('output');
-        outputDiv.innerHTML = ''; // Clear previous content
+        outputDiv.innerHTML = '';
 
         const outputImages = document.createElement('div');
         outputImages.id = 'outputImages';
@@ -118,98 +121,36 @@ function convertToWebP() {
         }
 
         outputDiv.appendChild(outputImages);
-
-        // Show download button
-        const downloadBtn = document.getElementById('downloadBtn');
-        downloadBtn.style.display = 'inline-block';
-    })
-    .catch(error => {
-        console.error(error);
-        hideLoadingMessage(); // Hide loading message in case of error
-    });
+        document.getElementById('downloadBtn').style.display = 'inline-block';
+    } catch (error) {
+        console.error('Error during conversion:', error);
+        hideLoadingMessage();
+    }
 }
 
-function downloadWebP() {
+async function downloadWebP() {
     const pdfInput = document.getElementById('pdfInput');
-    const pdfFiles = pdfInput.files;
+    const pdfFileNames = Array.from(pdfInput.files).map(file => file.name);
 
-    // Create a new ZIP file
     const zip = new JSZip();
-
-    // Add each converted image to the ZIP file
-    const promises = [];
-    for (let i = 0; i < pdfFiles.length; i++) {
-        const file = pdfFiles[i];
-        const reader = new FileReader();
-        promises.push(new Promise((resolve, reject) => {
-            reader.onload = function(event) {
-                const arrayBuffer = event.target.result;
-                pdfjsLib.getDocument(arrayBuffer).promise.then(pdf => {
-                    pdf.getPage(1).then(page => {
-                        const scale = 2; // Adjust scale if needed
-                        const viewport = page.getViewport({ scale });
-                        const canvas = document.createElement('canvas');
-                        const context = canvas.getContext('2d');
-                        canvas.width = viewport.width;
-                        canvas.height = viewport.height;
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-                        page.render(renderContext).promise.then(() => {
-                            // Convert canvas to WebP
-                            const webpDataURL = canvas.toDataURL('image/webp');
-
-                            // Resize image if needed
-                            const img = new Image();
-                            img.onload = function() {
-                                const resizedCanvas = document.createElement('canvas');
-                                const resizedContext = resizedCanvas.getContext('2d');
-                                resizedCanvas.width = img.width;
-                                resizedCanvas.height = img.height;
-                                resizedContext.drawImage(img, 0, 0, img.width, img.height);
-                                const resizedDataURL = resizedCanvas.toDataURL('image/webp');
-
-                                // Add the resized image to the ZIP file
-                                zip.file(file.name.replace('.pdf', '.webp'), resizedDataURL.split(';base64,')[1], { base64: true });
-                                resolve();
-                            };
-                            img.src = webpDataURL;
-                        }).catch(error => reject(error));
-                    }).catch(error => reject(error));
-                }).catch(error => reject(error));
-            };
-            reader.onerror = function(event) {
-                reject(new Error('File could not be read! Code ' + event.target.error.code));
-            };
-            reader.readAsArrayBuffer(file);
-        }));
+    
+    for (let i = 0; i < webpDataURLs.length; i++) {
+        const base64Data = webpDataURLs[i].split(',')[1];
+        zip.file(pdfFileNames[i].replace('.pdf', '.webp'), base64Data, { base64: true });
     }
 
-    // Generate the ZIP file once all images are processed
-    Promise.all(promises).then(() => {
-        zip.generateAsync({ type: 'blob' })
-            .then(function(content) {
-                // Create a download link for the ZIP file
-                const downloadLink = document.createElement('a');
-                downloadLink.href = URL.createObjectURL(content);
-                downloadLink.download = 'converted_images.zip';
-                document.body.appendChild(downloadLink);
-
-                // Trigger the click event to start the download
-                downloadLink.click();
-
-                // Clean up: remove the download link from the document
-                document.body.removeChild(downloadLink);
-            })
-            .catch(function(error) {
-                console.error('Failed to generate ZIP file:', error);
-            });
-    }).catch(error => console.error(error));
+    try {
+        const content = await zip.generateAsync({ type: 'blob' });
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(content);
+        downloadLink.download = 'converted_images.zip';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    } catch (error) {
+        console.error('Failed to generate ZIP file:', error);
+    }
 }
-
-
-
 </script>
 </body>
 </html>
