@@ -69,9 +69,10 @@
             let userLogin = null;
             $(".btn-news").click(function(){
 
+              // console.log($(this).data("berita"));
               let berita = $(this).data("berita")+" di "+ userLogin.houseNumber;
-              sendNews();
-            })
+              sendNews(berita);
+            });
 
             const pubnub = new PubNub({
                 publishKey: "pub-c-17a8adae-e13d-4e47-ba35-d7a67a78b8b8",
@@ -163,7 +164,8 @@
                 // Tampilkan berita terbaru dengan warna yang sesuai
                 const newsElement = document.createElement("div");
                 newsElement.classList.add("alert", "mt-3", "text-center");
-                switch (message.news) {
+                const firstNews = message.news.substring(0, message.news.indexOf(" "));
+                switch (firstNews) {
                     case "KEBAKARAN":
                         newsElement.classList.add("alert-danger");
                         break;
