@@ -63,7 +63,11 @@
                 </div>
             </div>
         </div>
-        <script src="vendor/jquery/jquery.min.js"></script>
+
+        <audio id="notification-kecelakaan" src="kecelakaan.mp3" preload="auto" style="display: none;"></audio>
+        <audio id="notification-kemalingan" src="kemalingan.mp3" preload="auto" style="display: none;"></audio>
+        <audio id="notification-kebakaran" src="kebakaran.mpeg" preload="auto" style="display: none;"></audio>
+        <script src="../../vendor/jquery/jquery.min.js"></script>
         <script>
 
             let userLogin = null;
@@ -83,7 +87,7 @@
                 {
                     name: "Pak Budi",
                     houseNumber: "Rumah Pak Budi",
-                    phoneNumber: "0811", // Nomor HP untuk login
+                    phoneNumber: "0811",
                 },
                 {
                     name: "Pak Jeha",
@@ -187,6 +191,23 @@
                 // Save to localStorage
                 localStorage.setItem("beritaTerkiniContent", beritaTerkiniDiv.innerHTML);
                 localStorage.setItem("historyContent", historyDiv.innerHTML);
+
+
+                switch (firstNews) {
+                    case "KEBAKARAN":
+                        let notificationSound = document.getElementById("notification-kecelakaan");
+                        notificationSound.play();
+                    break;
+                    case "KEMALINGAN":
+                        notificationSound = document.getElementById("notification-kemalingan");
+                        notificationSound.play();
+                    break;
+                    case "KECELAKAAN":
+                        notificationSound = document.getElementById("notification-kebakaran");
+                        notificationSound.play();
+                    break;
+                }
+                // Play notification sound
             }
 
             function showSection(section) {
