@@ -56,15 +56,23 @@
                         </div>
                     </div>
                     <div class="d-grid gap-4 view-berita" style="display: none!important;">
-                        <button class="btn btn-danger py-4" onclick="sendNews('KEBAKARAN')"><h1>KEBAKARAN</h1></button>
-                        <button class="btn btn-warning py-4" onclick="sendNews('KEMALINGAN')"><h1>KEMALINGAN</h1></button>
-                        <button class="btn btn-info py-4" onclick="sendNews('KECELAKAAN')"><h1>KECELAKAAN</h1></button>
+                        <button class="btn btn-danger py-4 btn-news" data-berita="KEBAKARAN"><h1>KEBAKARAN</h1></button>
+                        <button class="btn btn-warning py-4 btn-news" data-berita="KEMALINGAN"><h1>KEMALINGAN</h1></button>
+                        <button class="btn btn-info py-4 btn-news" data-berita="KECELAKAAN"><h1>KECELAKAAN</h1></button>
                     </div>
                 </div>
             </div>
         </div>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script>
+
+            let userLogin = null;
+            $(".btn-news").click(function(){
+
+              let berita = $(this).data("berita")+" di "+ userLogin.houseNumber;
+              sendNews();
+            })
+
             const pubnub = new PubNub({
                 publishKey: "pub-c-17a8adae-e13d-4e47-ba35-d7a67a78b8b8",
                 subscribeKey: "sub-c-71961766-2b1a-4c53-8d66-6466735110ca",
@@ -88,7 +96,7 @@
                 },
             ];
 
-            let userLogin = null;
+            
             document.getElementById("loginForm").addEventListener("submit", function (event) {
                 event.preventDefault(); // Mencegah form dari pengiriman default
 
@@ -171,7 +179,7 @@
                 const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hour12: false };
                 const timestamp = message.timestamp ? new Date(message.timestamp).toLocaleString("id-ID", options) : new Date().toLocaleString("id-ID", options);
 
-                newsElement.innerHTML = `<h3>${message.news} di ${userLogin.houseNumber}</h3><p>${timestamp}</p>`; // Tampilkan berita dan timestamp
+                newsElement.innerHTML = `<h3>${message.news}</h3><p>${timestamp}</p>`; // Tampilkan berita dan timestamp
                 beritaTerkiniDiv.appendChild(newsElement);
 
                 // Save to localStorage
