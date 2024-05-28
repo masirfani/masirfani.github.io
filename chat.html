@@ -11,18 +11,45 @@
         max-height: 500px;
         overflow-y: auto;
       }
+      body {
+        background-color: #2c3e50;
+      }
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div class="container mt-5">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="text-center">Real-time Chat</h1>
-          <div id="chat-messages" class="border rounded p-3 mb-3"></div>
-          <form id="chat-form" class="d-flex">
-            <input id="chat-input" type="text" class="form-control me-2" placeholder="Type a message...">
-            <button type="submit" class="btn btn-primary">Send</button>
-          </form>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="d-grid gap-4 mb-4">
+          </div>
+          <div class="card mb-4">
+            <div class="card-body berita-terkini">
+              <div class="d-flex justify-content-between">
+                <h4>Berita Terkini</h4>
+                <button class="btn btn-secondary" onclick="showSection('history')">History</button>
+              </div>
+              <div id="berita-terkini-content">
+                <!-- Real-time updates will appear here -->
+              </div>
+            </div>
+            <div class="card-body hidden history">
+              <div class="d-flex justify-content-between">
+                <h4>History</h4>
+                <button class="btn btn-primary" onclick="showSection('berita-terkini')">Berita Terkini</button>
+              </div>
+              <div id="history-content">
+                <!-- Previous updates will appear here -->
+              </div>
+            </div>
+          </div>
+          <div class="d-grid gap-4">
+            <button class="btn btn-danger py-4" onclick="sendNews('KEBAKARAN')"><h1>KEBAKARAN</h1></button>
+            <button class="btn btn-warning py-4" onclick="sendNews('KEMALINGAN')"><h1>KEMALINGAN</h1></button>
+            <button class="btn btn-info py-4" onclick="sendNews('KECELAKAAN')"><h1>KECELAKAAN</h1></button>
+          </div>
         </div>
       </div>
     </div>
@@ -32,35 +59,81 @@
         subscribeKey: 'sub-c-71961766-2b1a-4c53-8d66-6466735110ca'
       });
 
-      pubnub.subscribe({ channels: ['chat'] });
+      // Restore messages from localStorage
+      document.addEventListener('DOMContentLoaded', () => {
+        const beritaTerkiniContent = localStorage.getItem('beritaTerkiniContent');
+        const historyContent = localStorage.getItem('historyContent');
+
+        if (beritaTerkiniContent) {
+          document.getElementById('berita-terkini-content').innerHTML = beritaTerkiniContent;
+        }
+
+        if (historyContent) {
+          document.getElementById('history-content').innerHTML = historyContent;
+        }
+      });
+
+      pubnub.subscribe({ channels: ['berita-terkini'] });
 
       pubnub.addListener({
         message: function(event) {
           const message = event.message;
-          displayMessage(message);
+          displayNews(message);
         }
       });
 
-      function displayMessage(message) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('mb-2');
-        messageElement.innerText = message;
-        document.getElementById('chat-messages').appendChild(messageElement);
-        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+      function sendNews(newsType) {
+        pubnub.publish({
+          channel: 'berita-terkini',
+          message: newsType
+        });
       }
 
-      document.getElementById('chat-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const input = document.getElementById('chat-input');
-        const message = input.value.trim();
-        if (message) {
-          pubnub.publish({
-            channel: 'chat',
-            message: message
-          });
-          input.value = '';
+      function displayNews(message) {
+        const beritaTerkiniDiv = document.getElementById('berita-terkini-content');
+        const historyDiv = document.getElementById('history-content');
+        
+        // Pindahkan berita terkini saat ini ke history
+        if (beritaTerkiniDiv.children.length > 0) {
+          const currentNews = beritaTerkiniDiv.children[0];
+          beritaTerkiniDiv.removeChild(currentNews);
+          historyDiv.insertBefore(currentNews, historyDiv.firstChild);
         }
-      });
+        
+        // Tampilkan berita terbaru dengan warna yang sesuai
+        const newsElement = document.createElement('div');
+        newsElement.classList.add('alert', 'mt-3', 'h1');
+        switch (message) {
+          case 'KEBAKARAN':
+            newsElement.classList.add('alert-danger');
+            break;
+          case 'KEMALINGAN':
+            newsElement.classList.add('alert-warning');
+            break;
+          case 'KECELAKAAN':
+            newsElement.classList.add('alert-info');
+            break;
+        }
+        newsElement.innerText = message;
+        beritaTerkiniDiv.appendChild(newsElement);
+
+        // Save to localStorage
+        localStorage.setItem('beritaTerkiniContent', beritaTerkiniDiv.innerHTML);
+        localStorage.setItem('historyContent', historyDiv.innerHTML);
+      }
+
+      function showSection(section) {
+        const beritaTerkiniDiv = document.querySelector('.berita-terkini');
+        const historyDiv = document.querySelector('.history');
+
+        if (section === 'berita-terkini') {
+          beritaTerkiniDiv.classList.remove('hidden');
+          historyDiv.classList.add('hidden');
+        } else {
+          beritaTerkiniDiv.classList.add('hidden');
+          historyDiv.classList.remove('hidden');
+        }
+      }
     </script>
   </body>
 </html>
