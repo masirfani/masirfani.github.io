@@ -1,139 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Real-time Chat with PubNub</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
-    <style>
-      #chat-messages {
-        max-height: 500px;
-        overflow-y: auto;
-      }
-      body {
-        background-color: #2c3e50;
-      }
-      .hidden {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container mt-5">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="d-grid gap-4 mb-4">
-          </div>
-          <div class="card mb-4">
-            <div class="card-body berita-terkini">
-              <div class="d-flex justify-content-between">
-                <h4>Berita Terkini</h4>
-                <button class="btn btn-secondary" onclick="showSection('history')">History</button>
-              </div>
-              <div id="berita-terkini-content">
-                <!-- Real-time updates will appear here -->
-              </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Real-time Chat with PubNub</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+        <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.29.9.min.js"></script>
+        <style>
+            #chat-messages {
+                max-height: 500px;
+                overflow-y: auto;
+            }
+            body {
+                background-color: #2c3e50;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card view-login">
+                        <div class="card-body">
+                            <form id="loginForm" class="mb-4">
+                                <h3 class="mb-3">Login</h3>
+                                <div class="mb-3">
+                                    <label for="phoneNumber" class="form-label">Nomor HP</label>
+                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card mb-4 view-berita" style="display: none;">
+                        <div class="card-body berita-terkini">
+                            <div class="d-flex justify-content-between">
+                                <h4>Berita Terkini</h4>
+                                <button class="btn btn-secondary" onclick="showSection('history')">History</button>
+                            </div>
+                            <div id="berita-terkini-content">
+                                <!-- Real-time updates will appear here -->
+                            </div>
+                        </div>
+                        <div class="card-body hidden history">
+                            <div class="d-flex justify-content-between">
+                                <h4>History</h4>
+                                <button class="btn btn-primary" onclick="showSection('berita-terkini')">Berita Terkini</button>
+                            </div>
+                            <div id="history-content">
+                                <!-- Previous updates will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-4 view-berita" style="display: none!important;">
+                        <button class="btn btn-danger py-4" onclick="sendNews('KEBAKARAN')"><h1>KEBAKARAN</h1></button>
+                        <button class="btn btn-warning py-4" onclick="sendNews('KEMALINGAN')"><h1>KEMALINGAN</h1></button>
+                        <button class="btn btn-info py-4" onclick="sendNews('KECELAKAAN')"><h1>KECELAKAAN</h1></button>
+                    </div>
+                </div>
             </div>
-            <div class="card-body hidden history">
-              <div class="d-flex justify-content-between">
-                <h4>History</h4>
-                <button class="btn btn-primary" onclick="showSection('berita-terkini')">Berita Terkini</button>
-              </div>
-              <div id="history-content">
-                <!-- Previous updates will appear here -->
-              </div>
-            </div>
-          </div>
-          <div class="d-grid gap-4">
-            <button class="btn btn-danger py-4" onclick="sendNews('KEBAKARAN')"><h1>KEBAKARAN</h1></button>
-            <button class="btn btn-warning py-4" onclick="sendNews('KEMALINGAN')"><h1>KEMALINGAN</h1></button>
-            <button class="btn btn-info py-4" onclick="sendNews('KECELAKAAN')"><h1>KECELAKAAN</h1></button>
-          </div>
         </div>
-      </div>
-    </div>
-    <script>
-      const pubnub = new PubNub({
-        publishKey: 'pub-c-17a8adae-e13d-4e47-ba35-d7a67a78b8b8',
-        subscribeKey: 'sub-c-71961766-2b1a-4c53-8d66-6466735110ca'
-      });
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script>
+            const pubnub = new PubNub({
+                publishKey: "pub-c-17a8adae-e13d-4e47-ba35-d7a67a78b8b8",
+                subscribeKey: "sub-c-71961766-2b1a-4c53-8d66-6466735110ca",
+            });
 
-      // Restore messages from localStorage
-      document.addEventListener('DOMContentLoaded', () => {
-        const beritaTerkiniContent = localStorage.getItem('beritaTerkiniContent');
-        const historyContent = localStorage.getItem('historyContent');
+            const users = [
+                {
+                    name: "Pak Budi",
+                    houseNumber: "Rumah Pak Budi",
+                    phoneNumber: "0811", // Nomor HP untuk login
+                },
+                {
+                    name: "Pak Jeha",
+                    houseNumber: "Rumah Pak Jeha",
+                    phoneNumber: "0822",
+                },
+                {
+                    name: "Bu Nian",
+                    houseNumber: "Rumah Bu Nian",
+                    phoneNumber: "0833",
+                },
+            ];
 
-        if (beritaTerkiniContent) {
-          document.getElementById('berita-terkini-content').innerHTML = beritaTerkiniContent;
-        }
+            let userLogin = null;
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Mencegah form dari pengiriman default
 
-        if (historyContent) {
-          document.getElementById('history-content').innerHTML = historyContent;
-        }
-      });
+                const phoneNumber = document.getElementById("phoneNumber").value;
 
-      pubnub.subscribe({ channels: ['berita-terkini'] });
+                // Cek apakah nomor HP terdaftar
+                const user = users.find((user) => user.phoneNumber === phoneNumber);
 
-      pubnub.addListener({
-        message: function(event) {
-          const message = event.message;
-          displayNews(message);
-        }
-      });
+                userLogin = user;
+                if (user) {
+                    // Tampilkan konten setelah login berhasil
+                    alert(`Selamat datang, ${user.name}!`);
+                    $(".view-berita").show();
+                    $(".view-login").hide();
+                } else {
+                    alert("Nomor HP tidak terdaftar.");
+                }
+            });
 
-      function sendNews(newsType) {
-        pubnub.publish({
-          channel: 'berita-terkini',
-          message: newsType
-        });
-      }
+            // Restore messages from localStorage
+            document.addEventListener("DOMContentLoaded", () => {
+                const beritaTerkiniContent = localStorage.getItem("beritaTerkiniContent");
+                const historyContent = localStorage.getItem("historyContent");
 
-      function displayNews(message) {
-        const beritaTerkiniDiv = document.getElementById('berita-terkini-content');
-        const historyDiv = document.getElementById('history-content');
-        
-        // Pindahkan berita terkini saat ini ke history
-        if (beritaTerkiniDiv.children.length > 0) {
-          const currentNews = beritaTerkiniDiv.children[0];
-          beritaTerkiniDiv.removeChild(currentNews);
-          historyDiv.insertBefore(currentNews, historyDiv.firstChild);
-        }
-        
-        // Tampilkan berita terbaru dengan warna yang sesuai
-        const newsElement = document.createElement('div');
-        newsElement.classList.add('alert', 'mt-3', 'h1', 'text-center');
-        switch (message) {
-          case 'KEBAKARAN':
-            newsElement.classList.add('alert-danger');
-            break;
-          case 'KEMALINGAN':
-            newsElement.classList.add('alert-warning');
-            break;
-          case 'KECELAKAAN':
-            newsElement.classList.add('alert-info');
-            break;
-        }
-        newsElement.innerText = message;
-        beritaTerkiniDiv.appendChild(newsElement);
+                if (beritaTerkiniContent) {
+                    document.getElementById("berita-terkini-content").innerHTML = beritaTerkiniContent;
+                }
 
-        // Save to localStorage
-        localStorage.setItem('beritaTerkiniContent', beritaTerkiniDiv.innerHTML);
-        localStorage.setItem('historyContent', historyDiv.innerHTML);
-      }
+                if (historyContent) {
+                    document.getElementById("history-content").innerHTML = historyContent;
+                }
+            });
 
-      function showSection(section) {
-        const beritaTerkiniDiv = document.querySelector('.berita-terkini');
-        const historyDiv = document.querySelector('.history');
+            pubnub.subscribe({ channels: ["berita-terkini"] });
 
-        if (section === 'berita-terkini') {
-          beritaTerkiniDiv.classList.remove('hidden');
-          historyDiv.classList.add('hidden');
-        } else {
-          beritaTerkiniDiv.classList.add('hidden');
-          historyDiv.classList.remove('hidden');
-        }
-      }
-    </script>
-  </body>
+            pubnub.addListener({
+                message: function (event) {
+                    const message = event.message;
+                    displayNews(message);
+                },
+            });
+
+            function sendNews(newsType) {
+                pubnub.publish({
+                    channel: "berita-terkini",
+                    message: {
+                        news: newsType,
+                        timestamp: new Date().toLocaleString(), // Menambahkan timestamp
+                    },
+                });
+            }
+
+            function displayNews(message) {
+                const beritaTerkiniDiv = document.getElementById("berita-terkini-content");
+                const historyDiv = document.getElementById("history-content");
+
+                // Pindahkan berita terkini saat ini ke history
+                if (beritaTerkiniDiv.children.length > 0) {
+                    const currentNews = beritaTerkiniDiv.children[0];
+                    beritaTerkiniDiv.removeChild(currentNews);
+                    historyDiv.insertBefore(currentNews, historyDiv.firstChild);
+                }
+
+                // Tampilkan berita terbaru dengan warna yang sesuai
+                const newsElement = document.createElement("div");
+                newsElement.classList.add("alert", "mt-3", "text-center");
+                switch (message.news) {
+                    case "KEBAKARAN":
+                        newsElement.classList.add("alert-danger");
+                        break;
+                    case "KEMALINGAN":
+                        newsElement.classList.add("alert-warning");
+                        break;
+                    case "KECELAKAAN":
+                        newsElement.classList.add("alert-info");
+                        break;
+                }
+
+                // Format waktu dengan bahasa Indonesia
+                const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric", hour12: false };
+                const timestamp = message.timestamp ? new Date(message.timestamp).toLocaleString("id-ID", options) : new Date().toLocaleString("id-ID", options);
+
+                newsElement.innerHTML = `<h3>${message.news} di ${userLogin.houseNumber}</h3><p>${timestamp}</p>`; // Tampilkan berita dan timestamp
+                beritaTerkiniDiv.appendChild(newsElement);
+
+                // Save to localStorage
+                localStorage.setItem("beritaTerkiniContent", beritaTerkiniDiv.innerHTML);
+                localStorage.setItem("historyContent", historyDiv.innerHTML);
+            }
+
+            function showSection(section) {
+                const beritaTerkiniDiv = document.querySelector(".berita-terkini");
+                const historyDiv = document.querySelector(".history");
+
+                if (section === "berita-terkini") {
+                    beritaTerkiniDiv.classList.remove("hidden");
+                    historyDiv.classList.add("hidden");
+                } else {
+                    beritaTerkiniDiv.classList.add("hidden");
+                    historyDiv.classList.remove("hidden");
+                }
+            }
+        </script>
+    </body>
 </html>
