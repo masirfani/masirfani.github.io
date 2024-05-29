@@ -71,7 +71,7 @@
         <script>
             let userLogin = null;
             $(".btn-news").click(function () {
-                let berita = $(this).data("berita") + " Dirumah " + userLogin.name + `<p>Alamat : ${userLogin.address}</p>`;
+                let berita = $(this).data("berita") + " Dirumah " + userLogin.name + `<br><p>Alamat : ${userLogin.address}</p>`;
                 sendNews(berita);
             });
 
