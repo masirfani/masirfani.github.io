@@ -29,13 +29,13 @@
                                 <h3 class="mb-3">Login</h3>
                                 <div class="mb-3">
                                     <label for="phoneNumber" class="form-label">Nomor HP</label>
-                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required />
+                                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" required />
                                 </div>
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form>
                         </div>
                     </div>
-                    <div class="card mb-4 view-berita" style="display: none;">
+                    <div class="card mb-4 view-berita" style="display: none">
                         <div class="card-body berita-terkini">
                             <div class="d-flex justify-content-between">
                                 <h4>Berita Terkini</h4>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-grid gap-4 view-berita" style="display: none!important;">
+                    <div class="d-grid gap-4 view-berita" style="display: none !important">
                         <button class="btn btn-danger py-4 btn-news" data-berita="KEBAKARAN"><h1>KEBAKARAN</h1></button>
                         <button class="btn btn-warning py-4 btn-news" data-berita="KEMALINGAN"><h1>KEMALINGAN</h1></button>
                         <button class="btn btn-info py-4 btn-news" data-berita="KECELAKAAN"><h1>KECELAKAAN</h1></button>
@@ -64,18 +64,15 @@
             </div>
         </div>
 
-        <audio id="notification-kecelakaan" src="kecelakaan.mp3" preload="auto" style="display: none;"></audio>
-        <audio id="notification-kemalingan" src="kemalingan.mp3" preload="auto" style="display: none;"></audio>
-        <audio id="notification-kebakaran" src="kebakaran.mpeg" preload="auto" style="display: none;"></audio>
+        <audio id="notification-kecelakaan" src="kecelakaan.mp3" preload="auto" style="display: none"></audio>
+        <audio id="notification-kemalingan" src="kemalingan.mp3" preload="auto" style="display: none"></audio>
+        <audio id="notification-kebakaran" src="kebakaran.mpeg" preload="auto" style="display: none"></audio>
         <script src="../../vendor/jquery/jquery.min.js"></script>
         <script>
-
             let userLogin = null;
-            $(".btn-news").click(function(){
-
-              // console.log($(this).data("berita"));
-              let berita = $(this).data("berita")+" di "+ userLogin.houseNumber;
-              sendNews(berita);
+            $(".btn-news").click(function () {
+                let berita = $(this).data("berita") + " Dirumah " + userLogin.name + `<p>Alamat : ${userLogin.address}</p>`;
+                sendNews(berita);
             });
 
             const pubnub = new PubNub({
@@ -85,23 +82,47 @@
 
             const users = [
                 {
-                    name: "Pak Budi",
-                    houseNumber: "Rumah Pak Budi",
-                    phoneNumber: "0811",
+                    name: "Ali Purwanto",
+                    phoneNumber: "085843074535",
+                    address: "Dsn Lengkong RT.3 RW.1",
                 },
                 {
-                    name: "Pak Jeha",
-                    houseNumber: "Rumah Pak Jeha",
-                    phoneNumber: "0822",
+                    name: "Hadi Nurrohman",
+                    phoneNumber: "081287785377",
+                    address: "Dsn Lengkong RT.4 RW.2",
                 },
                 {
-                    name: "Bu Nian",
-                    houseNumber: "Rumah Bu Nian",
-                    phoneNumber: "0833",
+                    name: "Abdul Ajiz",
+                    phoneNumber: "085231385635",
+                    address: "Dsn Lengkong RT.5 RW.2",
+                },
+                {
+                    name: "Ahmad Jainuri",
+                    phoneNumber: "081232676909",
+                    address: "Dsn Lengkong RT.5 RW.2",
+                },
+                {
+                    name: "kharisma putri Oktaviani",
+                    phoneNumber: "085748063601",
+                    address: "Ds. Sumbersono dsn sumbersono",
+                },
+                {
+                    name: "Dewi Putri Nurcahyani",
+                    phoneNumber: "089514477180",
+                    address: "Ds. Pohkecik, ds. Kasiyan",
+                },
+                {
+                    name: "kharisma putri Oktaviani",
+                    phoneNumber: "085748063601",
+                    address: "Ds. Sumbersono dsn sumbersono",
+                },
+                {
+                    name: "Dewi Putri Nurcahyani",
+                    phoneNumber: "089514477180",
+                    address: "Ds. Pohkecik, ds. Kasiyan",
                 },
             ];
 
-            
             document.getElementById("loginForm").addEventListener("submit", function (event) {
                 event.preventDefault(); // Mencegah form dari pengiriman default
 
@@ -192,20 +213,16 @@
                 localStorage.setItem("beritaTerkiniContent", beritaTerkiniDiv.innerHTML);
                 localStorage.setItem("historyContent", historyDiv.innerHTML);
 
-
                 switch (firstNews) {
                     case "KEBAKARAN":
-                        let notificationSound = document.getElementById("notification-kecelakaan");
-                        notificationSound.play();
-                    break;
-                    case "KEMALINGAN":
-                        notificationSound = document.getElementById("notification-kemalingan");
-                        notificationSound.play();
-                    break;
-                    case "KECELAKAAN":
-                        notificationSound = document.getElementById("notification-kebakaran");
-                        notificationSound.play();
-                    break;
+                        document.getElementById("notification-kecelakaan").play();
+                        break;
+                        case "KEMALINGAN":
+                        document.getElementById("notification-kemalingan").play();
+                        break;
+                        case "KECELAKAAN":
+                        document.getElementById("notification-kebakaran").play();
+                        break;
                 }
                 // Play notification sound
             }
