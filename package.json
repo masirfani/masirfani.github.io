@@ -1,32 +1,32 @@
 {
-    "title": "Freelancer",
-    "name": "startbootstrap-freelancer",
-    "version": "5.1.2",
+    "title": "Muhammad Ma'sum Irfani Portfolio",
+    "name": "masirfani-portfolio",
+    "version": "2.0.0",
     "scripts": {
         "start": "node_modules/.bin/gulp watch"
     },
-    "description": "A freelancer portfolio HTML theme for Bootstrap.",
+    "description": "Professional Portfolio of Muhammad Ma'sum Irfani - Fullstack Developer & Technical Consultant.",
     "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
+        "portfolio",
+        "fullstack",
+        "developer",
+        "laravel",
+        "iot",
+        "tailwind"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/freelancer",
+    "homepage": "https://masirfani.github.io/",
     "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-freelancer/issues",
-        "email": "feedback@startbootstrap.com"
+        "url": "https://github.com/masirfani/masirfani.github.io/issues",
+        "email": "muhammadwalle123@gmail.com"
     },
     "license": "MIT",
-    "author": "Start Bootstrap",
+    "author": "Muhammad Ma'sum Irfani",
     "contributors": [
-        "David Miller (http://davidmiller.io/)"
+        "Muhammad Ma'sum Irfani (https://masirfani.github.io/)"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-freelancer.git"
+        "url": "https://github.com/masirfani/masirfani.github.io.git"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.9.0",
