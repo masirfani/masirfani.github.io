@@ -121,6 +121,8 @@
                 <div class="flex items-center">
                     <span class="text-xl font-bold tracking-tight text-white">Ma's<span class="text-emerald-500">Irfani</span></span>
                 </div>
+                
+                <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#expertise" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Expertise</a>
@@ -130,6 +132,24 @@
                         <a href="#contact" class="bg-white/5 hover:bg-white/10 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium border border-emerald-500/20 transition-all">Start Project</a>
                     </div>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#expertise" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Expertise</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#logs" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">System Logs</a>
+                <a href="#certifications" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Certifications</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-emerald-400 hover:bg-emerald-500/10 block px-3 py-2 rounded-md text-base font-medium">Start Project</a>
             </div>
         </div>
     </nav>
@@ -489,7 +509,7 @@
             </div>
 
             <!-- Featured Certificates Grid -->
-            <div id="featured-certs" class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+            <div id="featured-certs" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 reveal">
                 <!-- Injected via JS -->
             </div>
 
@@ -642,7 +662,7 @@
                             <i data-lucide="x" class="w-6 h-6"></i>
                         </button>
                     </div>
-                    <div id="all-certs-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto custom-scrollbar p-1">
+                    <div id="all-certs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto custom-scrollbar p-1">
                         <!-- Dynamic Content -->
                     </div>
                 </div>
@@ -1095,6 +1115,12 @@
         
         // Listen for scroll events
         window.addEventListener("scroll", reveal);
+
+        // Mobile Menu Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
