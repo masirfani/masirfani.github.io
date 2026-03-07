@@ -1,1095 +1,1100 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ma'sum Irfani | Fullstack Developer & Technical Consultant</title>
+    <meta name="description" content="Building High-Performance Digital Solutions for Southeast Asian Enterprises. Specialist in Laravel, PHP, IoT, and System Analysis. 14+ Enterprise Projects Delivered.">
+    <meta name="keywords" content="Muhammad Ma'sum Irfani, Fullstack Developer, Laravel Developer, PHP Expert, IoT Specialist, Web Developer Indonesia, System Analyst, IT Consultant, Motasa, JatimPark">
+    <meta name="author" content="Muhammad Ma'sum Irfani">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://masirfani.github.io/">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="My portfolio">
-  <meta name="author" content="Muhammad Ma'sum Irfani">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://masirfani.github.io/">
+    <meta property="og:title" content="Muhammad Ma'sum Irfani | Fullstack Developer & Technical Consultant">
+    <meta property="og:description" content="Building High-Performance Digital Solutions for Southeast Asian Enterprises. Specialist in Laravel, PHP, IoT, and System Analysis. 14+ Enterprise Projects Delivered.">
+    <meta property="og:image" content="https://masirfani.github.io/img/pp.jpg">
 
-  <title>Ma's Irfan</title>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://masirfani.github.io/">
+    <meta property="twitter:title" content="Muhammad Ma'sum Irfani | Fullstack Developer & Technical Consultant">
+    <meta property="twitter:description" content="Building High-Performance Digital Solutions for Southeast Asian Enterprises. Specialist in Laravel, PHP, IoT, and System Analysis. 14+ Enterprise Projects Delivered.">
+    <meta property="twitter:image" content="https://masirfani.github.io/img/pp.jpg">
 
-  <!-- Custom fonts for this theme -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css" rel="stylesheet" type="text/css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            950: '#09090b', // Deep background
+                            900: '#18181b',
+                            800: '#27272a',
+                        },
+                        emerald: {
+                            500: '#10b981', // Success Emerald
+                        },
+                        blue: {
+                            500: '#3b82f6', // Cyber Blue
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Theme CSS -->
-  <link href="css/freelancer.min.css" rel="stylesheet">
-  
-  <link rel="shortcut icon" href="img/myAvatar.png">
+    <style>
+        body {
+            background-color: #09090b;
+            color: #e4e4e7;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .tech-gradient {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46; 
+        }
+    </style>
 </head>
+<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
 
-<body id="page-top">
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="index.html#page-top">Ma's <span style="color: #ff4d4d">Irfan</span></a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio"><i class="fa fa-folder-open"></i> Portfolio</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#skill"><i class="fa fa-pencil-alt"></i> Skill</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#sertificate"><i class="fa fa-space-shuttle"></i> Sertificate</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#life"><i class="fa fa-biohazard"></i> Life</a>
-          </li>
-          <!-- <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="artikel.html"><i class="fa fa-newspaper"></i> My Artikel</a>
-          </li> -->
-          <!-- <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="BeDaSertificate.html">Moment</a>
-          </li> -->
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Masthead -->
-  <header class="masthead bg-primary text-white text-center" style="padding-top: 150px">
-    <div class="container d-flex align-items-center flex-column">
-
-      <!-- Masthead Avatar Image -->
-      <img class="masthead-avatar mb-5 rounded-circle" src="img/pp.jpg" alt="">
-
-      <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">Muhammad Ma'sum Irfani</h1>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star" style="color: #ff4d4d"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-
-      <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Freelance | Developer | Trainer</p>
-
-    </div>
-  </header>
-
-  <!-- Portfolio Section -->
-  <section class="page-section portfolio" id="portfolio">
-    <div class="container">
-
-      <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fa fa-folder-open" style="color: #ff4d4d"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-
-      <!-- Portfolio Grid Items -->
-      <div class="row">
-
-        <!-- Portfolio Item 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal1">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>DA-PREWA</h4>
-              </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold tracking-tight text-white">Ma's<span class="text-emerald-500">Irfani</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#expertise" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Expertise</a>
+                        <a href="#projects" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                        <a href="#logs" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">System Logs</a>
+                        <a href="#certifications" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Certifications</a>
+                        <a href="#contact" class="bg-white/5 hover:bg-white/10 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium border border-emerald-500/20 transition-all">Start Project</a>
+                    </div>
+                </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/da-prewa.png" alt="">
-          </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+            <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px]"></div>
         </div>
 
-        <!-- Portfolio Item 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal2">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>JATIMPARK 3</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/Jatim Park 3 - Main.png" alt="">
-          </div>
-        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Profile Photo -->
+                <div class="relative w-40 h-40 mx-auto mb-8 group animate-fade-in-up select-none" oncontextmenu="return false;">
+                    <!-- Gradient Glow -->
+                    <div class="absolute -inset-1 bg-gradient-to-tr from-emerald-500 to-blue-500 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+                    
+                    <!-- Main Container -->
+                    <div class="relative w-full h-full rounded-full p-1 bg-zinc-900 ring-1 ring-white/10 overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-105 pointer-events-none">
+                        
+                        <!-- Loading Skeleton -->
+                        <div id="profile-skeleton" class="absolute inset-0 bg-zinc-800 animate-pulse z-20 flex items-center justify-center">
+                            <i data-lucide="image" class="w-8 h-8 text-zinc-700"></i>
+                        </div>
 
-        <!-- Portfolio Item 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal3">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>PEGAS</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/pegas.png" alt="">
-          </div>
-        </div>
+                        <!-- Image -->
+                        <img id="profile-img" 
+                             src="img/pp.jpg" 
+                             alt="Muhammad Ma'sum Irfani" 
+                             loading="lazy"
+                             draggable="false"
+                             class="w-full h-full object-cover rounded-full opacity-0 transition-all duration-500 grayscale group-hover:grayscale-0"
+                             onload="handleImageLoad()"
+                             onerror="handleImageError(this)">
+                        
+                        <!-- Aesthetic Overlay -->
+                        <div class="absolute inset-0 bg-emerald-500/10 mix-blend-overlay opacity-50 group-hover:opacity-0 transition-opacity duration-500"></div>
+                    </div>
 
-        <!-- Portfolio Item 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal4">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>DAIHATSU-ROFI</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/daihatsu1.png" alt="">
-          </div>
-        </div>
+                    <!-- Status Indicator -->
+                    <div class="absolute bottom-2 right-2 w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center border-2 border-zinc-800 z-40" title="Available for work">
+                        <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
+                    </div>
+                </div>
 
-        <!-- Portfolio Item 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal5">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>DAIHATSU-SAMUEL</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/daihatsu3.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal6">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>DAIHATSU-JAROT</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/daihatsu2.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 7 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal7">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>DAIHATSU-IWAN</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/daihatsu4.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 8 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal8">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>AI-TRANSPORTATION</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/ai-transportation.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 9 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal9">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>ANTI LEMOT</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/anti_lemot.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 10 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal10">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>CETAK BRESS</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/cetak_bres.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 11 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal11">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>JLIVE</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/jlive.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 12 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal12">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>DJIWA TANGGUH</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/djiwatangguh.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 13 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal13">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>UNDANGAN REK</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/undangan_rek.png" alt="">
-          </div>
-        </div>
-
-        <!-- Portfolio Item 14 -->
-        <div class="col-md-6 col-lg-4 offset-lg-4">
-          <div class="portfolio-item mx-auto shadow" data-toggle="modal" data-target="#portfolioModal14">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-search-plus fa-3x"></i>
-                <h4>MINAK DJINGGO REMPAH</h4>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/minakdjinggo.png" alt="">
-          </div>
-        </div>
-
-      </div>
-      <!-- /.row -->
-
-    </div>
-  </section>
-
-  <!-- Skill Section -->
-  <section class="page-section bg-primary text-white mb-0" id="skill">
-    <div class="container-fluid">
-
-      <!-- Skill Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-white">Skill Set</h2>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fa fa-pencil-alt" style="color: #ff4d4d"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-
-      <!-- Skill Section Content -->
-      <div class="row">
-        <!-- <div class="col-lg-4 ml-auto" >
-          <p class="lead" style="text-align: right">I am a developer who wants the progress of the Indonesian nation, and also I want to be the protector of the Indonesian state. I have an interest in solving complex or recurring problems.</p>
-        </div> -->
-        <div class="col-lg-5 ml-auto" style="font-size: 20px;" >
-					<div class="row">
-						<div class="col-md-6">
-							<ul style="list-style-type: circle;" class="mb-0">
-								<li>Fullstack Developer</li>
-								<li>Tech Trainer</li>
-								<li>Remote Worker</li>
-								<li>Content Writer</li>
-								<li>Electronic Repair</li>
-								<li>Wedding Decorator</li>
-							</ul>
-						</div>
-						<div class="col-md-6">
-							<ul style="list-style-type: circle;" class="mb-0">
-								<li>Hosting Administrator</li>
-								<li>Web Administrator</li>
-								<li>Database Administrator</li>
-								<li>System Analyst</li>
-								<li>System Designer</li>
-								<li>Support System</li>
-							</ul>
-						</div>
-					</div>
-        </div>
-        <div class="col-lg-5 mr-auto" style="font-size: 20px;">
-					<div class="row">
-						<div class="col-md-6">
-							<ul style="list-style-type: circle;" class="mb-0">
-								<li>HTML</li>
-								<li>CSS</li>
-								<li>PHP</li>
-								<li>Javascript</li>
-                <li>Java</li>
-								<li>IOT</li>
-							</ul>
-						</div>
-						<div class="col-md-6">
-							<ul style="list-style-type: circle;" class="mb-0">
-								<li>jQuery</li>
-                <li>Bootstrap</li>
-								<li>CodeIgniter</li>
-								<li>Laravel</li>
-								<li>MySQL</li>
-								<li>GIT</li>
-							</ul>
-						</div>
-					</div>
-        </div>
-        <div class="col-lg-5 mt-5 mx-auto">
-            <p class="lead text-center"><b>Semua skill diatas adalah skill yang paling saya kuasai saat ini, dan masih terus belajar untuk menambahkan skill - skill menakjubkan lainnya.</b></p>
-        </div>
-      </div>
-
-      <!-- Skill Section Button -->
-      <!-- <div class="text-center mt-4">
-        <a target="_blank" class="btn btn-xl btn-outline-light js-scroll-trigger" href="pesan.html">
-          <i class="fa fa-cog fa-spin fa-fw" style="color: #ff4d4d;"></i>
-          <span class="sr-only">Loading...</span>
-          Pesan Project
-        </a>
-      </div> -->
-
-    </div>
-  </section>
-
-  <!-- My SERTIFICATE -->
-    <!-- Portfolio Section -->
-  <section class="page-section portfolio" id="sertificate">
-    <div class="container">
-
-      <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Sertificate</h2>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fa fa-space-shuttle" style="color: #ff4d4d"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-
-      <!-- sertificate Grid Items -->
-      <div class="row sertificate-place">
-      </div>
-      <div class="row justify-content-center my-4">
-        <div class="col-md-4  text-center">
-          <a class="btn btn-secondary shadow" href="certificate.html">
-            <h5 class="text-center mb-0">Open more sertificate</h5>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- My STORIES -->
-  <section class="page-section text-white mb-0" style="background-color: #ff4d4d" id="life">
-    <div class="container">
-      <h2 class="page-section-heading text-center text-uppercase text-white mb-0">LIFE</h2>
-
-    <!-- Icon Divider -->
-      <div class="divider-custom">
-        <div class="divider-custom-line bg-white"></div>
-        <div class="divider-custom-icon">
-          <i class="fa fa-biohazard" style="color: #1abc9c"></i>
-        </div>
-        <div class="divider-custom-line bg-white"></div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-md-4 pt-4 text-center">
-          <div class="card">
-            <div class="card-body text-dark p-0">
-              <center class="m-3">
-                <div class="card-title text-dark bg-primary rounded-circle" style="display: inline-block;width: 3em;height: 3em"><i class="fa fa-school fa-lg pt-3 text-white"></i></div>
-              <h5 class="card-title">Rekayasa Perangkat Lunak</h5>
-              </center>
-              <ul class="list-group">
-                <li class="list-group-item">SMK NEGERI 1 DLANGGU</li>
-                <li class="list-group-item active">2017 - 2020</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 pt-4 text-center">
-          <div class="card">
-            <div class="card-body text-dark p-0">
-              <center class="m-3">
-                <div class="card-title text-dark bg-primary rounded-circle" style="display: inline-block;width: 3em;height: 3em"><i class="fa fa-school fa-lg pt-3 text-white"></i></div>
-              <h5 class="card-title">Sistem Informasi</h5>
-              </center>
-              <ul class="list-group">
-                <li class="list-group-item">Universitas Terbuka</li>
-                <li class="list-group-item active">2021 - Now</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
-
-        <!-- Footer Location -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Address</h4>
-          <p class="lead mb-0">Indonesia
-            <br>Jawa Timur, Mojokerto
-            <br>
-					</p>
-        </div>
-
-        <!-- Footer Social Icons -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">My Social Media</h4>
-          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/muhammad.walle.1">
-            <i class="fab fa-fw fa-facebook-f"></i>
-          </a>
-					<a target="_blank" class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/aing_irfani/">
-						<i class="fab fa-fw fa-instagram"></i>
-					</a>
-          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="https://wa.me/6289691159186">
-            <i class="fab fa-fw fa-whatsapp"></i>
-          </a>
-          <a target="_blank" class="btn btn-outline-light btn-social mx-1" href="https://github.com/masirfani">
-            <i class="fab fa-fw fa-github"></i>
-          </a>
-        </div>
-
-        <!-- Footer Skill Text -->
-        <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">Who Am I </h4>
-          <p class="lead mb-0">Founder <a href="#">Beasteri</a></p>
-          <p class="lead mb-0">EX CO-Founder <a href="https://maps.app.goo.gl/G6TQPqz9RkKWZ3ELA">Pandoradev</a></p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; <span style="color: #ff4d4d">Ma's Irfani</span> 2020 - Template by <span class="text-primary">Freelancer</span></small>
-    </div>
-  </section>
-
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-  <div class="scroll-to-top d-lg-none position-fixed ">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-  </div>
-
-  <!-- Portfolio Modals -->
-
-  <!-- Portfolio Modal 1 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container-fluid">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">DA-PREWA</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/da-prewa.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5"><b>Sistem Informasi Data Presensi Siswa</b> yang dibuat dengan tujuan agar memudahkan pencatatan presensi siswa</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    Available for Enterprise Consulting
+                </div>
                 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Building High-Performance <br class="hidden md:block" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">Digital Solutions</span>
+                </h1>
 
-  <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-10">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Jatimpark 3</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/Jatim Park 3 - Main.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Pembuatan yang didasarkan untuk mempromosikan wisata jatimpark 3 ke orang orang</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
+                <!-- Real-time Project Counter -->
+                <!-- Moved to Social Proof -->
+                
+                <p class="mt-2 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    Fullstack Website Developer specializing in scalable PHP (Laravel/CI) systems & IoT. 
+                    Proven track record in Motasa, JatimPark, and International Clients.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 group">
+                        Scale Your Business
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-semibold rounded-lg border border-zinc-800 transition-all flex items-center justify-center gap-2">
+                        View Case Studies
+                    </a>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 md:gap-16 text-zinc-500 text-sm font-mono animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                        <span>14+ Enterprise Projects</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4 text-emerald-500"></i>
+                        <span><span id="project-count" class="animate-pulse">--</span> Non-Enterprise Projects</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-blue-500"></i>
+                        <span>5+ Years Experience</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="globe" class="w-4 h-4 text-zinc-400"></i>
+                        <span>Based in Indonesia, Serving Global</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack (Expertise Map) -->
+    <section id="expertise" class="py-20 bg-zinc-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 md:flex md:items-end md:justify-between reveal">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Technical Capabilities</h2>
+                    <p class="text-zinc-400">Engineered for scalability and performance.</p>
+                </div>
+                <div class="hidden md:block h-px flex-1 bg-zinc-800 ml-8 mb-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Core Infrastructure -->
+                <div class="glass-card p-6 rounded-xl hover:border-emerald-500/30 transition-colors group reveal">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-500/10 transition-colors">
+                        <i data-lucide="server" class="w-6 h-6 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Core Infrastructure</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>Laravel Framework</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>CodeIgniter</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>MySQL Optimization</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>RESTful APIs</li>
+                    </ul>
+                </div>
+
+                <!-- Modern Frontend -->
+                <div class="glass-card p-6 rounded-xl hover:border-blue-500/30 transition-colors group reveal" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/10 transition-colors">
+                        <i data-lucide="layout" class="w-6 h-6 text-blue-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Modern Frontend</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>JavaScript (ES6+)</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>Tailwind CSS</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>jQuery Legacy Support</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>Responsive UI/UX</li>
+                    </ul>
+                </div>
+
+                <!-- Industrial IoT -->
+                <div class="glass-card p-6 rounded-xl hover:border-purple-500/30 transition-colors group reveal" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/10 transition-colors">
+                        <i data-lucide="cpu" class="w-6 h-6 text-purple-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Industrial IoT</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Java Programming</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Hardware Integration</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Real-time Monitoring</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Sensor Data Processing</li>
+                    </ul>
+                </div>
+
+                <!-- Business Analysis -->
+                <div class="glass-card p-6 rounded-xl hover:border-orange-500/30 transition-colors group reveal" style="transition-delay: 0.3s;">
+                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/10 transition-colors">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-orange-500"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Business Analysis</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>System Design</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>Workflow Optimization</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>Technical Documentation</li>
+                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>Requirement Gathering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section id="projects" class="py-20 bg-zinc-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Selected Works</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">High-impact projects delivering tangible business results for enterprise clients.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: JatimPark 3 -->
+                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 reveal">
+                    <div class="aspect-video bg-zinc-800 relative overflow-hidden">
+                        <img src="img/portfolio/Jatim Park 3 - Main.png" alt="JatimPark 3" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Tourism Portal</span>
+                            <span class="text-zinc-500 text-xs">2020</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">JatimPark 3 Integration</h3>
+                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Comprehensive promotional portal for one of Indonesia's largest theme parks, handling high visitor traffic and information dissemination.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                            <span class="text-xs text-zinc-500">Solution Highlight</span>
+                            <span class="text-xs text-white font-medium">High-Traffic Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Motasa WMS -->
+                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 reveal" style="transition-delay: 0.1s;">
+                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-zinc-900 z-0"></div>
+                        <i data-lucide="warehouse" class="w-16 h-16 text-blue-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-blue-400 bg-blue-400/10 px-2 py-1 rounded">Logistics System</span>
+                            <span class="text-zinc-500 text-xs">2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Motasa WMS</h3>
+                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Warehouse Management System designed to streamline inventory tracking, logistics, and supply chain operations for large-scale manufacturing.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                            <span class="text-xs text-zinc-500">Solution Highlight</span>
+                            <span class="text-xs text-white font-medium">Real-time Inventory</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Motasa Avalan -->
+                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-green-500/50 transition-all duration-300 reveal" style="transition-delay: 0.2s;">
+                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-900/20 to-zinc-900 z-0"></div>
+                        <i data-lucide="recycle" class="w-16 h-16 text-green-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-green-400 bg-green-400/10 px-2 py-1 rounded">Eco-Management</span>
+                            <span class="text-zinc-500 text-xs">2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Motasa Avalan System</h3>
+                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Industrial waste tracking and reporting workflow system to ensure compliance and optimize resource recovery processes.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                            <span class="text-xs text-zinc-500">Solution Highlight</span>
+                            <span class="text-xs text-white font-medium">Workflow Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Motasa PSM -->
+                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 reveal">
+                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 to-zinc-900 z-0"></div>
+                        <i data-lucide="activity" class="w-16 h-16 text-orange-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-orange-400 bg-orange-400/10 px-2 py-1 rounded">Production Control</span>
+                            <span class="text-zinc-500 text-xs">2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Motasa PSM</h3>
+                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Production System Management dashboard providing real-time insights into manufacturing metrics, scheduling, and output efficiency.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                            <span class="text-xs text-zinc-500">Solution Highlight</span>
+                            <span class="text-xs text-white font-medium">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Daihatsu Sales Platform -->
+                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 reveal" style="transition-delay: 0.1s;">
+                    <div class="aspect-video bg-zinc-800 relative overflow-hidden">
+                        <img src="img/portfolio/daihatsu1.png" alt="Daihatsu Sales" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-red-400 bg-red-400/10 px-2 py-1 rounded">Sales Funnel</span>
+                            <span class="text-zinc-500 text-xs">Multiple</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Daihatsu Sales Landing Pages</h3>
+                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">High-conversion landing page generator for automotive sales agents, optimized for lead generation and mobile responsiveness.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                            <span class="text-xs text-zinc-500">Solution Highlight</span>
+                            <span class="text-xs text-white font-medium">Conversion Rate Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: ANTASI ERPPOS -->
+                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 reveal" style="transition-delay: 0.2s;">
+                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
+                         <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-zinc-900 z-0"></div>
+                        <i data-lucide="shopping-cart" class="w-16 h-16 text-purple-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-mono text-purple-400 bg-purple-400/10 px-2 py-1 rounded">Retail ERP</span>
+                            <span class="text-zinc-500 text-xs">2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">ANTASI ERPPOS</h3>
+                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Integrated Enterprise Resource Planning and Point of Sale system for retail management, inventory control, and financial reporting.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
+                            <span class="text-xs text-zinc-500">Solution Highlight</span>
+                            <span class="text-xs text-white font-medium">System Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center reveal">
+                <button onclick="toggleModal('legacy-modal')" class="text-zinc-400 hover:text-white text-sm font-medium border-b border-zinc-700 hover:border-white transition-all pb-1">
+                    View Legacy Projects Archive
                 </button>
-                <a href="https://masirfani.github.io/project/jatimpark-3/portal.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">PEGAS</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/pegas.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5"><b>Sistem Informasi Pengumpulan Tugas</b> yang dibuat dengan tujuan memudahkan gru memberikan tugas dan murid yang ingin mengumpulkan tugas</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
+    <!-- Work Log (Terminal Style) -->
+    <section id="logs" class="py-20 bg-zinc-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-2 mb-6 reveal">
+                <i data-lucide="terminal" class="w-5 h-5 text-emerald-500"></i>
+                <h2 class="text-xl font-mono font-bold text-white">Recent System Logs</h2>
+            </div>
+            
+            <div class="bg-zinc-900 rounded-lg border border-zinc-800 p-6 font-mono text-sm shadow-2xl reveal">
+                <div class="flex gap-2 mb-4 border-b border-zinc-800 pb-4">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div class="space-y-3 text-zinc-400">
+                    <div class="flex flex-col sm:flex-row sm:gap-4">
+                        <span class="text-emerald-500 whitespace-nowrap">[2025-07-01 09:42]</span>
+                        <span>Deploying <span class="text-white">CRM Avalan v2.1</span> to production server... <span class="text-emerald-500">Done</span></span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:gap-4">
+                        <span class="text-blue-500 whitespace-nowrap">[2025-06-28 14:15]</span>
+                        <span>Optimizing <span class="text-white">Kasbon System</span> database queries. Latency reduced by 40%.</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:gap-4">
+                        <span class="text-purple-500 whitespace-nowrap">[2025-06-15 11:30]</span>
+                        <span>Scaling <span class="text-white">WMS Database</span> horizontal sharding for increased load.</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:gap-4">
+                        <span class="text-zinc-500 whitespace-nowrap">[2025-05-20 16:45]</span>
+                        <span>System audit for <span class="text-white">PT Motasa</span> network infrastructure completed.</span>
+                    </div>
+                    <div class="mt-4 animate-pulse">
+                        <span class="text-emerald-500">$</span> <span class="typing-cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-zinc-900/30 border-t border-zinc-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-12 reveal">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Certifications & Achievements</h2>
+                    <p class="text-zinc-400">Professional validation of technical expertise.</p>
+                </div>
+                <button onclick="openCertModal()" class="hidden md:flex items-center gap-2 text-emerald-500 hover:text-emerald-400 transition-colors text-sm font-medium">
+                    View All Certificates <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
-                <!-- <a href="https://masirfani.github.io/project/daihatsu2/index.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a> -->
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">DAIHATSU-ROFI</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/daihatsu1.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page daihatsu dengan pemilik nama yaitu ROFI</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
+            <!-- Featured Certificates Grid -->
+            <div id="featured-certs" class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+                <!-- Injected via JS -->
+            </div>
+
+            <div class="mt-8 text-center md:hidden reveal">
+                <button onclick="openCertModal()" class="text-emerald-500 hover:text-emerald-400 text-sm font-medium border-b border-emerald-500/20 hover:border-emerald-500 transition-all pb-1">
+                    View All Certificates
                 </button>
-                <a href="https://masirfani.github.io/project/daihatsu/index.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
+    <!-- Trust Builder / Contact -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 reveal">Ready to Scale Your Business?</h2>
+            <p class="text-zinc-400 text-lg max-w-2xl mx-auto mb-10 reveal">
+                Let's discuss how we can build high-performance digital infrastructure for your enterprise.
+            </p>
+            
+            <div class="flex flex-col items-center gap-8 reveal">
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-2xl mx-auto">
+                    <!-- WhatsApp Button (Primary) -->
+                    <a href="https://wa.me/6289691159186" target="_blank" class="relative inline-flex group w-full sm:w-1/2">
+                        <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BC48] via-[#44BC48] to-[#10b981] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+                        <button class="relative inline-flex items-center justify-center w-full px-6 py-4 text-base font-bold text-white transition-all duration-200 bg-zinc-900 font-sans rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 border border-transparent h-full">
+                            <i data-lucide="message-circle" class="w-5 h-5 mr-2 text-[#25D366]"></i>
+                            Chat on WhatsApp
+                            <span class="ml-2 px-2 py-0.5 rounded-full bg-[#25D366]/20 text-[#25D366] text-[10px] font-medium uppercase tracking-wider">Fast</span>
+                        </button>
+                    </a>
+
+                    <!-- Download CV Button (Secondary) -->
+                    <a href="Muhammad_Masum_Irfani_CV_ATS.pdf" download class="relative inline-flex group w-full sm:w-1/2">
+                        <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+                        <button class="relative inline-flex items-center justify-center w-full px-6 py-4 text-base font-bold text-white transition-all duration-200 bg-zinc-900 font-sans rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 border border-transparent h-full">
+                            <i data-lucide="file-down" class="w-5 h-5 mr-2 text-blue-500"></i>
+                            Download CV
+                            <span class="ml-2 px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-500 text-[10px] font-medium uppercase tracking-wider transition-colors">PDF</span>
+                        </button>
+                    </a>
+                </div>
+                
+                <div class="flex gap-6 mt-4">
+                    <a href="http://linkedin.com/in/muhammad-ma-sum-irfani-189b71195/" target="_blank" class="group/link flex flex-col items-center relative">
+                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
+                            <i data-lucide="linkedin" class="w-5 h-5 mr-2"></i> LinkedIn
+                        </div>
+                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800">
+                            Muhammad Ma'sum Irfani
+                        </span>
+                    </a>
+                    
+                    <a href="http://facebook.com/muhammad.walle.1" target="_blank" class="group/link flex flex-col items-center relative">
+                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
+                            <i data-lucide="facebook" class="w-5 h-5 mr-2"></i> Facebook
+                        </div>
+                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800">
+                            Muhammad Ma'sum Irfani
+                        </span>
+                    </a>
+
+                    <a href="http://instagram.com/be_irfani" target="_blank" class="group/link flex flex-col items-center relative">
+                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
+                            <i data-lucide="instagram" class="w-5 h-5 mr-2"></i> Instagram
+                        </div>
+                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800">
+                            @be_irfani
+                        </span>
+                    </a>
+
+                    <a href="mailto:muhammadwalle123@gmail.com" class="group/link flex flex-col items-center relative">
+                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
+                            <i data-lucide="mail" class="w-5 h-5 mr-2"></i> Email
+                        </div>
+                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800">
+                            muhammadwalle123@gmail.com
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-zinc-950 border-t border-zinc-900 text-center">
+        <p class="text-zinc-600 text-sm">
+            &copy; 2026 made with <i data-lucide="heart" class="w-4 h-4 inline-block text-emerald-500"></i> by Muhammad Ma'sum Irfani. All rights reserved. <br>
+            <span class="text-xs">Mojokerto, Jawa Timur, Indonesia.</span>
+        </p>
+    </footer>
+
+    <!-- Legacy Projects Modal -->
+    <div id="legacy-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-zinc-950 bg-opacity-90 transition-opacity" aria-hidden="true" onclick="toggleModal('legacy-modal')"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full border border-zinc-800">
+                <div class="bg-zinc-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg leading-6 font-medium text-white" id="modal-title">Legacy Projects Archive</h3>
+                        <button onclick="toggleModal('legacy-modal')" class="text-zinc-400 hover:text-white">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="legacy-loader" class="flex flex-col items-center justify-center py-12">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mb-4"></div>
+                        <p class="text-zinc-400 animate-pulse">Loading Archives...</p>
+                    </div>
+
+                    <!-- Search and Filter Controls (Hidden initially, shown after load) -->
+                    <div id="legacy-controls" class="hidden mb-6 space-y-4">
+                        <div class="relative">
+                            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500"></i>
+                            <input type="text" id="project-search" placeholder="Search project name..." 
+                                class="w-full bg-zinc-800 border border-zinc-700 text-white rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:border-emerald-500 transition-colors">
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="filterProjects('all')" id="btn-all" class="px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors">All</button>
+                            <button onclick="filterProjects('personal')" id="btn-personal" class="px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors">Personal</button>
+                            <button onclick="filterProjects('collab')" id="btn-collab" class="px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors">Collaborative</button>
+                        </div>
+                    </div>
+
+                    <div id="legacy-content" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[50vh] overflow-y-auto pr-2 hidden custom-scrollbar">
+                        <!-- Dynamic Content will be injected here -->
+                    </div>
+                </div>
+                <div class="bg-zinc-800/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-zinc-600 text-base font-medium text-white hover:bg-zinc-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleModal('legacy-modal')">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificates Gallery Modal -->
+    <div id="cert-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-zinc-950 bg-opacity-90 transition-opacity" aria-hidden="true" onclick="toggleModal('cert-modal')"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl sm:w-full border border-zinc-800">
+                <div class="bg-zinc-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg leading-6 font-medium text-white">All Certifications</h3>
+                        <button onclick="toggleModal('cert-modal')" class="text-zinc-400 hover:text-white">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    <div id="all-certs-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto custom-scrollbar p-1">
+                        <!-- Dynamic Content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[80] hidden flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-zinc-400 hover:text-white z-[90] p-2 bg-zinc-800/50 rounded-full transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/daihatsu3.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page daihatsu dengan pemilik nama yaitu SAMUEL</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="https://masirfani.github.io/project/daihatsu-ketiga/index.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
+        <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center p-4">
+            <img id="lightbox-img" src="" alt="Certificate Full View" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-95">
+            <a id="lightbox-download" href="#" download class="absolute bottom-4 right-4 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg transition-all opacity-0 hover:opacity-100 group-hover:opacity-100">
+                <i data-lucide="download" class="w-4 h-4"></i> Download High-Res
+            </a>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/daihatsu2.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page daihatsu dengan pemilik nama yaitu JAROT</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="https://masirfani.github.io/project/daihatsu2/index.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
 
-  <!-- Portfolio Modal 7 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/daihatsu4.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page daihatsu dengan pemilik nama yaitu IWAN</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="https://masirfani.github.io/project/daihatsu-keempat/index.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Certificate Data (Integrated from app.js)
+        const certificateData = [
+            { filename: "[WEB][06][FINAL]WEBSITE DEVELOPMENT FUNDAMENTAL.webp" },
+            { filename: "[FRONTEND][13][FINAL]FRONTEND - HTML.webp" },
+            { filename: "[CSS][28][FINAL] FRONTEND - CSS.webp" },
+            { filename: "champion-wdc.webp" },
+            { filename: "competition-edusiber.webp" },
+            { filename: "english-alliance-quiz.webp" },
+            { filename: "sololearn-html.webp" },
+            { filename: "sololearn-php.webp" },
+            { filename: "sololearn-javascript.webp" },
+            { filename: "sololearn-jquery.webp" },
+            { filename: "indosat.webp" },
+            { filename: "sololearn-sql.webp" },
+            { filename: "[WEB][01]INTERNET INTRODUCTION.webp" },
+            { filename: "[WEB][02]WEBSITE DEVELOPMENT INTRODUCTION.webp" },
+            { filename: "[WEB][03]INTEGRATED DEVELOPMENT ENVIRONMENT AND TEXT EDITOR.webp" },
+            { filename: "[WEB][04]RESPONSIVE WEBSITE DESIGN.webp" },
+            { filename: "[WEB][05]CAREER IN WEBSITE DEVELOPMENT.webp" },
+            { filename: "[FRONTEND][01]BROWSER, HTTP, DNS, AND HOSTING.webp" },
+            { filename: "[FRONTEND][02]INTRODUCTION TO HTML.webp" },
+            { filename: "[FRONTEND][03]ATRIBUTES AND BLOCK ELEMENT.webp" },
+            { filename: "[FRONTEND][04]HTML IMAGES AND FORMATTED TEXT.webp" },
+            { filename: "[FRONTEND][05]INLINE ELEMENTS.webp" },
+            { filename: "[FRONTEND][06]SEMANTIC HTML AND GENERIC ELEMENTS.webp" },
+            { filename: "[FRONTEND][07]TABLE AND THE IMPLEMENTATION.webp" },
+            { filename: "[FRONTEND][08]FORMS AND THE IMPLEMENTATION.webp" },
+            { filename: "[FRONTEND][09]HTML STYLES AND COLORS.webp" },
+            { filename: "[FRONTEND][10]HTML CLASS AND ID.webp" },
+            { filename: "[FRONTEND][11]HTML MEDIA.webp" },
+            { filename: "[FRONTEND][12]PRACTICE MAKING A TO DO LIST WEBSITE.webp" },
+            { filename: "[CSS][01]INTRODUCTION TO CSS.webp" },
+            { filename: "[CSS][02]CSS BOX MODEL 1.webp" },
+            { filename: "[CSS][03]CSS BOX MODEL 2.webp" },
+            { filename: "[CSS][04]CSS SELECTOR.webp" },
+            { filename: "[CSS][05]CSS CASCADE.webp" },
+            { filename: "[CSS][06]CSS SPACING.webp" },
+            { filename: "[CSS][07]CSS INHERITANCE.webp" },
+            { filename: "[CSS][08]CSS COLOR.webp" },
+            { filename: "[CSS][09]CSS PSEUDO ELEMENTS.webp" },
+            { filename: "[CSS][10]CSS PSEUDO CLASS.webp" },
+            { filename: "[CSS][11]CSS SIZING UNIT.webp" },
+            { filename: "[CSS][12]CSS LAYOUT.webp" },
+            { filename: "[CSS][13]CSS BORDERS.webp" },
+            { filename: "[CSS][14]CSS SHADOWS.webp" },
+            { filename: "[CSS][15]CSS FOCUS.webp" },
+            { filename: "[CSS][16]CSS Z - INDEX.webp" },
+            { filename: "[CSS][17]CSS FUNCTION.webp" },
+            { filename: "[CSS][18]CSS GRADIENTS.webp" },
+            { filename: "[CSS][19]CSS ANIMATIONS.webp" },
+            { filename: "[CSS][20]CSS FILTERS.webp" },
+            { filename: "[CSS][21]CSS BLEND MODES.webp" },
+            { filename: "[CSS][22] CSS LISTS.webp" },
+            { filename: "[CSS][23] CSS TRANSITIONS.webp" },
+            { filename: "[CSS][24] CSS OVERFLOW.webp" },
+            { filename: "[CSS][25] CSS BACKGROUNDS.webp" },
+            { filename: "[CSS][26] CSS TEXT AND TYPOGRAPHY.webp" },
+            { filename: "[CSS][27] CSS MINI PROJECT.webp" }
+        ];
 
-  <!-- Portfolio Modal 8 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/ai-transportation.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan jasa transportasi barang.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="http://aitransportasi.com/" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Cert Logic
+        function initCertificates() {
+            const featuredContainer = document.getElementById('featured-certs');
+            const allContainer = document.getElementById('all-certs-grid');
+            
+            // Render Featured (First 8)
+            renderCertGrid(certificateData.slice(0, 8), featuredContainer);
+            
+            // Render All (Lazy load triggered on open)
+            // We'll render them but images will be lazy
+            renderCertGrid(certificateData, allContainer);
+        }
 
-  <!-- Portfolio Modal 9 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/anti_lemot.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan jasa service barang elektronik khususnya laptop, pc dan juga smarthphone.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="http://antilemot.tech/" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        function renderCertGrid(items, container) {
+            if (!container) return;
+            container.innerHTML = items.map(cert => `
+                <div class="group relative aspect-[4/3] bg-zinc-800 rounded-lg overflow-hidden cursor-pointer border border-zinc-700/50 hover:border-emerald-500/50 transition-all" onclick="openLightbox('img/serti/${cert.filename}')">
+                    <img src="img/serti/${cert.filename}" alt="Certificate" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="maximize-2" class="w-6 h-6 text-white"></i>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
 
-  <!-- Portfolio Modal 10 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/cetak_bres.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan jasa cetak yang meliputi undangan, banner dan percetakan lainnya.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="https://masirfani.github.io/project/cetak-bres/index.html" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        function openCertModal() {
+            toggleModal('cert-modal');
+        }
 
-  <!-- Portfolio Modal 11 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/jlive.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <!-- <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan jasa cetak yang meliputi undangan, banner dan percetakan lainnya.</p> -->
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <!-- <a href="" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Lightbox Logic
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const dl = document.getElementById('lightbox-download');
+            
+            img.src = src;
+            dl.href = src;
+            
+            modal.classList.remove('hidden');
+            // Small delay for transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                img.classList.remove('scale-95');
+                img.classList.add('scale-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
 
-  <!-- Portfolio Modal 12 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal12" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/djiwatangguh.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan penjual cangklong rokok.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="http://djiwatangguh.id/" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            img.classList.remove('scale-100');
+            img.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                img.src = ''; 
+            }, 300);
+            
+            document.body.style.overflow = '';
+        }
 
-  <!-- Portfolio Modal 13 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/undangan_rek.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan yang menyediakan jasa pembuatan undangan digital maupun fisik.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="https://masirfani.github.io/project/undanganrek" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Close Lightbox on Background Click
+        document.getElementById('lightbox-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox-modal') closeLightbox();
+        });
 
-  <!-- Portfolio Modal 14 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal14" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <!-- <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2> -->
-                <!-- Icon Divider -->
-                <!-- <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/minakdjinggo.png" alt="">
-                <!-- Portfolio Modal - Text -->
-                <!-- <p class="mb-5">Web yang digunakan sebagai <b>landing</b> page sebuah perusahaan yang menyediakan jasa pembuatan undangan digital maupun fisik.</p> -->
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Keluar
-                </button>
-                <a href="http://djiwatangguh.id/rempah" target="_blank" class="btn btn-info ml-1"><i class="fas fa-external-link-alt"></i> Lihat Web</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        // Run Init
+        window.addEventListener('load', initCertificates);
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        // Project Data
+        const legacyProjects = [
+            // Personal Projects
+            { name: "Absensi Ekstrakulikuler", category: "personal" },
+            { name: "Company Profile & Absensi basis QRcode SMKI tanwirulafkar", category: "personal" },
+            { name: "Company Profile & Absensi basis QRcode SMPI tanwirulafkar", category: "personal" },
+            { name: "Company Profile BertigaGroup", category: "personal" },
+            { name: "Company Profile Djiwa Tangguh", category: "personal" },
+            { name: "Company Profile Jatimpark 3", category: "personal" },
+            { name: "Company Profile Lakurek", category: "personal" },
+            { name: "Company Profile PT. Fajar Indah Lestari", category: "personal" },
+            { name: "Company Profile SMA Driyorejo", category: "personal" },
+            { name: "Company Profile ThreeGo", category: "personal" },
+            { name: "Company Profile Yayasan Tanwirulafkar", category: "personal" },
+            { name: "Data Presensi Siswa", category: "personal" },
+            { name: "Kursus Online", category: "personal" },
+            { name: "Landing Page Ai Transportation", category: "personal" },
+            { name: "Landing Page Anti Lemot", category: "personal" },
+            { name: "Landing Page Cetak Bress", category: "personal" },
+            { name: "Landing Page Dealer Mobil - Iwan", category: "personal" },
+            { name: "Landing Page Dealer Mobil - Jarot", category: "personal" },
+            { name: "Landing Page Dealer Mobil - Rofi", category: "personal" },
+            { name: "Landing Page Dealer Mobil - Samuel", category: "personal" },
+            { name: "Landing Page Jlive", category: "personal" },
+            { name: "Landing Page Minak Djinggo Rempah", category: "personal" },
+            { name: "Landing Page Rongsokin", category: "personal" },
+            { name: "Landing Page Undangan Rek", category: "personal" },
+            { name: "Pengumpulan Tugas SMK", category: "personal" },
+            { name: "Redevelope Sistem Inventaris Mobil", category: "personal" },
+            { name: "Redevelope Sistem Pengelolaan Sopir Dan Kendaraan", category: "personal" },
+            { name: "Redevelope Sistem Penjualan Kue", category: "personal" },
+            { name: "Sistem Absensi Event Suramade Nusra Surabaya", category: "personal" },
+            { name: "Sistem Event Healtcare Triakin Aja Dulu", category: "personal" },
+            { name: "Sistem Event Kuis Asik Grab", category: "personal" },
+            { name: "Sistem Event Roullete Pemilihan Pemenang", category: "personal" },
+            { name: "Sistem Inventaris Barang", category: "personal" },
+            { name: "Sistem Penggabungan Excel dan Gform Untuk Penerimaan Karyawan", category: "personal" },
+            { name: "Sistem Timer Event Kopetisi Jembatan Nasional", category: "personal" },
+            { name: "TA Mahasiswa Website Rumah Sakit", category: "personal" },
+            { name: "Website Desa Samu Jaya", category: "personal" },
+            { name: "Website Kasir UMKM Lira", category: "personal" },
+            { name: "Website Perizinan Seni Mojokerto", category: "personal" },
+            { name: "Website Penyuratan Desa Penopa", category: "personal" },
+            { name: "Webiste Jual Beli Peralatan Pertanian", category: "personal" },
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            // Collaborative Projects
+            { name: "18th Kos", category: "collab" },
+            { name: "Absensi Siswa", category: "collab" },
+            { name: "Absensi Siswa SD", category: "collab" },
+            { name: "Absensi Siswa SMK-Sekretaris", category: "collab" },
+            { name: "Alokasi Dana Desa", category: "collab" },
+            { name: "Apotek", category: "collab" },
+            { name: "BYSHAYSHOP", category: "collab" },
+            { name: "Bioskop", category: "collab" },
+            { name: "Booking Hotel", category: "collab" },
+            { name: "Company Profile Lembah Mbencirang", category: "collab" },
+            { name: "Company Profile Sekolah", category: "collab" },
+            { name: "Cuci Karpet", category: "collab" },
+            { name: "Cuci Mobil", category: "collab" },
+            { name: "d'Phone Shop", category: "collab" },
+            { name: "Distribusi Sayuran", category: "collab" },
+            { name: "IOT Sistem Penyiraman Otomatis", category: "collab" },
+            { name: "Jadwal Pelajaran SD", category: "collab" },
+            { name: "Jual Foto", category: "collab" },
+            { name: "Keuangan Masjid", category: "collab" },
+            { name: "Kasir", category: "collab" },
+            { name: "Kasir ATK", category: "collab" },
+            { name: "Kurir Ekspedisi", category: "collab" },
+            { name: "Laundry", category: "collab" },
+            { name: "Literasi Pustaka", category: "collab" },
+            { name: "Laundry 3D", category: "collab" },
+            { name: "Marketplace", category: "collab" },
+            { name: "Minimarket", category: "collab" },
+            { name: "Penyewaan Lap Badminton", category: "collab" },
+            { name: "Peduli Lingkungan", category: "collab" },
+            { name: "Pemesanan Kursi Bioskop", category: "collab" },
+            { name: "Pemesanan Makanan", category: "collab" },
+            { name: "Pemesanan Tiket Bioskop", category: "collab" },
+            { name: "Pemilihan Ketua Osis", category: "collab" },
+            { name: "Peminjaman Barang Sarana Prasarana Sekolah", category: "collab" },
+            { name: "Pencatatan Konter", category: "collab" },
+            { name: "Pencucian Mobil/Motor", category: "collab" },
+            { name: "Pendaftaran Ekstrakurikuler", category: "collab" },
+            { name: "Pendaftaran Siswa Sekolah SD", category: "collab" },
+            { name: "Pendataan Warga", category: "collab" },
+            { name: "Pengaduan BK", category: "collab" },
+            { name: "Pengaduan Masyarakat", category: "collab" },
+            { name: "Pengelolaan Ekstrakurikuler", category: "collab" },
+            { name: "Pengelolaan Kas Kelas", category: "collab" },
+            { name: "Pengelolaan Prakerin", category: "collab" },
+            { name: "Pengelolaan Kas Pramuka", category: "collab" },
+            { name: "Penggajian Karyawan", category: "collab" },
+            { name: "Penjadwalan Guru", category: "collab" },
+            { name: "Penjualan Foto", category: "collab" },
+            { name: "Penjualan Makanan", category: "collab" },
+            { name: "Penjualan Minuman", category: "collab" },
+            { name: "Penjualan Sepatu", category: "collab" },
+            { name: "Penjualan Sepatu Bekas", category: "collab" },
+            { name: "Penjualan Tiens", category: "collab" },
+            { name: "Perizinan Karyawan Kantor", category: "collab" },
+            { name: "Perpustakaan", category: "collab" },
+            { name: "Petshop Kucing", category: "collab" },
+            { name: "Pinjaman Online", category: "collab" },
+            { name: "Pinjaman Uang", category: "collab" },
+            { name: "Puskesmas", category: "collab" },
+            { name: "Rapor Siswa", category: "collab" },
+            { name: "Rekam Medis Pasien", category: "collab" },
+            { name: "Rekomendasi Skincare", category: "collab" },
+            { name: "Rental Mobil", category: "collab" },
+            { name: "Reservasi Kamar Hotel", category: "collab" },
+            { name: "Restaurant Cak Muk", category: "collab" },
+            { name: "Restaurant Echo", category: "collab" },
+            { name: "Restaurant Makan Ditempat", category: "collab" },
+            { name: "Restaurant Self Service", category: "collab" },
+            { name: "Rumah Sakit", category: "collab" },
+            { name: "SPP Payment", category: "collab" },
+            { name: "Sarana Prasarana Sekolah", category: "collab" },
+            { name: "Sarpras", category: "collab" },
+            { name: "Tiket Pesawat", category: "collab" },
+            { name: "Toko Baju", category: "collab" },
+            { name: "Toko Desaku", category: "collab" },
+            { name: "Toko Perabotan", category: "collab" },
+            { name: "Tugas SMK", category: "collab" },
+            { name: "UKS", category: "collab" },
+            { name: "Undangan Online", category: "collab" },
+            { name: "Wedding Organizer", category: "collab" },
+            { name: "m'sFashion", category: "collab" },
+            { name: "Perfect Your Fit", category: "collab" },
+            { name: "Tiket Pengunjung Pendaki", category: "collab" }
+        ];
 
-  <!-- Custom scripts for this template -->
-  <script src="js/freelancer.js"></script>
+        let currentFilter = 'all';
 
-  <!-- Include the data.html file -->
-  <div class="name-list" id="nameList"></div>
+        // Filter Function
+        function filterProjects(category) {
+            currentFilter = category;
+            
+            // Update Buttons
+            document.getElementById('btn-all').className = category === 'all' 
+                ? "px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors"
+                : "px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors";
+                
+            document.getElementById('btn-personal').className = category === 'personal'
+                ? "px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors"
+                : "px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors";
+                
+            document.getElementById('btn-collab').className = category === 'collab'
+                ? "px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors"
+                : "px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors";
 
+            renderProjects();
+        }
 
-  <script src="js/mine.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158702833-1"></script>
+        // Render Function
+        function renderProjects() {
+            const container = document.getElementById('legacy-content');
+            const searchTerm = document.getElementById('project-search').value.toLowerCase();
+            
+            container.innerHTML = '';
+            
+            const filtered = legacyProjects.filter(project => {
+                const matchesCategory = currentFilter === 'all' || project.category === currentFilter;
+                const matchesSearch = project.name.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
 
-  <script>displayData(jsonData, ".sertificate-place", 6);</script>
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-8 text-zinc-500">
+                        No projects found.
+                    </div>
+                `;
+                return;
+            }
 
+            filtered.forEach(project => {
+                const card = document.createElement('div');
+                card.className = "bg-zinc-800/50 p-4 rounded-lg hover:bg-zinc-800 transition-colors border border-transparent hover:border-emerald-500/20";
+                
+                // Add tag based on category
+                const tagClass = project.category === 'personal' 
+                    ? "bg-blue-500/10 text-blue-400 border-blue-500/20" 
+                    : "bg-purple-500/10 text-purple-400 border-purple-500/20";
+                
+                const tagLabel = project.category === 'personal' ? 'Personal' : 'Collaboration';
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded border ${tagClass}">${tagLabel}</span>
+                    </div>
+                    <h4 class="text-white font-bold text-sm">${project.name}</h4>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Search Listener
+        document.getElementById('project-search').addEventListener('input', renderProjects);
+
+        // Modal Logic
+        function toggleModal(modalID){
+            const modal = document.getElementById(modalID);
+            const isHidden = modal.classList.contains('hidden');
+            
+            if (isHidden) {
+                // OPEN MODAL
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                
+                // Loading Logic only for legacy-modal
+                if (modalID === 'legacy-modal') {
+                    const loader = document.getElementById('legacy-loader');
+                    const controls = document.getElementById('legacy-controls');
+                    const content = document.getElementById('legacy-content');
+                    
+                    if(loader && content) {
+                        loader.classList.remove('hidden');
+                        controls.classList.add('hidden');
+                        content.classList.add('hidden');
+                        
+                        // Reset filters
+                        currentFilter = 'all';
+                        document.getElementById('project-search').value = '';
+                        filterProjects('all'); // This updates buttons
+                        
+                        // Simulate loading delay
+                        setTimeout(() => {
+                            loader.classList.add('hidden');
+                            controls.classList.remove('hidden');
+                            content.classList.remove('hidden');
+                            renderProjects();
+                        }, 800);
+                    }
+                }
+            } else {
+                // CLOSE MODAL
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        // Initialize Project Counter
+        function initProjectCounter() {
+            const countElement = document.getElementById('project-count');
+            const totalProjects = legacyProjects.length;
+            
+            // Simulate API latency for "Real-time" feel
+            setTimeout(() => {
+                countElement.innerHTML = totalProjects + '+';
+                countElement.classList.remove('animate-pulse');
+                countElement.classList.add('text-emerald-500', 'font-bold');
+            }, 1200);
+        }
+
+        // Profile Photo Logic
+        function handleImageLoad() {
+            const img = document.getElementById('profile-img');
+            const skeleton = document.getElementById('profile-skeleton');
+            if(img && skeleton) {
+                img.classList.remove('opacity-0');
+                skeleton.classList.add('hidden');
+            }
+        }
+
+        function handleImageError(img) {
+            const skeleton = document.getElementById('profile-skeleton');
+            if(skeleton) skeleton.classList.add('hidden');
+            
+            // Fallback avatar
+            img.src = 'https://ui-avatars.com/api/?name=Ma+Irfani&background=10b981&color=fff&size=150';
+            img.classList.remove('opacity-0');
+        }
+
+        // Run on load
+        window.addEventListener('load', () => {
+            reveal();
+            initProjectCounter();
+        });
+        
+        // Listen for scroll events
+        window.addEventListener("scroll", reveal);
+    </script>
 </body>
-
 </html>
