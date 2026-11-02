@@ -1,1126 +1,567 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Ma'sum Irfani | Fullstack Developer & Technical Consultant</title>
-    <meta name="description" content="Building High-Performance Digital Solutions for Southeast Asian Enterprises. Specialist in Laravel, PHP, IoT, and System Analysis. 14+ Enterprise Projects Delivered.">
-    <meta name="keywords" content="Muhammad Ma'sum Irfani, Fullstack Developer, Laravel Developer, PHP Expert, IoT Specialist, Web Developer Indonesia, System Analyst, IT Consultant, Motasa, JatimPark">
-    <meta name="author" content="Muhammad Ma'sum Irfani">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://masirfani.github.io/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Ma'sum Irfani — Fullstack Web Developer & IT Support</title>
+<meta name="description" content="Portofolio Muhammad Ma'sum Irfani: Fullstack Web Developer (PHP, Laravel), IT Support, dan trainer pemrograman dari Mojokerto. S1 Sistem Informasi, berpengalaman sejak 2018 dengan 120+ proyek.">
+<meta name="author" content="Muhammad Ma'sum Irfani">
+<link rel="canonical" href="https://masirfani.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://masirfani.github.io/">
+<meta property="og:title" content="Muhammad Ma'sum Irfani — Fullstack Web Developer & IT Support">
+<meta property="og:description" content="Fullstack Web Developer (PHP, Laravel), IT Support, dan trainer pemrograman. 120+ proyek sejak 2018.">
+<meta property="og:image" content="https://masirfani.github.io/img/foto-formal.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' fill='white' text-anchor='middle'%3EMI%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f3; --surface:#ffffff; --surface-2:#f0eee9; --ink:#1b1a17; --ink-2:#4a4740; --muted:#77736a;
+  --line:#e4e1da; --accent:#0f766e; --accent-ink:#ffffff; --accent-soft:#e3f1ee; --accent-strong:#0b5b55;
+  --radius:16px; --shadow:0 1px 2px rgba(27,26,23,.04),0 8px 24px rgba(27,26,23,.06);
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.02em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://masirfani.github.io/">
-    <meta property="og:title" content="Muhammad Ma'sum Irfani | Fullstack Developer & Technical Consultant">
-    <meta property="og:description" content="Building High-Performance Digital Solutions for Southeast Asian Enterprises. Specialist in Laravel, PHP, IoT, and System Analysis. 14+ Enterprise Projects Delivered.">
-    <meta property="og:image" content="https://masirfani.github.io/img/pp.jpg">
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(247,246,243,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-weight:800;text-decoration:none;font-size:17px;display:flex;align-items:center;gap:10px}
+.brand b{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--accent);color:#fff;font-size:13px}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:14.5px}
+.nav ul a:hover{background:var(--surface-2);color:var(--ink)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;cursor:pointer;color:var(--ink)}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://masirfani.github.io/">
-    <meta property="twitter:title" content="Muhammad Ma'sum Irfani | Fullstack Developer & Technical Consultant">
-    <meta property="twitter:description" content="Building High-Performance Digital Solutions for Southeast Asian Enterprises. Specialist in Laravel, PHP, IoT, and System Analysis. 14+ Enterprise Projects Delivered.">
-    <meta property="twitter:image" content="https://masirfani.github.io/img/pp.jpg">
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,background .15s,border-color .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-2)}
+.btn-sm{padding:9px 14px;font-size:14px;border-radius:10px}
+.btn svg{width:18px;height:18px;flex:none}
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            950: '#09090b', // Deep background
-                            900: '#18181b',
-                            800: '#27272a',
-                        },
-                        emerald: {
-                            500: '#10b981', // Success Emerald
-                        },
-                        blue: {
-                            500: '#3b82f6', // Cyber Blue
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+/* hero */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent-strong);font-weight:600;font-size:13.5px;padding:6px 12px;border-radius:999px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(15,118,110,.18)}
+h1{font-size:clamp(34px,5.2vw,54px);line-height:1.08;letter-spacing:-.025em;margin:18px 0 14px;font-weight:800}
+.role{font-size:clamp(17px,2vw,20px);color:var(--ink-2);margin:0 0 16px;font-weight:600}
+.lead{font-size:17px;color:var(--ink-2);max-width:56ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.fact strong{display:block;font-size:24px;letter-spacing:-.02em;line-height:1.2}
+.fact span{font-size:13px;color:var(--muted)}
+.photo{position:relative}
+.photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:var(--shadow);background:var(--surface-2)}
+.photo .tag{position:absolute;left:-18px;bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:13.5px;line-height:1.35}
+.photo .tag b{display:block;font-size:14.5px}
 
-    <style>
-        body {
-            background-color: #09090b;
-            color: #e4e4e7;
-            overflow-x: hidden;
-        }
-        .glass-card {
-            background: rgba(24, 24, 27, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .tech-gradient {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #09090b; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3f3f46; 
-        }
-    </style>
+/* sections */
+section{padding:72px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.eyebrow{color:var(--accent);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin:0 0 8px}
+h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.02em;line-height:1.15;margin:0;font-weight:800}
+.sec-sub{color:var(--muted);max-width:52ch;margin:10px 0 0}
+.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-text p{color:var(--ink-2);margin:0 0 16px;font-size:16.5px}
+.pillars{display:grid;gap:14px}
+.pillar{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.pillar .ic{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.pillar .ic svg{width:22px;height:22px}
+.pillar h3{margin:0 0 4px;font-size:16.5px}
+.pillar p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* timeline */
+.timeline{position:relative;display:grid;gap:14px}
+.job{display:grid;grid-template-columns:180px 1fr;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.job .when{font-size:13.5px;color:var(--muted)}
+.job .when b{display:block;color:var(--ink);font-size:14.5px;font-weight:700;margin-bottom:2px}
+.job h3{margin:0;font-size:18px;letter-spacing:-.01em}
+.job .org{color:var(--accent-strong);font-weight:600;font-size:15px;margin:2px 0 10px}
+.job ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:15px}
+.job li{margin:3px 0}
+.job.now{border-color:rgba(15,118,110,.35)}
+.pill{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent-strong);vertical-align:middle;margin-left:6px}
+.more-jobs{margin-top:6px}
+.more-jobs summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--accent-strong);padding:10px 0}
+.more-jobs summary::-webkit-details-marker{display:none}
+.more-jobs[open] summary .chev{transform:rotate(180deg)}
+.chev{transition:transform .2s}
+.more-jobs .timeline{margin-top:8px}
+
+/* projects */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card .thumb{aspect-ratio:16/10;background:var(--surface-2);overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card .thumb.ph{display:grid;place-items:center;background:linear-gradient(135deg,#e3f1ee,#f0eee9);color:var(--accent-strong)}
+.card .thumb.ph svg{width:46px;height:46px;opacity:.85}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .kind{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.card h3{margin:0;font-size:17.5px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--ink-2);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font-size:12px;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--surface-2);color:var(--ink-2)}
+.card .link{font-size:14px;font-weight:600;color:var(--accent-strong);text-decoration:none;display:inline-flex;gap:6px;align-items:center;margin-top:4px}
+.card .link:hover{text-decoration:underline}
+
+/* archive */
+.archive{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.archive-top{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:16px}
+.archive h3{margin:0;font-size:18px}
+.archive-ctrl{display:flex;gap:8px;flex-wrap:wrap}
+.archive input{border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;font-size:14px;min-width:220px;background:var(--bg);color:var(--ink)}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:10px;padding:3px}
+.seg button{border:0;background:none;padding:6px 12px;border-radius:8px;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.arch-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:6px 18px;max-height:320px;overflow:auto;padding-right:6px}
+.arch-list li{font-size:14px;color:var(--ink-2);padding:6px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:8px}
+.arch-list li small{color:var(--muted);font-size:11.5px;white-space:nowrap}
+.arch-count{font-size:13.5px;color:var(--muted)}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.skill h3{margin:0 0 12px;font-size:16px;display:flex;align-items:center;gap:10px}
+.skill h3 svg{width:20px;height:20px;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:13.5px;padding:6px 11px;border-radius:9px;background:var(--bg);border:1px solid var(--line);color:var(--ink-2);font-weight:500}
+
+/* teach */
+.teach{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.teach img{border-radius:20px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.teach p{color:var(--ink-2)}
+.teach ul{padding-left:18px;color:var(--ink-2)}
+
+/* edu */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.edu{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.edu h3{margin:0 0 4px;font-size:17px}
+.edu .sub{color:var(--muted);font-size:14px;margin:0}
+.edu ul{margin:10px 0 0;padding-left:18px;color:var(--ink-2);font-size:15px}
+.edu li{margin:4px 0}
+
+/* certs */
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:zoom-in;padding:0;text-align:left;font:inherit;color:inherit}
+.cert img{aspect-ratio:4/3;object-fit:cover;width:100%;background:var(--surface-2)}
+.cert span{display:block;padding:10px 12px;font-size:13px;font-weight:600;line-height:1.35}
+.lightbox{position:fixed;inset:0;background:rgba(20,19,17,.88);display:none;align-items:center;justify-content:center;z-index:90;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-height:86vh;max-width:min(1100px,94vw);border-radius:10px;background:#fff}
+.lightbox button{position:absolute;top:16px;right:16px;background:#fff;border:0;border-radius:10px;width:42px;height:42px;font-size:22px;cursor:pointer}
+
+/* contact */
+.contact{background:var(--ink);color:#f3f1ec;border-radius:28px;padding:48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.contact h2{color:#fff}
+.contact p{color:#c9c5bb}
+.contact .btn-primary{background:#fff;color:var(--ink)}
+.contact .btn-primary:hover{background:#e9e6df}
+.contact .btn-ghost{background:transparent;border-color:#4a4740;color:#fff}
+.contact .btn-ghost:hover{border-color:#fff}
+.clist{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.clist a{display:flex;align-items:center;gap:12px;text-decoration:none;padding:12px 14px;border-radius:12px;background:#26241f;color:#f3f1ec;font-size:15px}
+.clist a:hover{background:#302d27}
+.clist svg{width:20px;height:20px;color:#7dd3c8;flex:none}
+.clist small{display:block;color:#9e998e;font-size:12px}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.card,.btn{transition:none}}
+
+@media (max-width:960px){
+  .hero-grid,.about-grid,.teach,.contact{grid-template-columns:1fr}
+  .photo{max-width:340px;order:-1}
+  .photo .tag{left:auto;right:-8px}
+  .proj-grid,.skill-grid{grid-template-columns:1fr 1fr}
+  .cert-grid{grid-template-columns:repeat(3,1fr)}
+  .arch-list{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;padding:8px 16px 16px;border-bottom:1px solid var(--line)}
+  .nav ul.open{display:flex}
+  .menu-btn{display:grid;place-items:center}
+  .nav .btn-sm{display:none}
+  .facts{grid-template-columns:1fr 1fr}
+  .photo{max-width:240px}
+  .photo .tag{right:-40px;bottom:16px}
+  .job{grid-template-columns:1fr;gap:6px;padding:18px}
+  .proj-grid,.skill-grid,.edu-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .arch-list{grid-template-columns:1fr}
+  .archive input{min-width:0;width:100%}
+  .contact{padding:28px 20px;border-radius:20px}
+  section{padding:56px 0}
+  .wrap{padding:0 16px}
+}
+@media print{.nav,.lightbox,.archive-ctrl{display:none}.reveal{opacity:1;transform:none}}
+</style>
 </head>
-<body class="antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold tracking-tight text-white">Ma's<span class="text-emerald-500">Irfani</span></span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#expertise" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Expertise</a>
-                        <a href="#projects" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
-                        <a href="#logs" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">System Logs</a>
-                        <a href="#certifications" class="text-zinc-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Certifications</a>
-                        <a href="#contact" class="bg-white/5 hover:bg-white/10 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium border border-emerald-500/20 transition-all">Start Project</a>
-                    </div>
-                </div>
+<nav class="nav" id="nav" aria-label="Navigasi utama">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>MI</b><span>Ma'sum Irfani</span></a>
+    <ul id="menu">
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#pengalaman">Pengalaman</a></li>
+      <li><a href="#proyek">Proyek</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#pendidikan">Pendidikan</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="CV_Muhammad_Masum_Irfani.pdf" download>Unduh CV</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-zinc-400 hover:text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
+<main id="top">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="status"><i></i>Terbuka untuk posisi full-time</span>
+        <h1>Muhammad Ma'sum Irfani</h1>
+        <p class="role">Fullstack Web Developer · IT Support · Trainer Pemrograman</p>
+        <p class="lead">Saya membangun sistem informasi berbasis PHP dan Laravel, lalu ikut turun ke lapangan untuk memastikan sistem itu benar-benar jalan: dari server dan jaringan sampai kasir di cabang.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="CV_Muhammad_Masum_Irfani.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Unduh CV (PDF)</a>
+          <a class="btn btn-ghost" href="https://wa.me/6289691159186?text=Halo%20Irfani%2C%20saya%20melihat%20portofolio%20Anda." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z"/></svg>Hubungi via WhatsApp</a>
         </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#expertise" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Expertise</a>
-                <a href="#projects" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="#logs" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">System Logs</a>
-                <a href="#certifications" onclick="toggleMobileMenu()" class="text-zinc-300 hover:bg-zinc-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Certifications</a>
-                <a href="#contact" onclick="toggleMobileMenu()" class="text-emerald-400 hover:bg-emerald-500/10 block px-3 py-2 rounded-md text-base font-medium">Start Project</a>
-            </div>
+        <div class="facts">
+          <div class="fact"><strong>2018</strong><span>Mulai berkarier</span></div>
+          <div class="fact"><strong>120+</strong><span>Proyek selesai</span></div>
+          <div class="fact"><strong>S1 SI</strong><span>Lulus 2026</span></div>
+          <div class="fact"><strong>58</strong><span>Sertifikat</span></div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
-            <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px]"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <!-- Profile Photo -->
-                <div class="relative w-40 h-40 mx-auto mb-8 group animate-fade-in-up select-none" oncontextmenu="return false;">
-                    <!-- Gradient Glow -->
-                    <div class="absolute -inset-1 bg-gradient-to-tr from-emerald-500 to-blue-500 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-                    
-                    <!-- Main Container -->
-                    <div class="relative w-full h-full rounded-full p-1 bg-zinc-900 ring-1 ring-white/10 overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-105 pointer-events-none">
-                        
-                        <!-- Loading Skeleton -->
-                        <div id="profile-skeleton" class="absolute inset-0 bg-zinc-800 animate-pulse z-20 flex items-center justify-center">
-                            <i data-lucide="image" class="w-8 h-8 text-zinc-700"></i>
-                        </div>
-
-                        <!-- Image -->
-                        <img id="profile-img" 
-                             src="img/pp.jpg" 
-                             alt="Muhammad Ma'sum Irfani" 
-                             loading="lazy"
-                             draggable="false"
-                             class="w-full h-full object-cover rounded-full opacity-0 transition-all duration-500 grayscale group-hover:grayscale-0"
-                             onload="handleImageLoad()"
-                             onerror="handleImageError(this)">
-                        
-                        <!-- Aesthetic Overlay -->
-                        <div class="absolute inset-0 bg-emerald-500/10 mix-blend-overlay opacity-50 group-hover:opacity-0 transition-opacity duration-500"></div>
-                    </div>
-
-                    <!-- Status Indicator -->
-                    <div class="absolute bottom-2 right-2 w-8 h-8 bg-zinc-900 rounded-full flex items-center justify-center border-2 border-zinc-800 z-40" title="Available for work">
-                        <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
-                    </div>
-                </div>
-
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-emerald-400 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
-                    Available for Enterprise Consulting
-                </div>
-                
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
-                    Building High-Performance <br class="hidden md:block" />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">Digital Solutions</span>
-                </h1>
-
-                <!-- Real-time Project Counter -->
-                <!-- Moved to Social Proof -->
-                
-                <p class="mt-2 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.3s;">
-                    Fullstack Website Developer specializing in scalable PHP (Laravel/CI) systems & IoT. 
-                    Proven track record in Motasa, JatimPark, and International Clients.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
-                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 group">
-                        Scale Your Business
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-zinc-900 hover:bg-zinc-800 text-white font-semibold rounded-lg border border-zinc-800 transition-all flex items-center justify-center gap-2">
-                        View Case Studies
-                    </a>
-                </div>
-
-                <!-- Social Proof -->
-                <div class="mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 md:gap-16 text-zinc-500 text-sm font-mono animate-fade-in-up" style="animation-delay: 0.4s;">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
-                        <span>14+ Enterprise Projects</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="layers" class="w-4 h-4 text-emerald-500"></i>
-                        <span><span id="project-count" class="animate-pulse">--</span> Non-Enterprise Projects</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="clock" class="w-4 h-4 text-blue-500"></i>
-                        <span>5+ Years Experience</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="globe" class="w-4 h-4 text-zinc-400"></i>
-                        <span>Based in Indonesia, Serving Global</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack (Expertise Map) -->
-    <section id="expertise" class="py-20 bg-zinc-950 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 md:flex md:items-end md:justify-between reveal">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">Technical Capabilities</h2>
-                    <p class="text-zinc-400">Engineered for scalability and performance.</p>
-                </div>
-                <div class="hidden md:block h-px flex-1 bg-zinc-800 ml-8 mb-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Core Infrastructure -->
-                <div class="glass-card p-6 rounded-xl hover:border-emerald-500/30 transition-colors group reveal">
-                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-500/10 transition-colors">
-                        <i data-lucide="server" class="w-6 h-6 text-emerald-500"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-3">Core Infrastructure</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>Laravel Framework</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>CodeIgniter</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>MySQL Optimization</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-2"></span>RESTful APIs</li>
-                    </ul>
-                </div>
-
-                <!-- Modern Frontend -->
-                <div class="glass-card p-6 rounded-xl hover:border-blue-500/30 transition-colors group reveal" style="transition-delay: 0.1s;">
-                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/10 transition-colors">
-                        <i data-lucide="layout" class="w-6 h-6 text-blue-500"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-3">Modern Frontend</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>JavaScript (ES6+)</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>Tailwind CSS</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>jQuery Legacy Support</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>Responsive UI/UX</li>
-                    </ul>
-                </div>
-
-                <!-- Industrial IoT -->
-                <div class="glass-card p-6 rounded-xl hover:border-purple-500/30 transition-colors group reveal" style="transition-delay: 0.2s;">
-                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/10 transition-colors">
-                        <i data-lucide="cpu" class="w-6 h-6 text-purple-500"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-3">Industrial IoT</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Java Programming</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Hardware Integration</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Real-time Monitoring</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Sensor Data Processing</li>
-                    </ul>
-                </div>
-
-                <!-- Business Analysis -->
-                <div class="glass-card p-6 rounded-xl hover:border-orange-500/30 transition-colors group reveal" style="transition-delay: 0.3s;">
-                    <div class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/10 transition-colors">
-                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-orange-500"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-3">Business Analysis</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>System Design</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>Workflow Optimization</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>Technical Documentation</li>
-                        <li class="flex items-center text-zinc-400 text-sm"><span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-2"></span>Requirement Gathering</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Gallery -->
-    <section id="projects" class="py-20 bg-zinc-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Selected Works</h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto">High-impact projects delivering tangible business results for enterprise clients.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1: JatimPark 3 -->
-                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 reveal">
-                    <div class="aspect-video bg-zinc-800 relative overflow-hidden">
-                        <img src="img/portfolio/Jatim Park 3 - Main.png" alt="JatimPark 3" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-mono text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">Tourism Portal</span>
-                            <span class="text-zinc-500 text-xs">2020</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">JatimPark 3 Integration</h3>
-                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Comprehensive promotional portal for one of Indonesia's largest theme parks, handling high visitor traffic and information dissemination.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
-                            <span class="text-xs text-zinc-500">Solution Highlight</span>
-                            <span class="text-xs text-white font-medium">High-Traffic Optimization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Motasa WMS -->
-                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 reveal" style="transition-delay: 0.1s;">
-                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-zinc-900 z-0"></div>
-                        <i data-lucide="warehouse" class="w-16 h-16 text-blue-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-mono text-blue-400 bg-blue-400/10 px-2 py-1 rounded">Logistics System</span>
-                            <span class="text-zinc-500 text-xs">2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Motasa WMS</h3>
-                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Warehouse Management System designed to streamline inventory tracking, logistics, and supply chain operations for large-scale manufacturing.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
-                            <span class="text-xs text-zinc-500">Solution Highlight</span>
-                            <span class="text-xs text-white font-medium">Real-time Inventory</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Motasa Avalan -->
-                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-green-500/50 transition-all duration-300 reveal" style="transition-delay: 0.2s;">
-                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-green-900/20 to-zinc-900 z-0"></div>
-                        <i data-lucide="recycle" class="w-16 h-16 text-green-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-mono text-green-400 bg-green-400/10 px-2 py-1 rounded">Eco-Management</span>
-                            <span class="text-zinc-500 text-xs">2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Motasa Avalan System</h3>
-                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Industrial waste tracking and reporting workflow system to ensure compliance and optimize resource recovery processes.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
-                            <span class="text-xs text-zinc-500">Solution Highlight</span>
-                            <span class="text-xs text-white font-medium">Workflow Automation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Motasa PSM -->
-                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all duration-300 reveal">
-                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-orange-900/20 to-zinc-900 z-0"></div>
-                        <i data-lucide="activity" class="w-16 h-16 text-orange-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-mono text-orange-400 bg-orange-400/10 px-2 py-1 rounded">Production Control</span>
-                            <span class="text-zinc-500 text-xs">2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Motasa PSM</h3>
-                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Production System Management dashboard providing real-time insights into manufacturing metrics, scheduling, and output efficiency.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
-                            <span class="text-xs text-zinc-500">Solution Highlight</span>
-                            <span class="text-xs text-white font-medium">Data Visualization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Daihatsu Sales Platform -->
-                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 reveal" style="transition-delay: 0.1s;">
-                    <div class="aspect-video bg-zinc-800 relative overflow-hidden">
-                        <img src="img/portfolio/daihatsu1.png" alt="Daihatsu Sales" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"></div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-mono text-red-400 bg-red-400/10 px-2 py-1 rounded">Sales Funnel</span>
-                            <span class="text-zinc-500 text-xs">Multiple</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Daihatsu Sales Landing Pages</h3>
-                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">High-conversion landing page generator for automotive sales agents, optimized for lead generation and mobile responsiveness.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
-                            <span class="text-xs text-zinc-500">Solution Highlight</span>
-                            <span class="text-xs text-white font-medium">Conversion Rate Optimization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: ANTASI ERPPOS -->
-                <div class="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 reveal" style="transition-delay: 0.2s;">
-                    <div class="aspect-video bg-zinc-800 relative overflow-hidden flex items-center justify-center">
-                         <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-zinc-900 z-0"></div>
-                        <i data-lucide="shopping-cart" class="w-16 h-16 text-purple-500/50 relative z-10 group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-mono text-purple-400 bg-purple-400/10 px-2 py-1 rounded">Retail ERP</span>
-                            <span class="text-zinc-500 text-xs">2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">ANTASI ERPPOS</h3>
-                        <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Integrated Enterprise Resource Planning and Point of Sale system for retail management, inventory control, and financial reporting.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-800">
-                            <span class="text-xs text-zinc-500">Solution Highlight</span>
-                            <span class="text-xs text-white font-medium">System Architecture</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center reveal">
-                <button onclick="toggleModal('legacy-modal')" class="text-zinc-400 hover:text-white text-sm font-medium border-b border-zinc-700 hover:border-white transition-all pb-1">
-                    View Legacy Projects Archive
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Log (Terminal Style) -->
-    <section id="logs" class="py-20 bg-zinc-950">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center gap-2 mb-6 reveal">
-                <i data-lucide="terminal" class="w-5 h-5 text-emerald-500"></i>
-                <h2 class="text-xl font-mono font-bold text-white">Recent System Logs</h2>
-            </div>
-            
-            <div class="bg-zinc-900 rounded-lg border border-zinc-800 p-6 font-mono text-sm shadow-2xl reveal">
-                <div class="flex gap-2 mb-4 border-b border-zinc-800 pb-4">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div class="space-y-3 text-zinc-400">
-                    <div class="flex flex-col sm:flex-row sm:gap-4">
-                        <span class="text-emerald-500 whitespace-nowrap">[2025-07-01 09:42]</span>
-                        <span>Deploying <span class="text-white">CRM Avalan v2.1</span> to production server... <span class="text-emerald-500">Done</span></span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row sm:gap-4">
-                        <span class="text-blue-500 whitespace-nowrap">[2025-06-28 14:15]</span>
-                        <span>Optimizing <span class="text-white">Kasbon System</span> database queries. Latency reduced by 40%.</span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row sm:gap-4">
-                        <span class="text-purple-500 whitespace-nowrap">[2025-06-15 11:30]</span>
-                        <span>Scaling <span class="text-white">WMS Database</span> horizontal sharding for increased load.</span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row sm:gap-4">
-                        <span class="text-zinc-500 whitespace-nowrap">[2025-05-20 16:45]</span>
-                        <span>System audit for <span class="text-white">PT Motasa</span> network infrastructure completed.</span>
-                    </div>
-                    <div class="mt-4 animate-pulse">
-                        <span class="text-emerald-500">$</span> <span class="typing-cursor">_</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-20 bg-zinc-900/30 border-t border-zinc-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between mb-12 reveal">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">Certifications & Achievements</h2>
-                    <p class="text-zinc-400">Professional validation of technical expertise.</p>
-                </div>
-                <button onclick="openCertModal()" class="hidden md:flex items-center gap-2 text-emerald-500 hover:text-emerald-400 transition-colors text-sm font-medium">
-                    View All Certificates <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
-            </div>
-
-            <!-- Featured Certificates Grid -->
-            <div id="featured-certs" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 reveal">
-                <!-- Injected via JS -->
-            </div>
-
-            <div class="mt-8 text-center md:hidden reveal">
-                <button onclick="openCertModal()" class="text-emerald-500 hover:text-emerald-400 text-sm font-medium border-b border-emerald-500/20 hover:border-emerald-500 transition-all pb-1">
-                    View All Certificates
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Builder / Contact -->
-    <section id="contact" class="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950 border-t border-zinc-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 reveal">Ready to Scale Your Business?</h2>
-            <p class="text-zinc-400 text-lg max-w-2xl mx-auto mb-10 reveal">
-                Let's discuss how we can build high-performance digital infrastructure for your enterprise.
-            </p>
-            
-            <div class="flex flex-col items-center gap-8 reveal">
-                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-2xl mx-auto">
-                    <!-- WhatsApp Button (Primary) -->
-                    <a href="https://wa.me/6289691159186" target="_blank" class="relative inline-flex group w-full sm:w-1/2">
-                        <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BC48] via-[#44BC48] to-[#10b981] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-                        <button class="relative inline-flex items-center justify-center w-full px-6 py-4 text-base font-bold text-white transition-all duration-200 bg-zinc-900 font-sans rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 border border-transparent h-full">
-                            <i data-lucide="message-circle" class="w-5 h-5 mr-2 text-[#25D366]"></i>
-                            Chat on WhatsApp
-                            <span class="ml-2 px-2 py-0.5 rounded-full bg-[#25D366]/20 text-[#25D366] text-[10px] font-medium uppercase tracking-wider">Fast</span>
-                        </button>
-                    </a>
-
-                    <!-- Download CV Button (Secondary) -->
-                    <a href="Muhammad_Masum_Irfani_CV_ATS.pdf" download class="relative inline-flex group w-full sm:w-1/2">
-                        <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-                        <button class="relative inline-flex items-center justify-center w-full px-6 py-4 text-base font-bold text-white transition-all duration-200 bg-zinc-900 font-sans rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-900 border border-transparent h-full">
-                            <i data-lucide="file-down" class="w-5 h-5 mr-2 text-blue-500"></i>
-                            Download CV
-                            <span class="ml-2 px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-500 text-[10px] font-medium uppercase tracking-wider transition-colors">PDF</span>
-                        </button>
-                    </a>
-                </div>
-                
-                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mt-8 w-full max-w-sm sm:max-w-none">
-                    <a href="http://linkedin.com/in/muhammad-ma-sum-irfani-189b71195/" target="_blank" class="group/link flex flex-col items-center relative p-2 min-w-[44px] min-h-[44px]">
-                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
-                            <i data-lucide="linkedin" class="w-6 h-6 sm:w-5 sm:h-5 sm:mr-2"></i> <span class="hidden sm:inline">LinkedIn</span>
-                        </div>
-                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800 hidden sm:block">
-                            Muhammad Ma'sum Irfani
-                        </span>
-                    </a>
-                    
-                    <a href="http://facebook.com/muhammad.walle.1" target="_blank" class="group/link flex flex-col items-center relative p-2 min-w-[44px] min-h-[44px]">
-                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
-                            <i data-lucide="facebook" class="w-6 h-6 sm:w-5 sm:h-5 sm:mr-2"></i> <span class="hidden sm:inline">Facebook</span>
-                        </div>
-                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800 hidden sm:block">
-                            Muhammad Ma'sum Irfani
-                        </span>
-                    </a>
-
-                    <a href="http://instagram.com/be_irfani" target="_blank" class="group/link flex flex-col items-center relative p-2 min-w-[44px] min-h-[44px]">
-                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
-                            <i data-lucide="instagram" class="w-6 h-6 sm:w-5 sm:h-5 sm:mr-2"></i> <span class="hidden sm:inline">Instagram</span>
-                        </div>
-                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800 hidden sm:block">
-                            @be_irfani
-                        </span>
-                    </a>
-
-                    <a href="mailto:muhammadwalle123@gmail.com" class="group/link flex flex-col items-center relative p-2 min-w-[44px] min-h-[44px]">
-                        <div class="flex items-center text-zinc-400 hover:text-white transition-colors z-10">
-                            <i data-lucide="mail" class="w-6 h-6 sm:w-5 sm:h-5 sm:mr-2"></i> <span class="hidden sm:inline">Email</span>
-                        </div>
-                        <span class="absolute top-full mt-2 text-[10px] text-zinc-500 opacity-0 -translate-y-2 group-hover/link:opacity-100 group-hover/link:translate-y-0 transition-all duration-300 pointer-events-none whitespace-nowrap bg-zinc-900/90 px-2 py-1 rounded border border-zinc-800 hidden sm:block">
-                            muhammadwalle123@gmail.com
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 bg-zinc-950 border-t border-zinc-900 text-center">
-        <p class="text-zinc-600 text-sm">
-            &copy; 2026 made with <i data-lucide="heart" class="w-4 h-4 inline-block text-emerald-500"></i> by Muhammad Ma'sum Irfani. All rights reserved. <br>
-            <span class="text-xs">Mojokerto, Jawa Timur, Indonesia.</span>
-        </p>
-    </footer>
-
-    <!-- Legacy Projects Modal -->
-    <div id="legacy-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-zinc-950 bg-opacity-90 transition-opacity" aria-hidden="true" onclick="toggleModal('legacy-modal')"></div>
-
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-            <div class="inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full border border-zinc-800">
-                <div class="bg-zinc-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg leading-6 font-medium text-white" id="modal-title">Legacy Projects Archive</h3>
-                        <button onclick="toggleModal('legacy-modal')" class="text-zinc-400 hover:text-white">
-                            <i data-lucide="x" class="w-6 h-6"></i>
-                        </button>
-                    </div>
-                    
-                    <div id="legacy-loader" class="flex flex-col items-center justify-center py-12">
-                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mb-4"></div>
-                        <p class="text-zinc-400 animate-pulse">Loading Archives...</p>
-                    </div>
-
-                    <!-- Search and Filter Controls (Hidden initially, shown after load) -->
-                    <div id="legacy-controls" class="hidden mb-6 space-y-4">
-                        <div class="relative">
-                            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500"></i>
-                            <input type="text" id="project-search" placeholder="Search project name..." 
-                                class="w-full bg-zinc-800 border border-zinc-700 text-white rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:border-emerald-500 transition-colors">
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <button onclick="filterProjects('all')" id="btn-all" class="px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors">All</button>
-                            <button onclick="filterProjects('personal')" id="btn-personal" class="px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors">Personal</button>
-                            <button onclick="filterProjects('collab')" id="btn-collab" class="px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors">Collaborative</button>
-                        </div>
-                    </div>
-
-                    <div id="legacy-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[60vh] overflow-y-auto pr-2 hidden custom-scrollbar pb-10">
-                        <!-- Dynamic Content will be injected here -->
-                    </div>
-                </div>
-                <div class="bg-zinc-800/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-zinc-600 text-base font-medium text-white hover:bg-zinc-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleModal('legacy-modal')">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="photo">
+        <img src="img/foto-formal.webp" alt="Foto Muhammad Ma'sum Irfani" width="640" height="800" fetchpriority="high">
+        <div class="tag"><b>Mojokerto, Jawa Timur</b>Siap ditempatkan di Jatim atau remote</div>
+      </div>
     </div>
+  </header>
 
-    <!-- Certificates Gallery Modal -->
-    <div id="cert-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-zinc-950 bg-opacity-90 transition-opacity" aria-hidden="true" onclick="toggleModal('cert-modal')"></div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <div class="inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl sm:w-full border border-zinc-800">
-                <div class="bg-zinc-900 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg leading-6 font-medium text-white">All Certifications</h3>
-                        <button onclick="toggleModal('cert-modal')" class="text-zinc-400 hover:text-white">
-                            <i data-lucide="x" class="w-6 h-6"></i>
-                        </button>
-                    </div>
-                    <div id="all-certs-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto custom-scrollbar p-1">
-                        <!-- Dynamic Content -->
-                    </div>
-                </div>
+  <!-- TENTANG -->
+  <section id="tentang" class="alt">
+    <div class="wrap about-grid reveal">
+      <div class="about-text">
+        <p class="eyebrow">Tentang saya</p>
+        <h2>Developer yang paham lapangan</h2>
+        <p style="margin-top:18px">Saya lulusan SMK Rekayasa Perangkat Lunak dan S1 Sistem Informasi Universitas Terbuka. Sejak 2018 saya mengerjakan lebih dari 120 proyek web untuk UMKM, sekolah, instansi, dan perusahaan.</p>
+        <p>Selain menulis kode, saya terbiasa bekerja langsung dengan pengguna: mendampingi implementasi sistem ERP/POS di cabang, merawat jaringan kantor dan gudang, serta mengajar pemrograman. Saya senang menjelaskan hal teknis dengan bahasa yang sederhana.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M13.5 5l-3 14"/></svg></div><div><h3>Membangun sistem</h3><p>Sistem informasi, website, dan aplikasi web dengan PHP, Laravel, CodeIgniter, dan MySQL.</p></div></div>
+        <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5Z"/></svg></div><div><h3>Menjaga sistem tetap jalan</h3><p>Support ERP/POS di cabang, perawatan hardware, instalasi jaringan LAN, dan troubleshooting.</p></div></div>
+        <div class="pillar"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4 9 4-9 4-9-4Zm4 2v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></div><div><h3>Mengajarkan ke orang lain</h3><p>Trainer dan mentor pemrograman sejak 2021, termasuk membimbing peserta magang.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENGALAMAN -->
+  <section id="pengalaman">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="eyebrow">Pengalaman kerja</p><h2>Riwayat kerja</h2></div>
+      </div>
+      <div class="timeline reveal">
+        <article class="job now">
+          <div class="when"><b>Jul 2025 – sekarang</b>Malang, Jawa Timur</div>
+          <div><h3>IT Support Freelance <span class="pill">Aktif</span></h3><p class="org">ANTASI — Sistem ERP/POS</p>
+            <ul><li>Mengembangkan dan memelihara sistem ERP/POS perusahaan.</li><li>Turun langsung ke cabang untuk mendukung penerapan sistem.</li><li>Mengawasi sistem dan menyusun laporan teknis.</li></ul></div>
+        </article>
+        <article class="job">
+          <div class="when"><b>Feb 2025 – Jul 2025</b>Mojokerto, Jawa Timur</div>
+          <div><h3>IT Support (Outsourcing)</h3><p class="org">PT Motasa Indonesia via Lavilla</p>
+            <ul><li>Merawat sistem IT internal dan jaringan di kantor pusat serta gudang.</li><li>Instalasi perangkat keras, konfigurasi jaringan, dan dukungan teknis pengguna.</li><li>Menyusun dokumentasi dan laporan perawatan sistem.</li></ul></div>
+        </article>
+        <article class="job now">
+          <div class="when"><b>Jul 2024 – sekarang</b>Mojokerto, Jawa Timur</div>
+          <div><h3>Founder <span class="pill">Aktif</span></h3><p class="org">Beasteri</p>
+            <ul><li>Mendirikan lembaga teknologi dan pendidikan digital.</li><li>Mengajar peserta magang hingga siap bekerja sebagai web developer.</li><li>Menyusun program kursus komputer dan pemrograman, serta mengerjakan proyek website klien.</li></ul></div>
+        </article>
+        <article class="job now">
+          <div class="when"><b>2018 – sekarang</b>Mojokerto, Jawa Timur</div>
+          <div><h3>Freelance Fullstack Web Developer & Teknisi Komputer <span class="pill">Aktif</span></h3><p class="org">Klien UMKM, sekolah, dan lembaga</p>
+            <ul><li>Menyelesaikan 120+ proyek: sistem informasi, website bisnis, company profile, landing page, dan aplikasi event.</li><li>Mengelola hosting, optimasi performa, dan keamanan website.</li><li>Servis laptop dan komputer, instalasi OS, serta troubleshooting jaringan.</li></ul></div>
+        </article>
+      </div>
+      <details class="more-jobs reveal">
+        <summary>Tampilkan pengalaman lainnya <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="timeline">
+          <article class="job">
+            <div class="when"><b>2021 – sekarang</b>Mojokerto, Jawa Timur</div>
+            <div><h3>Trainer Teknologi / Instruktur Pemrograman</h3><p class="org">Pelatihan web development</p>
+              <ul><li>Mengajar web development dan teknologi digital.</li><li>Membuat modul pembelajaran dan tugas berbasis proyek.</li></ul></div>
+          </article>
+          <article class="job">
+            <div class="when"><b>Jan 2021 – Mei 2024</b>Mojokerto, Jawa Timur</div>
+            <div><h3>Co-Founder</h3><p class="org">Pandoradev</p>
+              <ul><li>Mengelola proyek klien pengembangan web dan sistem informasi.</li><li>Membimbing peserta magang dan menyusun SOP tim developer.</li></ul></div>
+          </article>
+          <article class="job">
+            <div class="when"><b>Apr 2024</b>Universitas Warmadewa, Bali</div>
+            <div><h3>Tim IT</h3><p class="org">Kompetisi Jembatan Indonesia (KJI) 2024 — Puspresnas</p>
+              <ul><li>Mengelola kebutuhan IT lomba nasional, termasuk sistem timer dan input nilai peserta.</li></ul></div>
+          </article>
+          <article class="job">
+            <div class="when"><b>2024 · 2 bulan</b>Mojokerto, Jawa Timur</div>
+            <div><h3>Magang IT Support</h3><p class="org">SMK Negeri 1 Dlanggu</p>
+              <ul><li>Merombak seluruh laboratorium RPL, termasuk jaringan LAN dan tata listrik. Lab kini aktif dipakai untuk berbagai kegiatan.</li><li>Mengembangkan sistem peringatan kejadian desa berbasis web.</li><li>Membimbing siswa yang akan berangkat magang industri.</li></ul></div>
+          </article>
+          <article class="job">
+            <div class="when"><b>Jul – Des 2018</b>Surabaya, Jawa Timur</div>
+            <div><h3>Magang Web Developer</h3><p class="org">XP Solution</p>
+              <ul><li>Mengembangkan aplikasi web dengan HTML, CSS, JavaScript, Bootstrap, dan CodeIgniter 3.</li></ul></div>
+          </article>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- PROYEK -->
+  <section id="proyek" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="eyebrow">Proyek pilihan</p><h2>Hasil kerja</h2><p class="sec-sub">Sebagian proyek yang mewakili pekerjaan saya. Beberapa bisa dicoba langsung lewat tautan demo.</p></div>
+      </div>
+      <div class="proj-grid reveal">
+        <article class="card">
+          <div class="thumb ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 16v4M15 16v4M7 8h4M7 11h7"/></svg></div>
+          <div class="body"><span class="kind">Ritel · 2025</span><h3>ANTASI ERP/POS</h3><p>Sistem ERP dan kasir untuk manajemen ritel: penjualan, stok, dan laporan. Saya memelihara sistem dan mendampingi penerapannya di cabang.</p>
+            <div class="tags"><span class="tag">ERP/POS</span><span class="tag">Implementasi</span><span class="tag">Support cabang</span></div></div>
+        </article>
+        <article class="card">
+          <div class="thumb ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5v10H3V9Z"/><path d="M8 19v-6h8v6M8 13h8"/></svg></div>
+          <div class="body"><span class="kind">Manufaktur · 2025</span><h3>Sistem Internal PT Motasa</h3><p>Sistem gudang (WMS), pencatatan limbah industri (Avalan), dan dashboard produksi (PSM) untuk operasional pabrik.</p>
+            <div class="tags"><span class="tag">Gudang</span><span class="tag">Produksi</span><span class="tag">Dashboard</span></div></div>
+        </article>
+        <article class="card">
+          <div class="thumb ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div>
+          <div class="body"><span class="kind">Event nasional · 2024</span><h3>Sistem Timer KJI 2024</h3><p>Timer lomba dan input nilai peserta untuk Kompetisi Jembatan Indonesia (Puspresnas) di Bali.</p>
+            <div class="tags"><span class="tag">Web</span><span class="tag">Real-time</span><span class="tag">On-site</span></div></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="img/portfolio/thumb/jatim-park-3-main.webp" alt="Tampilan website Jatim Park 3" loading="lazy" width="900" height="506"></div>
+          <div class="body"><span class="kind">Pariwisata · Company profile</span><h3>Jatim Park 3</h3><p>Website promosi taman rekreasi yang memuat informasi wahana, fasilitas, dan penginapan.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            <a class="link" href="project/jatimpark-3/home.html" target="_blank" rel="noopener">Lihat demo →</a></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="img/portfolio/thumb/daihatsu1.webp" alt="Landing page dealer Daihatsu" loading="lazy" width="845" height="480"></div>
+          <div class="body"><span class="kind">Otomotif · Landing page</span><h3>Landing Page Dealer Daihatsu</h3><p>Rangkaian landing page untuk sales dealer mobil di Surabaya, responsif dan mudah dibuka di HP.</p>
+            <div class="tags"><span class="tag">Bootstrap</span><span class="tag">Responsif</span></div>
+            <a class="link" href="project/transportasi-1/" target="_blank" rel="noopener">Lihat demo →</a></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="img/portfolio/thumb/da-prewa.webp" alt="Dashboard sistem presensi siswa" loading="lazy" width="854" height="480"></div>
+          <div class="body"><span class="kind">Pendidikan · Sistem informasi</span><h3>Sistem Presensi & Absensi QR</h3><p>Dashboard presensi siswa dan absensi berbasis QR code untuk sekolah, termasuk SMKI dan SMPI Tanwirul Afkar.</p>
+            <div class="tags"><span class="tag">Sistem informasi</span><span class="tag">QR Code</span></div></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="img/portfolio/thumb/undangan_rek.webp" alt="Website UndanganRek" loading="lazy" width="845" height="480"></div>
+          <div class="body"><span class="kind">UMKM · Website bisnis</span><h3>UndanganRek</h3><p>Website jasa undangan digital dan cetak, lengkap dengan katalog harga dan halaman pemesanan.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">SCSS</span><span class="tag">JavaScript</span></div>
+            <a class="link" href="project/compro-undanganrek/" target="_blank" rel="noopener">Lihat demo →</a></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="img/portfolio/thumb/ai-transportation.webp" alt="Website AI Transportation" loading="lazy" width="845" height="480"></div>
+          <div class="body"><span class="kind">Logistik · Company profile</span><h3>AI Transportation</h3><p>Company profile jasa angkutan barang di Surabaya, menampilkan armada dan layanan perusahaan.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+            <a class="link" href="project/transportasi-5/" target="_blank" rel="noopener">Lihat demo →</a></div>
+        </article>
+        <article class="card">
+          <div class="thumb"><img src="img/portfolio/thumb/cetak_bres.webp" alt="Website Cetak Bress" loading="lazy" width="845" height="480"></div>
+          <div class="body"><span class="kind">UMKM · Company profile</span><h3>Cetak Bress</h3><p>Company profile untuk usaha percetakan.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">SCSS</span></div>
+            <a class="link" href="project/compro-cetakbres/" target="_blank" rel="noopener">Lihat demo →</a></div>
+        </article>
+      </div>
+
+      <div class="archive reveal">
+        <div class="archive-top">
+          <div><h3>Arsip proyek</h3><span class="arch-count" id="archCount"></span></div>
+          <div class="archive-ctrl">
+            <label class="sr" for="archSearch">Cari proyek</label>
+            <input id="archSearch" type="search" placeholder="Cari proyek, mis. kasir, absensi…">
+            <div class="seg" role="group" aria-label="Filter proyek">
+              <button data-f="all" aria-pressed="true">Semua</button>
+              <button data-f="p" aria-pressed="false">Pribadi</button>
+              <button data-f="k" aria-pressed="false">Kolaborasi</button>
             </div>
+          </div>
         </div>
+        <ul class="arch-list" id="archList"></ul>
+      </div>
     </div>
+  </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="fixed inset-0 z-[80] hidden flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none">
-        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-zinc-400 hover:text-white z-[90] p-2 bg-zinc-800/50 rounded-full transition-colors">
-            <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-        <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center p-4">
-            <img id="lightbox-img" src="" alt="Certificate Full View" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-95">
-            <a id="lightbox-download" href="#" download class="absolute bottom-4 right-4 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg transition-all opacity-0 hover:opacity-100 group-hover:opacity-100">
-                <i data-lucide="download" class="w-4 h-4"></i> Download High-Res
-            </a>
+  <!-- KEAHLIAN -->
+  <section id="keahlian">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><p class="eyebrow">Keahlian</p><h2>Yang bisa saya kerjakan</h2></div></div>
+      <div class="skill-grid reveal">
+        <div class="skill"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3"/></svg>Pemrograman web</h3>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">CodeIgniter</span><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span><span class="chip">Java</span><span class="chip">Python (dasar)</span></div></div>
+        <div class="skill"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Database & laporan</h3>
+          <div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Metabase</span><span class="chip">phpMyAdmin</span></div></div>
+        <div class="skill"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10"/></svg>Sistem bisnis</h3>
+          <div class="chips"><span class="chip">Implementasi ERP/POS</span><span class="chip">Stock opname</span><span class="chip">Analisis & desain sistem</span><span class="chip">Dokumentasi teknis</span></div></div>
+        <div class="skill"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5Z"/></svg>IT support</h3>
+          <div class="chips"><span class="chip">Perawatan hardware</span><span class="chip">Instalasi OS</span><span class="chip">Troubleshooting</span><span class="chip">Support pengguna</span><span class="chip">Perakitan PC</span></div></div>
+        <div class="skill"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M6.5 10v4a3 3 0 0 0 3 3H14"/></svg>Jaringan & server</h3>
+          <div class="chips"><span class="chip">Jaringan LAN</span><span class="chip">MikroTik</span><span class="chip">cPanel</span><span class="chip">Hosting & web server</span><span class="chip">IoT</span></div></div>
+        <div class="skill"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Tools</h3>
+          <div class="chips"><span class="chip">Git & GitHub</span><span class="chip">VS Code</span><span class="chip">Postman</span><span class="chip">XAMPP</span><span class="chip">Figma</span><span class="chip">Notion</span><span class="chip">Trello</span><span class="chip">Google Workspace</span><span class="chip">Microsoft 365</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENGAJAR -->
+  <section class="alt">
+    <div class="wrap teach reveal">
+      <img src="img/mengajar.webp" alt="Irfani mengajar di laboratorium komputer" loading="lazy" width="1200" height="540">
+      <div>
+        <p class="eyebrow">Mengajar & mentoring</p>
+        <h2>Berbagi ilmu sejak 2021</h2>
+        <p>Lewat Beasteri dan Pandoradev, saya mengajar pemrograman web dan membimbing peserta magang sampai siap bekerja.</p>
+        <ul><li>Menyusun modul dan tugas berbasis proyek nyata</li><li>Membimbing siswa SMK sebelum magang industri</li><li>Menyusun SOP kerja untuk tim developer</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENDIDIKAN -->
+  <section id="pendidikan">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><p class="eyebrow">Pendidikan & prestasi</p><h2>Latar belakang</h2></div></div>
+      <div class="edu-grid reveal">
+        <div class="edu"><h3>S1 Sistem Informasi</h3><p class="sub">Universitas Terbuka · Lulus 2026 · IPK 3,20</p></div>
+        <div class="edu"><h3>Rekayasa Perangkat Lunak</h3><p class="sub">SMK Negeri 1 Dlanggu · 2017 – 2020</p></div>
+        <div class="edu" style="grid-column:1/-1"><h3>Prestasi</h3>
+          <ul><li>Juara 3 Web Design Competition se-Jawa Timur — STMIK ASIA Malang</li><li>Peserta Lomba Coding Edusiber Nasional — Pustekom</li><li>Website Development Fundamental, Frontend HTML, dan Frontend CSS — MySkill (2024)</li></ul></div>
+      </div>
+
+      <div class="sec-head reveal" style="margin-top:56px"><div><p class="eyebrow">Sertifikat</p><h2>Sertifikat pilihan</h2></div><button class="btn btn-ghost btn-sm" id="allCertsBtn">Lihat semua sertifikat</button></div>
+      <div class="cert-grid reveal" id="certGrid"></div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div>
+          <p class="eyebrow" style="color:#7dd3c8">Kontak</p>
+          <h2>Mari ngobrol</h2>
+          <p>Saya terbuka untuk posisi Web Developer, IT Support, implementasi ERP/POS, atau trainer pemrograman, baik di Jawa Timur maupun remote.</p>
+          <div class="cta" style="margin-top:22px">
+            <a class="btn btn-primary" href="CV_Muhammad_Masum_Irfani.pdf" download>Unduh CV (PDF)</a>
+            <a class="btn btn-ghost" href="mailto:muhammadmasumirfani@gmail.com">Kirim email</a>
+          </div>
         </div>
+        <ul class="clist">
+          <li><a href="https://wa.me/6289691159186" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z"/></svg><span><small>WhatsApp</small>0896-9115-9186</span></a></li>
+          <li><a href="mailto:muhammadmasumirfani@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>Email</small>muhammadmasumirfani@gmail.com</span></a></li>
+          <li><a href="https://linkedin.com/in/muhammad-ma-sum-irfani-189b71195/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span><small>LinkedIn</small>Muhammad Ma'sum Irfani</span></a></li>
+          <li><a href="https://github.com/masirfani" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5a3 3 0 0 0-.9-2.4c3-.3 6-1.4 6-6.6a5 5 0 0 0-1.4-3.6 4.7 4.7 0 0 0-.1-3.6s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C5.9 1.1 4.8 1.4 4.8 1.4a4.7 4.7 0 0 0-.1 3.6A5 5 0 0 0 3.3 8.6c0 5.2 3 6.3 6 6.6a3 3 0 0 0-.9 2.4V21"/></svg><span><small>GitHub</small>masirfani</span></a></li>
+        </ul>
+      </div>
     </div>
+  </section>
+</main>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+<footer>© <span id="yr">2026</span> Muhammad Ma'sum Irfani · Mojokerto, Jawa Timur</footer>
 
-        // Certificate Data (Integrated from app.js)
-        const certificateData = [
-            { filename: "[WEB][06][FINAL]WEBSITE DEVELOPMENT FUNDAMENTAL.webp" },
-            { filename: "[FRONTEND][13][FINAL]FRONTEND - HTML.webp" },
-            { filename: "[CSS][28][FINAL] FRONTEND - CSS.webp" },
-            { filename: "champion-wdc.webp" },
-            { filename: "competition-edusiber.webp" },
-            { filename: "english-alliance-quiz.webp" },
-            { filename: "sololearn-html.webp" },
-            { filename: "sololearn-php.webp" },
-            { filename: "sololearn-javascript.webp" },
-            { filename: "sololearn-jquery.webp" },
-            { filename: "indosat.webp" },
-            { filename: "sololearn-sql.webp" },
-            { filename: "[WEB][01]INTERNET INTRODUCTION.webp" },
-            { filename: "[WEB][02]WEBSITE DEVELOPMENT INTRODUCTION.webp" },
-            { filename: "[WEB][03]INTEGRATED DEVELOPMENT ENVIRONMENT AND TEXT EDITOR.webp" },
-            { filename: "[WEB][04]RESPONSIVE WEBSITE DESIGN.webp" },
-            { filename: "[WEB][05]CAREER IN WEBSITE DEVELOPMENT.webp" },
-            { filename: "[FRONTEND][01]BROWSER, HTTP, DNS, AND HOSTING.webp" },
-            { filename: "[FRONTEND][02]INTRODUCTION TO HTML.webp" },
-            { filename: "[FRONTEND][03]ATRIBUTES AND BLOCK ELEMENT.webp" },
-            { filename: "[FRONTEND][04]HTML IMAGES AND FORMATTED TEXT.webp" },
-            { filename: "[FRONTEND][05]INLINE ELEMENTS.webp" },
-            { filename: "[FRONTEND][06]SEMANTIC HTML AND GENERIC ELEMENTS.webp" },
-            { filename: "[FRONTEND][07]TABLE AND THE IMPLEMENTATION.webp" },
-            { filename: "[FRONTEND][08]FORMS AND THE IMPLEMENTATION.webp" },
-            { filename: "[FRONTEND][09]HTML STYLES AND COLORS.webp" },
-            { filename: "[FRONTEND][10]HTML CLASS AND ID.webp" },
-            { filename: "[FRONTEND][11]HTML MEDIA.webp" },
-            { filename: "[FRONTEND][12]PRACTICE MAKING A TO DO LIST WEBSITE.webp" },
-            { filename: "[CSS][01]INTRODUCTION TO CSS.webp" },
-            { filename: "[CSS][02]CSS BOX MODEL 1.webp" },
-            { filename: "[CSS][03]CSS BOX MODEL 2.webp" },
-            { filename: "[CSS][04]CSS SELECTOR.webp" },
-            { filename: "[CSS][05]CSS CASCADE.webp" },
-            { filename: "[CSS][06]CSS SPACING.webp" },
-            { filename: "[CSS][07]CSS INHERITANCE.webp" },
-            { filename: "[CSS][08]CSS COLOR.webp" },
-            { filename: "[CSS][09]CSS PSEUDO ELEMENTS.webp" },
-            { filename: "[CSS][10]CSS PSEUDO CLASS.webp" },
-            { filename: "[CSS][11]CSS SIZING UNIT.webp" },
-            { filename: "[CSS][12]CSS LAYOUT.webp" },
-            { filename: "[CSS][13]CSS BORDERS.webp" },
-            { filename: "[CSS][14]CSS SHADOWS.webp" },
-            { filename: "[CSS][15]CSS FOCUS.webp" },
-            { filename: "[CSS][16]CSS Z - INDEX.webp" },
-            { filename: "[CSS][17]CSS FUNCTION.webp" },
-            { filename: "[CSS][18]CSS GRADIENTS.webp" },
-            { filename: "[CSS][19]CSS ANIMATIONS.webp" },
-            { filename: "[CSS][20]CSS FILTERS.webp" },
-            { filename: "[CSS][21]CSS BLEND MODES.webp" },
-            { filename: "[CSS][22] CSS LISTS.webp" },
-            { filename: "[CSS][23] CSS TRANSITIONS.webp" },
-            { filename: "[CSS][24] CSS OVERFLOW.webp" },
-            { filename: "[CSS][25] CSS BACKGROUNDS.webp" },
-            { filename: "[CSS][26] CSS TEXT AND TYPOGRAPHY.webp" },
-            { filename: "[CSS][27] CSS MINI PROJECT.webp" }
-        ];
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau sertifikat">
+  <button id="lbClose" aria-label="Tutup">×</button>
+  <img id="lbImg" alt="">
+</div>
 
-        // Cert Logic
-        function initCertificates() {
-            const featuredContainer = document.getElementById('featured-certs');
-            const allContainer = document.getElementById('all-certs-grid');
-            
-            // Render Featured (First 8)
-            renderCertGrid(certificateData.slice(0, 8), featuredContainer);
-            
-            // Render All (Lazy load triggered on open)
-            // We'll render them but images will be lazy
-            renderCertGrid(certificateData, allContainer);
-        }
+<script>
+const ARCHIVE = [{"n": "Absensi Ekstrakulikuler", "c": "p"}, {"n": "Company Profile & Absensi basis QRcode SMKI tanwirulafkar", "c": "p"}, {"n": "Company Profile & Absensi basis QRcode SMPI tanwirulafkar", "c": "p"}, {"n": "Company Profile BertigaGroup", "c": "p"}, {"n": "Company Profile Djiwa Tangguh", "c": "p"}, {"n": "Company Profile Jatimpark 3", "c": "p"}, {"n": "Company Profile Lakurek", "c": "p"}, {"n": "Company Profile PT. Fajar Indah Lestari", "c": "p"}, {"n": "Company Profile SMA Driyorejo", "c": "p"}, {"n": "Company Profile ThreeGo", "c": "p"}, {"n": "Company Profile Yayasan Tanwirulafkar", "c": "p"}, {"n": "Data Presensi Siswa", "c": "p"}, {"n": "Kursus Online", "c": "p"}, {"n": "Landing Page Ai Transportation", "c": "p"}, {"n": "Landing Page Anti Lemot", "c": "p"}, {"n": "Landing Page Cetak Bress", "c": "p"}, {"n": "Landing Page Dealer Mobil - Iwan", "c": "p"}, {"n": "Landing Page Dealer Mobil - Jarot", "c": "p"}, {"n": "Landing Page Dealer Mobil - Rofi", "c": "p"}, {"n": "Landing Page Dealer Mobil - Samuel", "c": "p"}, {"n": "Landing Page Jlive", "c": "p"}, {"n": "Landing Page Minak Djinggo Rempah", "c": "p"}, {"n": "Landing Page Rongsokin", "c": "p"}, {"n": "Landing Page Undangan Rek", "c": "p"}, {"n": "Pengumpulan Tugas SMK", "c": "p"}, {"n": "Redevelope Sistem Inventaris Mobil", "c": "p"}, {"n": "Redevelope Sistem Pengelolaan Sopir Dan Kendaraan", "c": "p"}, {"n": "Redevelope Sistem Penjualan Kue", "c": "p"}, {"n": "Sistem Absensi Event Suramade Nusra Surabaya", "c": "p"}, {"n": "Sistem Event Healtcare Triakin Aja Dulu", "c": "p"}, {"n": "Sistem Event Kuis Asik Grab", "c": "p"}, {"n": "Sistem Event Roullete Pemilihan Pemenang", "c": "p"}, {"n": "Sistem Inventaris Barang", "c": "p"}, {"n": "Sistem Penggabungan Excel dan Gform Untuk Penerimaan Karyawan", "c": "p"}, {"n": "Sistem Timer Event Kopetisi Jembatan Nasional", "c": "p"}, {"n": "TA Mahasiswa Website Rumah Sakit", "c": "p"}, {"n": "Website Desa Samu Jaya", "c": "p"}, {"n": "Website Kasir UMKM Lira", "c": "p"}, {"n": "Website Perizinan Seni Mojokerto", "c": "p"}, {"n": "Website Penyuratan Desa Penopa", "c": "p"}, {"n": "Webiste Jual Beli Peralatan Pertanian", "c": "p"}, {"n": "18th Kos", "c": "k"}, {"n": "Absensi Siswa", "c": "k"}, {"n": "Absensi Siswa SD", "c": "k"}, {"n": "Absensi Siswa SMK-Sekretaris", "c": "k"}, {"n": "Alokasi Dana Desa", "c": "k"}, {"n": "Apotek", "c": "k"}, {"n": "BYSHAYSHOP", "c": "k"}, {"n": "Bioskop", "c": "k"}, {"n": "Booking Hotel", "c": "k"}, {"n": "Company Profile Lembah Mbencirang", "c": "k"}, {"n": "Company Profile Sekolah", "c": "k"}, {"n": "Cuci Karpet", "c": "k"}, {"n": "Cuci Mobil", "c": "k"}, {"n": "d'Phone Shop", "c": "k"}, {"n": "Distribusi Sayuran", "c": "k"}, {"n": "IOT Sistem Penyiraman Otomatis", "c": "k"}, {"n": "Jadwal Pelajaran SD", "c": "k"}, {"n": "Jual Foto", "c": "k"}, {"n": "Keuangan Masjid", "c": "k"}, {"n": "Kasir", "c": "k"}, {"n": "Kasir ATK", "c": "k"}, {"n": "Kurir Ekspedisi", "c": "k"}, {"n": "Laundry", "c": "k"}, {"n": "Literasi Pustaka", "c": "k"}, {"n": "Laundry 3D", "c": "k"}, {"n": "Marketplace", "c": "k"}, {"n": "Minimarket", "c": "k"}, {"n": "Penyewaan Lap Badminton", "c": "k"}, {"n": "Peduli Lingkungan", "c": "k"}, {"n": "Pemesanan Kursi Bioskop", "c": "k"}, {"n": "Pemesanan Makanan", "c": "k"}, {"n": "Pemesanan Tiket Bioskop", "c": "k"}, {"n": "Pemilihan Ketua Osis", "c": "k"}, {"n": "Peminjaman Barang Sarana Prasarana Sekolah", "c": "k"}, {"n": "Pencatatan Konter", "c": "k"}, {"n": "Pencucian Mobil/Motor", "c": "k"}, {"n": "Pendaftaran Ekstrakurikuler", "c": "k"}, {"n": "Pendaftaran Siswa Sekolah SD", "c": "k"}, {"n": "Pendataan Warga", "c": "k"}, {"n": "Pengaduan BK", "c": "k"}, {"n": "Pengaduan Masyarakat", "c": "k"}, {"n": "Pengelolaan Ekstrakurikuler", "c": "k"}, {"n": "Pengelolaan Kas Kelas", "c": "k"}, {"n": "Pengelolaan Prakerin", "c": "k"}, {"n": "Pengelolaan Kas Pramuka", "c": "k"}, {"n": "Penggajian Karyawan", "c": "k"}, {"n": "Penjadwalan Guru", "c": "k"}, {"n": "Penjualan Foto", "c": "k"}, {"n": "Penjualan Makanan", "c": "k"}, {"n": "Penjualan Minuman", "c": "k"}, {"n": "Penjualan Sepatu", "c": "k"}, {"n": "Penjualan Sepatu Bekas", "c": "k"}, {"n": "Penjualan Tiens", "c": "k"}, {"n": "Perizinan Karyawan Kantor", "c": "k"}, {"n": "Perpustakaan", "c": "k"}, {"n": "Petshop Kucing", "c": "k"}, {"n": "Pinjaman Online", "c": "k"}, {"n": "Pinjaman Uang", "c": "k"}, {"n": "Puskesmas", "c": "k"}, {"n": "Rapor Siswa", "c": "k"}, {"n": "Rekam Medis Pasien", "c": "k"}, {"n": "Rekomendasi Skincare", "c": "k"}, {"n": "Rental Mobil", "c": "k"}, {"n": "Reservasi Kamar Hotel", "c": "k"}, {"n": "Restaurant Cak Muk", "c": "k"}, {"n": "Restaurant Echo", "c": "k"}, {"n": "Restaurant Makan Ditempat", "c": "k"}, {"n": "Restaurant Self Service", "c": "k"}, {"n": "Rumah Sakit", "c": "k"}, {"n": "SPP Payment", "c": "k"}, {"n": "Sarana Prasarana Sekolah", "c": "k"}, {"n": "Sarpras", "c": "k"}, {"n": "Tiket Pesawat", "c": "k"}, {"n": "Toko Baju", "c": "k"}, {"n": "Toko Desaku", "c": "k"}, {"n": "Toko Perabotan", "c": "k"}, {"n": "Tugas SMK", "c": "k"}, {"n": "UKS", "c": "k"}, {"n": "Undangan Online", "c": "k"}, {"n": "Wedding Organizer", "c": "k"}, {"n": "m'sFashion", "c": "k"}, {"n": "Perfect Your Fit", "c": "k"}, {"n": "Tiket Pengunjung Pendaki", "c": "k"}];
+const CERTS = ["[CSS][01]INTRODUCTION TO CSS.webp", "[CSS][02]CSS BOX MODEL 1.webp", "[CSS][03]CSS BOX MODEL 2.webp", "[CSS][04]CSS SELECTOR.webp", "[CSS][05]CSS CASCADE.webp", "[CSS][06]CSS SPACING.webp", "[CSS][07]CSS INHERITANCE.webp", "[CSS][08]CSS COLOR.webp", "[CSS][09]CSS PSEUDO ELEMENTS.webp", "[CSS][10]CSS PSEUDO CLASS.webp", "[CSS][11]CSS SIZING UNIT.webp", "[CSS][12]CSS LAYOUT.webp", "[CSS][13]CSS BORDERS.webp", "[CSS][14]CSS SHADOWS.webp", "[CSS][15]CSS FOCUS.webp", "[CSS][16]CSS Z - INDEX.webp", "[CSS][17]CSS FUNCTION.webp", "[CSS][18]CSS GRADIENTS.webp", "[CSS][19]CSS ANIMATIONS.webp", "[CSS][20]CSS FILTERS.webp", "[CSS][21]CSS BLEND MODES.webp", "[CSS][22] CSS LISTS.webp", "[CSS][23] CSS TRANSITIONS.webp", "[CSS][24] CSS OVERFLOW.webp", "[CSS][25] CSS BACKGROUNDS.webp", "[CSS][26] CSS TEXT AND TYPOGRAPHY.webp", "[CSS][27] CSS MINI PROJECT.webp", "[CSS][28][FINAL] FRONTEND - CSS.webp", "[FRONTEND][01]BROWSER, HTTP, DNS, AND HOSTING.webp", "[FRONTEND][02]INTRODUCTION TO HTML.webp", "[FRONTEND][03]ATRIBUTES AND BLOCK ELEMENT.webp", "[FRONTEND][04]HTML IMAGES AND FORMATTED TEXT.webp", "[FRONTEND][05]INLINE ELEMENTS.webp", "[FRONTEND][06]SEMANTIC HTML AND GENERIC ELEMENTS.webp", "[FRONTEND][07]TABLE AND THE IMPLEMENTATION.webp", "[FRONTEND][08]FORMS AND THE IMPLEMENTATION.webp", "[FRONTEND][09]HTML STYLES AND COLORS.webp", "[FRONTEND][10]HTML CLASS AND ID.webp", "[FRONTEND][11]HTML MEDIA.webp", "[FRONTEND][12]PRACTICE MAKING A TO DO LIST WEBSITE.webp", "[FRONTEND][13][FINAL]FRONTEND - HTML.webp", "[WEB][01]INTERNET INTRODUCTION.webp", "[WEB][02]WEBSITE DEVELOPMENT INTRODUCTION.webp", "[WEB][03]INTEGRATED DEVELOPMENT ENVIRONMENT AND TEXT EDITOR.webp", "[WEB][04]RESPONSIVE WEBSITE DESIGN.webp", "[WEB][05]CAREER IN WEBSITE DEVELOPMENT.webp", "[WEB][06][FINAL]WEBSITE DEVELOPMENT FUNDAMENTAL.webp", "champion-wdc.webp", "competition-edusiber.webp", "english-alliance-quiz.webp", "indosat.webp", "sololearn-html.webp", "sololearn-javascript.webp", "sololearn-jquery.webp", "sololearn-php.webp", "sololearn-sql.webp", "wdc-peserta.webp"]
+;
+const FEATURED = ["champion-wdc.webp","competition-edusiber.webp","[WEB][06][FINAL]WEBSITE DEVELOPMENT FUNDAMENTAL.webp","[FRONTEND][13][FINAL]FRONTEND - HTML.webp","[CSS][28][FINAL] FRONTEND - CSS.webp","sololearn-php.webp","sololearn-sql.webp","indosat.webp"];
 
-        function renderCertGrid(items, container) {
-            if (!container) return;
-            container.innerHTML = items.map(cert => `
-                <div class="group relative aspect-[4/3] bg-zinc-800 rounded-lg overflow-hidden cursor-pointer border border-zinc-700/50 hover:border-emerald-500/50 transition-all" onclick="openLightbox('img/serti/${cert.filename}')">
-                    <img src="img/serti/${cert.filename}" alt="Certificate" loading="lazy" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i data-lucide="maximize-2" class="w-6 h-6 text-white"></i>
-                    </div>
-                </div>
-            `).join('');
-            lucide.createIcons();
-        }
+// nav
+const nav=document.getElementById('nav'), menu=document.getElementById('menu'), mb=document.getElementById('menuBtn');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+mb.addEventListener('click',()=>{const o=menu.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');mb.setAttribute('aria-expanded',false)}));
+document.getElementById('yr').textContent=new Date().getFullYear();
 
-        function openCertModal() {
-            toggleModal('cert-modal');
-        }
+// archive
+const list=document.getElementById('archList'), cnt=document.getElementById('archCount'), q=document.getElementById('archSearch');
+let filt='all';
+function renderArchive(){
+  const s=q.value.trim().toLowerCase();
+  const rows=ARCHIVE.filter(p=>(filt==='all'||p.c===filt)&&p.n.toLowerCase().includes(s));
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  list.innerHTML=rows.map(p=>`<li>${esc(p.n)}<small>${p.c==='p'?'Pribadi':'Kolaborasi'}</small></li>`).join('')||'<li>Tidak ada proyek yang cocok.</li>';
+  cnt.textContent=`${rows.length} dari ${ARCHIVE.length} proyek tercatat`;
+}
+q.addEventListener('input',renderArchive);
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+  filt=b.dataset.f;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderArchive();
+}));
+renderArchive();
 
-        // Lightbox Logic
-        function openLightbox(src) {
-            const modal = document.getElementById('lightbox-modal');
-            const img = document.getElementById('lightbox-img');
-            const dl = document.getElementById('lightbox-download');
-            
-            img.src = src;
-            dl.href = src;
-            
-            modal.classList.remove('hidden');
-            // Small delay for transition
-            setTimeout(() => {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                img.classList.remove('scale-95');
-                img.classList.add('scale-100');
-            }, 10);
-            
-            document.body.style.overflow = 'hidden';
-        }
+// certs
+function certTitle(f){
+  const map={"champion-wdc.webp":"Juara 3 Web Design Competition","competition-edusiber.webp":"Lomba Coding Edusiber Nasional","indosat.webp":"Sertifikat Indosat","english-alliance-quiz.webp":"English Alliance Quiz","wdc-peserta.webp":"Peserta Web Design Competition"};
+  if(map[f]) return map[f];
+  let t=f.replace(/\.webp$/,'').replace(/\[[^\]]*\]/g,'').replace(/^sololearn-/,'SoloLearn ').trim();
+  t=t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()).replace(/^Sololearn/,'SoloLearn').replace(/\bCss\b/g,'CSS').replace(/\bHtml\b/g,'HTML').replace(/\bSql\b/g,'SQL').replace(/\bPhp\b/g,'PHP').replace(/\bHttp\b/g,'HTTP').replace(/\bDns\b/g,'DNS');
+  return t;
+}
+const grid=document.getElementById('certGrid');
+function renderCerts(arr){
+  grid.innerHTML=arr.map(f=>`<button class="cert" data-f="${encodeURIComponent(f)}"><img src="img/serti/${encodeURIComponent(f)}" alt="" loading="lazy"><span>${certTitle(f)}</span></button>`).join('');
+}
+renderCerts(FEATURED.filter(f=>CERTS.includes(f)));
+const allBtn=document.getElementById('allCertsBtn');
+allBtn.addEventListener('click',()=>{
+  const showingAll=allBtn.dataset.all==='1';
+  renderCerts(showingAll?FEATURED.filter(f=>CERTS.includes(f)):[...FEATURED.filter(f=>CERTS.includes(f)),...CERTS.filter(f=>!FEATURED.includes(f))]);
+  allBtn.dataset.all=showingAll?'0':'1';
+  allBtn.textContent=showingAll?'Lihat semua sertifikat':'Tampilkan lebih sedikit';
+});
+const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
+grid.addEventListener('click',e=>{const c=e.target.closest('.cert');if(!c)return;lbImg.src='img/serti/'+c.dataset.f;lbImg.alt=c.textContent;lb.classList.add('open');document.getElementById('lbClose').focus()});
+function closeLb(){lb.classList.remove('open');lbImg.src=''}
+document.getElementById('lbClose').addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
 
-        function closeLightbox() {
-            const modal = document.getElementById('lightbox-modal');
-            const img = document.getElementById('lightbox-img');
-            
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            img.classList.remove('scale-100');
-            img.classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                img.src = ''; 
-            }, 300);
-            
-            document.body.style.overflow = '';
-        }
-
-        // Close Lightbox on Background Click
-        document.getElementById('lightbox-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox-modal') closeLightbox();
-        });
-
-        // Run Init
-        window.addEventListener('load', initCertificates);
-
-        // Project Data
-        const legacyProjects = [
-            // Personal Projects
-            { name: "Absensi Ekstrakulikuler", category: "personal" },
-            { name: "Company Profile & Absensi basis QRcode SMKI tanwirulafkar", category: "personal" },
-            { name: "Company Profile & Absensi basis QRcode SMPI tanwirulafkar", category: "personal" },
-            { name: "Company Profile BertigaGroup", category: "personal" },
-            { name: "Company Profile Djiwa Tangguh", category: "personal" },
-            { name: "Company Profile Jatimpark 3", category: "personal" },
-            { name: "Company Profile Lakurek", category: "personal" },
-            { name: "Company Profile PT. Fajar Indah Lestari", category: "personal" },
-            { name: "Company Profile SMA Driyorejo", category: "personal" },
-            { name: "Company Profile ThreeGo", category: "personal" },
-            { name: "Company Profile Yayasan Tanwirulafkar", category: "personal" },
-            { name: "Data Presensi Siswa", category: "personal" },
-            { name: "Kursus Online", category: "personal" },
-            { name: "Landing Page Ai Transportation", category: "personal" },
-            { name: "Landing Page Anti Lemot", category: "personal" },
-            { name: "Landing Page Cetak Bress", category: "personal" },
-            { name: "Landing Page Dealer Mobil - Iwan", category: "personal" },
-            { name: "Landing Page Dealer Mobil - Jarot", category: "personal" },
-            { name: "Landing Page Dealer Mobil - Rofi", category: "personal" },
-            { name: "Landing Page Dealer Mobil - Samuel", category: "personal" },
-            { name: "Landing Page Jlive", category: "personal" },
-            { name: "Landing Page Minak Djinggo Rempah", category: "personal" },
-            { name: "Landing Page Rongsokin", category: "personal" },
-            { name: "Landing Page Undangan Rek", category: "personal" },
-            { name: "Pengumpulan Tugas SMK", category: "personal" },
-            { name: "Redevelope Sistem Inventaris Mobil", category: "personal" },
-            { name: "Redevelope Sistem Pengelolaan Sopir Dan Kendaraan", category: "personal" },
-            { name: "Redevelope Sistem Penjualan Kue", category: "personal" },
-            { name: "Sistem Absensi Event Suramade Nusra Surabaya", category: "personal" },
-            { name: "Sistem Event Healtcare Triakin Aja Dulu", category: "personal" },
-            { name: "Sistem Event Kuis Asik Grab", category: "personal" },
-            { name: "Sistem Event Roullete Pemilihan Pemenang", category: "personal" },
-            { name: "Sistem Inventaris Barang", category: "personal" },
-            { name: "Sistem Penggabungan Excel dan Gform Untuk Penerimaan Karyawan", category: "personal" },
-            { name: "Sistem Timer Event Kopetisi Jembatan Nasional", category: "personal" },
-            { name: "TA Mahasiswa Website Rumah Sakit", category: "personal" },
-            { name: "Website Desa Samu Jaya", category: "personal" },
-            { name: "Website Kasir UMKM Lira", category: "personal" },
-            { name: "Website Perizinan Seni Mojokerto", category: "personal" },
-            { name: "Website Penyuratan Desa Penopa", category: "personal" },
-            { name: "Webiste Jual Beli Peralatan Pertanian", category: "personal" },
-
-            // Collaborative Projects
-            { name: "18th Kos", category: "collab" },
-            { name: "Absensi Siswa", category: "collab" },
-            { name: "Absensi Siswa SD", category: "collab" },
-            { name: "Absensi Siswa SMK-Sekretaris", category: "collab" },
-            { name: "Alokasi Dana Desa", category: "collab" },
-            { name: "Apotek", category: "collab" },
-            { name: "BYSHAYSHOP", category: "collab" },
-            { name: "Bioskop", category: "collab" },
-            { name: "Booking Hotel", category: "collab" },
-            { name: "Company Profile Lembah Mbencirang", category: "collab" },
-            { name: "Company Profile Sekolah", category: "collab" },
-            { name: "Cuci Karpet", category: "collab" },
-            { name: "Cuci Mobil", category: "collab" },
-            { name: "d'Phone Shop", category: "collab" },
-            { name: "Distribusi Sayuran", category: "collab" },
-            { name: "IOT Sistem Penyiraman Otomatis", category: "collab" },
-            { name: "Jadwal Pelajaran SD", category: "collab" },
-            { name: "Jual Foto", category: "collab" },
-            { name: "Keuangan Masjid", category: "collab" },
-            { name: "Kasir", category: "collab" },
-            { name: "Kasir ATK", category: "collab" },
-            { name: "Kurir Ekspedisi", category: "collab" },
-            { name: "Laundry", category: "collab" },
-            { name: "Literasi Pustaka", category: "collab" },
-            { name: "Laundry 3D", category: "collab" },
-            { name: "Marketplace", category: "collab" },
-            { name: "Minimarket", category: "collab" },
-            { name: "Penyewaan Lap Badminton", category: "collab" },
-            { name: "Peduli Lingkungan", category: "collab" },
-            { name: "Pemesanan Kursi Bioskop", category: "collab" },
-            { name: "Pemesanan Makanan", category: "collab" },
-            { name: "Pemesanan Tiket Bioskop", category: "collab" },
-            { name: "Pemilihan Ketua Osis", category: "collab" },
-            { name: "Peminjaman Barang Sarana Prasarana Sekolah", category: "collab" },
-            { name: "Pencatatan Konter", category: "collab" },
-            { name: "Pencucian Mobil/Motor", category: "collab" },
-            { name: "Pendaftaran Ekstrakurikuler", category: "collab" },
-            { name: "Pendaftaran Siswa Sekolah SD", category: "collab" },
-            { name: "Pendataan Warga", category: "collab" },
-            { name: "Pengaduan BK", category: "collab" },
-            { name: "Pengaduan Masyarakat", category: "collab" },
-            { name: "Pengelolaan Ekstrakurikuler", category: "collab" },
-            { name: "Pengelolaan Kas Kelas", category: "collab" },
-            { name: "Pengelolaan Prakerin", category: "collab" },
-            { name: "Pengelolaan Kas Pramuka", category: "collab" },
-            { name: "Penggajian Karyawan", category: "collab" },
-            { name: "Penjadwalan Guru", category: "collab" },
-            { name: "Penjualan Foto", category: "collab" },
-            { name: "Penjualan Makanan", category: "collab" },
-            { name: "Penjualan Minuman", category: "collab" },
-            { name: "Penjualan Sepatu", category: "collab" },
-            { name: "Penjualan Sepatu Bekas", category: "collab" },
-            { name: "Penjualan Tiens", category: "collab" },
-            { name: "Perizinan Karyawan Kantor", category: "collab" },
-            { name: "Perpustakaan", category: "collab" },
-            { name: "Petshop Kucing", category: "collab" },
-            { name: "Pinjaman Online", category: "collab" },
-            { name: "Pinjaman Uang", category: "collab" },
-            { name: "Puskesmas", category: "collab" },
-            { name: "Rapor Siswa", category: "collab" },
-            { name: "Rekam Medis Pasien", category: "collab" },
-            { name: "Rekomendasi Skincare", category: "collab" },
-            { name: "Rental Mobil", category: "collab" },
-            { name: "Reservasi Kamar Hotel", category: "collab" },
-            { name: "Restaurant Cak Muk", category: "collab" },
-            { name: "Restaurant Echo", category: "collab" },
-            { name: "Restaurant Makan Ditempat", category: "collab" },
-            { name: "Restaurant Self Service", category: "collab" },
-            { name: "Rumah Sakit", category: "collab" },
-            { name: "SPP Payment", category: "collab" },
-            { name: "Sarana Prasarana Sekolah", category: "collab" },
-            { name: "Sarpras", category: "collab" },
-            { name: "Tiket Pesawat", category: "collab" },
-            { name: "Toko Baju", category: "collab" },
-            { name: "Toko Desaku", category: "collab" },
-            { name: "Toko Perabotan", category: "collab" },
-            { name: "Tugas SMK", category: "collab" },
-            { name: "UKS", category: "collab" },
-            { name: "Undangan Online", category: "collab" },
-            { name: "Wedding Organizer", category: "collab" },
-            { name: "m'sFashion", category: "collab" },
-            { name: "Perfect Your Fit", category: "collab" },
-            { name: "Tiket Pengunjung Pendaki", category: "collab" }
-        ];
-
-        let currentFilter = 'all';
-
-        // Filter Function
-        function filterProjects(category) {
-            currentFilter = category;
-            
-            // Update Buttons
-            document.getElementById('btn-all').className = category === 'all' 
-                ? "px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors"
-                : "px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors";
-                
-            document.getElementById('btn-personal').className = category === 'personal'
-                ? "px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors"
-                : "px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors";
-                
-            document.getElementById('btn-collab').className = category === 'collab'
-                ? "px-3 py-1.5 rounded-md text-sm font-medium bg-emerald-500 text-white transition-colors"
-                : "px-3 py-1.5 rounded-md text-sm font-medium bg-zinc-800 text-zinc-400 hover:bg-zinc-700 transition-colors";
-
-            renderProjects();
-        }
-
-        // Render Function
-        function renderProjects() {
-            const container = document.getElementById('legacy-content');
-            const searchTerm = document.getElementById('project-search').value.toLowerCase();
-            
-            container.innerHTML = '';
-            
-            const filtered = legacyProjects.filter(project => {
-                const matchesCategory = currentFilter === 'all' || project.category === currentFilter;
-                const matchesSearch = project.name.toLowerCase().includes(searchTerm);
-                return matchesCategory && matchesSearch;
-            });
-
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-full text-center py-8 text-zinc-500">
-                        No projects found.
-                    </div>
-                `;
-                return;
-            }
-
-            filtered.forEach(project => {
-                const card = document.createElement('div');
-                card.className = "bg-zinc-800/50 p-4 rounded-lg hover:bg-zinc-800 transition-colors border border-transparent hover:border-emerald-500/20";
-                
-                // Add tag based on category
-                const tagClass = project.category === 'personal' 
-                    ? "bg-blue-500/10 text-blue-400 border-blue-500/20" 
-                    : "bg-purple-500/10 text-purple-400 border-purple-500/20";
-                
-                const tagLabel = project.category === 'personal' ? 'Personal' : 'Collaboration';
-
-                card.innerHTML = `
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded border ${tagClass}">${tagLabel}</span>
-                    </div>
-                    <h4 class="text-white font-bold text-sm">${project.name}</h4>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Search Listener
-        document.getElementById('project-search').addEventListener('input', renderProjects);
-
-        // Modal Logic
-        function toggleModal(modalID){
-            const modal = document.getElementById(modalID);
-            const isHidden = modal.classList.contains('hidden');
-            
-            if (isHidden) {
-                // OPEN MODAL
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                
-                // Loading Logic only for legacy-modal
-                if (modalID === 'legacy-modal') {
-                    const loader = document.getElementById('legacy-loader');
-                    const controls = document.getElementById('legacy-controls');
-                    const content = document.getElementById('legacy-content');
-                    
-                    if(loader && content) {
-                        loader.classList.remove('hidden');
-                        controls.classList.add('hidden');
-                        content.classList.add('hidden');
-                        
-                        // Reset filters
-                        currentFilter = 'all';
-                        document.getElementById('project-search').value = '';
-                        filterProjects('all'); // This updates buttons
-                        
-                        // Simulate loading delay
-                        setTimeout(() => {
-                            loader.classList.add('hidden');
-                            controls.classList.remove('hidden');
-                            content.classList.remove('hidden');
-                            renderProjects();
-                        }, 800);
-                    }
-                }
-            } else {
-                // CLOSE MODAL
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Scroll Reveal Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        // Initialize Project Counter
-        function initProjectCounter() {
-            const countElement = document.getElementById('project-count');
-            const totalProjects = legacyProjects.length;
-            
-            // Simulate API latency for "Real-time" feel
-            setTimeout(() => {
-                countElement.innerHTML = totalProjects + '+';
-                countElement.classList.remove('animate-pulse');
-                countElement.classList.add('text-emerald-500', 'font-bold');
-            }, 1200);
-        }
-
-        // Profile Photo Logic
-        function handleImageLoad() {
-            const img = document.getElementById('profile-img');
-            const skeleton = document.getElementById('profile-skeleton');
-            if(img && skeleton) {
-                img.classList.remove('opacity-0');
-                skeleton.classList.add('hidden');
-            }
-        }
-
-        function handleImageError(img) {
-            const skeleton = document.getElementById('profile-skeleton');
-            if(skeleton) skeleton.classList.add('hidden');
-            
-            // Fallback avatar
-            img.src = 'https://ui-avatars.com/api/?name=Ma+Irfani&background=10b981&color=fff&size=150';
-            img.classList.remove('opacity-0');
-        }
-
-        // Run on load
-        window.addEventListener('load', () => {
-            reveal();
-            initProjectCounter();
-        });
-        
-        // Listen for scroll events
-        window.addEventListener("scroll", reveal);
-
-        // Mobile Menu Logic
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
+// reveal
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.08}):null;
+document.querySelectorAll('.reveal').forEach(el=>io?io.observe(el):el.classList.add('in'));
+</script>
 </body>
 </html>
