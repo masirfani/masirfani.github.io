@@ -188,7 +188,89 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
 
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.card,.btn{transition:none}}
+
+/* motion */
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:linear-gradient(90deg,var(--accent),#2dd4bf);transform-origin:0 50%;transform:scaleX(var(--p,0));pointer-events:none}
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(27,26,23,.10) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 70% 65% at 70% 40%,#000 15%,transparent 75%);mask-image:radial-gradient(ellipse 70% 65% at 70% 40%,#000 15%,transparent 75%)}
+.blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(64px);opacity:.55;pointer-events:none}
+.blob.b1{width:440px;height:440px;background:#99e2d6;top:-140px;right:6%;animation:drift 14s ease-in-out infinite alternate}
+.blob.b2{width:340px;height:340px;background:#fde3b8;bottom:-120px;left:-80px;animation:drift 18s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(-60px,50px) scale(1.15)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+.intro>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.intro>h1{animation:none}
+.intro>:nth-child(1){animation-delay:.05s}
+.intro>:nth-child(3){animation-delay:.5s}
+.intro>:nth-child(4){animation-delay:.6s}
+.intro>:nth-child(5){animation-delay:.7s}
+.intro>:nth-child(6){animation-delay:.8s}
+.h1w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.h1w>span{display:inline-block;animation:wordUp .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(.15s + var(--i)*.09s)}
+@keyframes wordUp{from{transform:translateY(110%)}}
+.h1w>.grad{background:linear-gradient(90deg,var(--accent),#14b8a6,#0ea5e9,var(--accent));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation-name:wordUp,flow;animation-duration:.9s,6s;animation-timing-function:cubic-bezier(.2,.7,.2,1),linear;animation-iteration-count:1,infinite;animation-delay:calc(.15s + var(--i)*.09s),0s}
+@keyframes flow{to{background-position:200% 0}}
+.status i{position:relative}
+.status i::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:ping 1.8s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{75%,100%{transform:scale(2.6);opacity:0}}
+.fact{transition:transform .25s,border-color .25s,box-shadow .25s}
+.fact:hover{transform:translateY(-3px);border-color:rgba(15,118,110,.35);box-shadow:var(--shadow)}
+.photo{isolation:isolate;transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.photo::before{content:"";position:absolute;inset:-14px;z-index:-1;border-radius:34px;background:conic-gradient(from var(--a),#0f766e,#5eead4,#fde68a,#0ea5e9,#0f766e);filter:blur(24px);opacity:.5;animation:spin 8s linear infinite,rise 1s ease .6s both}
+@keyframes spin{to{--a:360deg}}
+.photo img{animation:imgIn 1.2s cubic-bezier(.7,0,.2,1) .2s both}
+@keyframes imgIn{from{clip-path:inset(100% 0 0 0 round 24px)}to{clip-path:inset(0 0 0 0 round 24px)}}
+.photo .tag{animation:rise .7s cubic-bezier(.2,.7,.2,1) 1.1s both,float 5s ease-in-out 1.8s infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+.marquee{overflow:hidden;padding:18px 0;border-top:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee .track{display:flex;width:max-content}
+.marquee .track.go{animation:scroll 40s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.marquee ul{display:flex;gap:40px;list-style:none;margin:0;padding:0 40px 0 0}
+.marquee li{display:flex;align-items:center;gap:10px;white-space:nowrap;font-weight:700;font-size:15px;color:var(--muted)}
+.marquee li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg);opacity:.7}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.reveal.stagger{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*80ms)}
+.stagger.in>*{opacity:1;transform:none}
+.reveal .eyebrow::before{content:"";display:inline-block;width:0;height:2px;margin-right:0;vertical-align:middle;background:currentColor;transition:width .6s .25s,margin-right .6s .25s}
+.reveal.in .eyebrow::before{width:22px;margin-right:8px}
+
+.card,.skill,.job{position:relative}
+.card::after,.skill::after,.job::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(15,118,110,.10),transparent 45%)}
+.card:hover::after,.skill:hover::after,.job:hover::after{opacity:1}
+.card .thumb img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .thumb img{transform:scale(1.06)}
+.skill,.job{transition:transform .25s,box-shadow .25s,border-color .25s}
+.skill:hover,.job:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(15,118,110,.35)}
+.chip{transition:background .2s,color .2s,border-color .2s,transform .2s}
+.chip:hover{background:var(--accent-soft);color:var(--accent-strong);border-color:rgba(15,118,110,.3);transform:translateY(-2px)}
+.pillar .ic{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.pillar:hover .ic{transform:rotate(-8deg) scale(1.1)}
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s;pointer-events:none}
+.btn-primary:hover::after{left:130%}
+.hero .btn-primary::after{animation:sheen 4.5s ease-in-out 2.2s infinite}
+@keyframes sheen{0%{left:-60%}30%,100%{left:130%}}
+.nav ul a{transition:background .2s,color .2s}
+.nav ul a.active{color:var(--accent-strong);background:var(--accent-soft)}
+.teach img{clip-path:inset(0 100% 0 0 round 20px);transition:clip-path 1.2s cubic-bezier(.7,0,.2,1) .15s}
+.teach.in img{clip-path:inset(0 0 0 0 round 20px)}
+.contact{position:relative;overflow:hidden;isolation:isolate}
+.contact::before,.contact::after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none}
+.contact::before{width:480px;height:480px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(45,212,191,.35),transparent 65%);animation:drift 12s ease-in-out infinite alternate}
+.contact::after{width:360px;height:360px;left:-140px;bottom:-200px;background:radial-gradient(circle,rgba(253,227,184,.18),transparent 65%);animation:drift 16s ease-in-out infinite alternate-reverse}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal,.stagger>*{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .card,.btn{transition:none}
+  *,*::before,*::after{animation:none!important}
+  .teach img{clip-path:none;transition:none}
+}
 
 @media (max-width:960px){
   .hero-grid,.about-grid,.teach,.contact{grid-template-columns:1fr}
@@ -206,6 +288,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
   .facts{grid-template-columns:1fr 1fr}
   .photo{max-width:240px}
   .photo .tag{right:-40px;bottom:16px}
+  .blob.b1{width:260px;height:260px}
+  .blob.b2{width:220px;height:220px}
   .job{grid-template-columns:1fr;gap:6px;padding:18px}
   .proj-grid,.skill-grid,.edu-grid{grid-template-columns:1fr}
   .cert-grid{grid-template-columns:1fr 1fr}
@@ -215,10 +299,11 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
   section{padding:56px 0}
   .wrap{padding:0 16px}
 }
-@media print{.nav,.lightbox,.archive-ctrl{display:none}.reveal{opacity:1;transform:none}}
+@media print{.nav,.lightbox,.archive-ctrl,.progress,.marquee,.blob{display:none}.reveal,.stagger>*{opacity:1;transform:none}.teach img{clip-path:none}}
 </style>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <nav class="nav" id="nav" aria-label="Navigasi utama">
   <div class="wrap">
@@ -241,8 +326,9 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
 <main id="top">
   <!-- HERO -->
   <header class="hero">
+    <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span>
     <div class="wrap hero-grid">
-      <div>
+      <div class="intro">
         <span class="status"><i></i>Terbuka untuk posisi full-time</span>
         <h1>Muhammad Ma'sum Irfani</h1>
         <p class="role">Fullstack Web Developer · IT Support · Trainer Pemrograman</p>
@@ -254,18 +340,24 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12Z"/></svg>Hubungi via WhatsApp</a>
         </div>
         <div class="facts">
-          <div class="fact"><strong>2018</strong><span>Mulai berkarier</span></div>
-          <div class="fact"><strong>120+</strong><span>Proyek selesai</span></div>
+          <div class="fact"><strong data-count="2018" data-from="2010">2018</strong><span>Mulai berkarier</span></div>
+          <div class="fact"><strong data-count="120" data-suffix="+">120+</strong><span>Proyek selesai</span></div>
           <div class="fact"><strong>S1 SI</strong><span>Lulus 2026</span></div>
-          <div class="fact"><strong>58</strong><span>Sertifikat</span></div>
+          <div class="fact"><strong data-count="58">58</strong><span>Sertifikat</span></div>
         </div>
       </div>
       <div class="photo">
         <img src="img/pp.jpg" alt="Foto Muhammad Ma'sum Irfani" width="480" height="480" fetchpriority="high">
-        <div class="tag"><b>Mojokerto, Jawa Timur</b>Siap ditempatkan di Jatim atau remote</div>
+        <div class="tag"><b>Mojokerto, Jawa Timur</b>Siap ditempatkan di Mana Saja atau remote</div>
       </div>
     </div>
   </header>
+
+  <div class="marquee" aria-label="Teknologi yang saya gunakan">
+    <div class="track">
+      <ul><li>PHP</li><li>Laravel</li><li>CodeIgniter</li><li>JavaScript</li><li>Node.js</li><li>MySQL</li><li>PostgreSQL</li><li>Bootstrap</li><li>jQuery</li><li>Metabase</li><li>ERP/POS</li><li>MikroTik</li><li>cPanel</li><li>IoT</li><li>Git & GitHub</li><li>Figma</li></ul>
+    </div>
+  </div>
 
   <!-- TENTANG -->
   <section id="tentang" class="alt">
@@ -559,9 +651,54 @@ document.getElementById('lbClose').addEventListener('click',closeLb);
 lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
 addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
 
+// motion
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(pointer: fine)').matches;
+const h1=document.querySelector('.hero h1');
+if(!calm){
+  const ws=h1.textContent.trim().split(/\s+/);
+  h1.setAttribute('aria-label',h1.textContent.trim());
+  h1.innerHTML=ws.map((w,i)=>`<span class="h1w" aria-hidden="true"><span style="--i:${i}"${i===ws.length-1?' class="grad"':''}>${w}</span></span>`).join(' ');
+}
+const bar=document.getElementById('progress');
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;bar.style.setProperty('--p',h>0?scrollY/h:0)}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+function countUp(el){
+  const end=+el.dataset.count, start=+(el.dataset.from||0), suf=el.dataset.suffix||'', t0=performance.now(), dur=1600;
+  (function tick(t){const k=Math.min((t-t0)/dur,1), e=1-Math.pow(1-k,3);el.textContent=Math.round(start+(end-start)*e)+suf;if(k<1)requestAnimationFrame(tick)})(t0);
+}
+if(!calm)document.querySelectorAll('[data-count]').forEach(el=>{el.textContent=(el.dataset.from||0)+(el.dataset.suffix||'');setTimeout(()=>countUp(el),900)});
+const track=document.querySelector('.marquee .track');
+if(!calm){const c=track.firstElementChild.cloneNode(true);c.setAttribute('aria-hidden','true');track.appendChild(c);track.classList.add('go')}
+if(fine&&!calm){
+  document.querySelectorAll('.card,.skill,.job').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',e.clientX-r.left+'px');el.style.setProperty('--my',e.clientY-r.top+'px')}));
+  const ph=document.querySelector('.photo');
+  ph.addEventListener('pointermove',e=>{const r=ph.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform=`perspective(900px) rotateY(${x*12}deg) rotateX(${-y*12}deg)`});
+  ph.addEventListener('pointerleave',()=>ph.style.transform='');
+  document.querySelectorAll('.hero .cta .btn').forEach(b=>{
+    b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.3}px)`});
+    b.addEventListener('pointerleave',()=>b.style.transform='');
+  });
+}
+
 // reveal
-const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.08}):null;
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting)return;
+  const t=en.target;t.classList.add('in');io.unobserve(t);
+  if(t.classList.contains('stagger'))setTimeout(()=>t.classList.remove('stagger'),1600);
+}),{threshold:.08}):null;
+if(io&&!calm)document.querySelectorAll('.timeline,.proj-grid,.skill-grid,.edu-grid,.cert-grid,.pillars').forEach(el=>{
+  el.classList.add('stagger');
+  [...el.children].forEach((c,i)=>c.style.setProperty('--i',Math.min(i,8)));
+  if(!el.classList.contains('reveal'))io.observe(el);
+});
 document.querySelectorAll('.reveal').forEach(el=>io?io.observe(el):el.classList.add('in'));
+
+// active nav
+if(io){
+  const links=[...menu.querySelectorAll('a')];
+  const so=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(s=>so.observe(s));
+}
 </script>
 </body>
 </html>
